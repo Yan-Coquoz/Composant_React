@@ -1,0 +1,16 @@
+.modal_container {
+  display: none;
+}
+.modal_container.active {
+  display: block;
+}
+.input_container__input {
+  padding: 0.5rem;
+  text-align: center;
+}
+.input_container__input:focus-visible {
+  padding: 1rem;
+  outline: outset #79bbe7;
+  border-radius: 5px;
+  transition: 0.3s;
+}
