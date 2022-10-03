@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./style.css";
+import "../style.css";
 
 /**
  * Il prend une chaîne comme argument, la divise en un tableau de mots, met en majuscule la première

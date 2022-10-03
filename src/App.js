@@ -1,11 +1,10 @@
 import React from "react";
-import InputText from "./InputText";
-import InputNumber from "./InputNumber";
+import { InputText, InputNumber, Select } from "./lib/";
+
 import { etats, depts } from "./Datas";
 import InputDate from "./InputDate";
-import Select from "./Select";
+
 import "./App.css";
-import Parent from "./Parent";
 
 function App() {
   function handleSelectValue(name, value) {
@@ -22,7 +21,6 @@ function App() {
 
   return (
     <div className="App">
-      <Parent />
       <form onSubmit={handleSendForm}>
         <InputText
           idName="prenom"

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { fromLowerToUpperCase } from "../utils";
-import "./style.css";
+import "../css/style.css";
 
 /**
  * Composant contrôlé de type input number
