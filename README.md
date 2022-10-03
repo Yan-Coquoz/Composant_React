@@ -1,37 +1,39 @@
-# Type de Composant React
+# Type of React Component
 
-Composants minimaliste de type input pour React.
+Minimalist input-like components for React.
 
-## Prérequis
+[french translation](README_fr.md)
 
-- Un éditeur de texte comme `VSCode, Vim, IntelliJ...`
+## Prerequisites
+
+- A text editor like `VSCode, Vim, IntelliJ...`
 - [Node.js > v.16](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 
-## Utilisation du module d'input
+## Using the input module
 
-Ce module fonctionne avec React
+This module works with React
 
-### Les type d'input
+### Input types
 
 - `InputText`
 - `InputNumber`
 - `Select`
 
-### Propriétés
+### Properties
 
-Ces propriétés sont communes aux composants :
+These properties are common to components:
 
-- idName : {String} Correspond aux propriétés `htmlFor` et du `className` du label, ainsi que l'`id` et le `name` de l'input.
-- label : {String} Contenu du label et du `placeholder`
-- sendValue : {Function} Déclenche une action
-- isRequired : {Boolean} Si la valeur est requise ou non
-- myClass : {String} nom de la classe du composant
+- idName: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
+- label: {String} `Label` and `placeholder` content
+- sendValue: {Function} Triggers an action
+- isRequired: {Boolean} Whether the value is required or not
+- myClass: {String} component class name
 
-Le composant `Select` prend en plus la propriété
- `tabs` : {Array of Object} destiné à la balise `option`
+The `Select` component additionally takes the property
+  `tabs`: {Array of Object} for the `option` tag
 
-Exemple :
+Example :
 
 ```javascript
 import { InputText } from "my_react_redux_inputs"
@@ -42,14 +44,12 @@ const MyForm = () => {
     return(
         <form>
             <InputText 
-                idName={j_aime} 
-                label={le} 
-                isRequired={javascript} 
-                sendValue={et} 
-                myClass={React} 
+                idName={String} 
+                label={String} 
+                isRequired={Boolean} 
+                sendValue={Function} 
+                myClass={String} 
                 />
         </form>
     )
 }
-
-```

@@ -14,7 +14,6 @@ import "./style.css";
  *
  * @return  {React.ReactElement}   Un composant React de type input
  */
-
 const InputNumber = ({ idName, label, sendValue, isRequired, myClass }) => {
   const handleSendValue = (evt) => {
     const maValeur = evt.target.value;

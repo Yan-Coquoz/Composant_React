@@ -1,25 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { fromLowerToUpperCase } from "../utils";
 import "./style.css";
 
 /**
- * Il prend une chaîne comme argument, la divise en un tableau de mots, met en majuscule la première
- * lettre de chaque mot et renvoie le tableau sous forme de chaîne.
- * @param {String} str - la chaîne à convertir
- * @returns {String} "Bonjour Le Monde"
+ * It's a select component that takes in an array of objects, and returns a select element with options
+ *
+ * @prop   {ArrayOfObject}  tabs        [tabs description]
+ * @prop  {String}  idLabel     [idLabel description]
+ * @prop   {String}  name        [name description]
+ * @prop   {Boolean}  isRequired  [isRequired description]
+ * @prop   {Function}  sendValue   [sendValue description]
+ *
+ * @return  {React.ReactElement}              [return description]
  */
-function fromLowerToUpperCase(str) {
-  if (str.length > 0) {
-    const maChaine = str.toLowerCase().split(" ");
-    return maChaine
-      .map((elt) => {
-        return elt.replace(elt.charAt(0), elt.charAt(0).toUpperCase());
-      })
-      .join(" ");
-  }
-  return "";
-}
-
 const Select = ({ tabs, idLabel, name, isRequired, sendValue }) => {
   const handleSendValue = (evt) => {
     const value = evt.target.value;

@@ -1,7 +1,10 @@
 {
-  "name": "my_react_redux_inputs",
+  "name": "@yan_coquoz/react_input",
   "version": "0.1.2",
   "author": "yan_coquoz",
+  "main": "./lib/index.js",
+  "module": "dist/index.js",
+  "license": "ISC",
   "scripts": {
     "start": "react-scripts start",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
@@ -14,8 +17,6 @@
       "react-app/jest"
     ]
   },
-  "main": "lib/index.js",
-  "module": "dist/index.js",
   "files": [
     "lib/**/*",
     "README.md"
