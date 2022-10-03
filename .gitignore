@@ -6,10 +6,11 @@
 .pnp.js
 # Pour tests de composants
 /src/InputNumber
+/src/InputText
+/src/InputDate
+/src/Select
 /src/Parent
 /src/Enfant
-/src/InputText
-/src/Select
 /src/utils
 /src/assets
 
