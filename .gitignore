@@ -4,6 +4,14 @@
 /node_modules
 /.pnp
 .pnp.js
+# Pour tests de composants
+/src/InputNumber
+/src/Parent
+/src/Enfant
+/src/InputText
+/src/Select
+/src/utils
+/src/assets
 
 # testing
 /coverage
