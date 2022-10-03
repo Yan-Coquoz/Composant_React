@@ -1,6 +1,6 @@
 {
   "name": "my_react_redux_inputs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "yan_coquoz",
   "scripts": {
     "start": "react-scripts start",
