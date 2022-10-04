@@ -1,6 +1,6 @@
 {
   "name": "@yan_coquoz/react_input",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "author": "yan_coquoz",
   "main": "lib/index.js",
   "module": "dist/index.js",
