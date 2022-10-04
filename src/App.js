@@ -1,6 +1,5 @@
 import React from "react";
 import { InputText, InputNumber, Select } from "./lib/";
-
 import { etats, depts } from "./Datas";
 import InputDate from "./InputDate";
 
