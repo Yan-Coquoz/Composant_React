@@ -18,7 +18,7 @@
     ]
   },
   "files": [
-    "lib",
+    "src/lib/**/*",
     "README.md",
     "README_fr.md"
   ],
