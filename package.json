@@ -2,7 +2,7 @@
   "name": "@yan_coquoz/react_input",
   "version": "0.1.7",
   "author": "yan_coquoz",
-  "main": "./src/lib/index.js",
+  "main": "lib/index.js",
   "module": "dist/index.js",
   "license": "ISC",
   "scripts": {
