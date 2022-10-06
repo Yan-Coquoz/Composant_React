@@ -11,8 +11,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _utils = require("../utils");
 
-require("../css/style.css");
-
 /**
  * Composant contrôlé de type input text
  *
@@ -61,8 +59,8 @@ InputText.defaultProps = {
   handleSendValue: function handleSendValue() {},
   isRequired: false,
   label: "",
-  name: "",
-  placeholder: ""
+  placeholder: "",
+  idName: "idName"
 };
 var _default = InputText;
 exports.default = _default;

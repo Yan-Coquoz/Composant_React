@@ -11,13 +11,11 @@ var _react = _interopRequireDefault(require("react"));
 
 var _utils = require("../utils");
 
-require("../css/style.css");
-
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
  *
  * @prop   {ArrayOfObject}  tabs        [tabs description]
- * @prop  {String}  idLabel     [idLabel description]
+ * @prop  {String}  idName     [idName description]
  * @prop   {String}  name        [name description]
  * @prop   {Boolean}  isRequired  [isRequired description]
  * @prop   {Function}  sendValue   [sendValue description]
@@ -26,7 +24,7 @@ require("../css/style.css");
  */
 var Select = function Select(_ref) {
   var tabs = _ref.tabs,
-      idLabel = _ref.idLabel,
+      idName = _ref.idName,
       name = _ref.name,
       isRequired = _ref.isRequired,
       sendValue = _ref.sendValue;
@@ -45,12 +43,12 @@ var Select = function Select(_ref) {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "select_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: idLabel,
+    htmlFor: idName,
     className: "input_container__label"
-  }, (0, _utils.fromLowerToUpperCase)(idLabel)), /*#__PURE__*/_react.default.createElement("select", {
+  }, (0, _utils.fromLowerToUpperCase)(idName)), /*#__PURE__*/_react.default.createElement("select", {
     className: "select_container__select",
     name: name,
-    id: idLabel,
+    id: idName,
     required: isRequired,
     onChange: handleSendValue
   }, /*#__PURE__*/_react.default.createElement("option", {
@@ -66,7 +64,9 @@ var Select = function Select(_ref) {
 };
 
 Select.defaultProps = {
-  isRequired: false
+  isRequired: false,
+  idName: "idName",
+  name: "name"
 };
 var _default = Select;
 exports.default = _default;

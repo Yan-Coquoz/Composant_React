@@ -11,8 +11,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _utils = require("../utils");
 
-require("../css/style.css");
-
 /**
  * Composant contrôlé de type input number
  *
@@ -33,11 +31,8 @@ var InputNumber = function InputNumber(_ref) {
 
   var handleSendValue = function handleSendValue(evt) {
     var maValeur = evt.target.value;
-    var monNom = evt.target.name; // j'envoi ma valeur et son name dans une fonction pour le formulaire
-
-    if (maValeur.length === 5) {
-      sendValue(monNom, maValeur);
-    }
+    var monNom = evt.target.name;
+    sendValue(monNom, maValeur);
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -52,9 +47,7 @@ var InputNumber = function InputNumber(_ref) {
     onChange: handleSendValue,
     placeholder: (0, _utils.fromLowerToUpperCase)(label),
     required: isRequired,
-    type: "number",
-    minLength: 5,
-    maxLength: 5
+    type: "number"
   }));
 };
 
@@ -62,8 +55,8 @@ InputNumber.defaultProps = {
   handleSendValue: function handleSendValue() {},
   isRequired: false,
   label: "",
-  name: "",
-  placeholder: ""
+  placeholder: "",
+  idName: "idName"
 };
 var _default = InputNumber;
 exports.default = _default;
