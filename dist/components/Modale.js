@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
+
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 Object.defineProperty(exports, "__esModule", {
@@ -9,7 +11,7 @@ exports.default = void 0;
 
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/slicedToArray"));
 
-var _react = require("react");
+var _react = _interopRequireWildcard(require("react"));
 
 var _close = _interopRequireDefault(require("../assets/icons/close.svg"));
 
@@ -50,23 +52,23 @@ var Modale = function Modale(_ref) {
       activeClass.style.display = "block";
     }
   }, [open]);
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "modal_container"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal_box"
-  }, /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("button", {
     onClick: handleCloseBtn,
     className: "modal__close-button",
     style: {
       border: "2px solid ".concat(sendStyle)
     }
-  }, /*#__PURE__*/React.createElement("img", {
+  }, /*#__PURE__*/_react.default.createElement("img", {
     src: _close.default,
     alt: "close button",
     className: "modal__close-button__img"
-  })), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/_react.default.createElement("div", {
     className: "modal__box-paragraph"
-  }, /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/_react.default.createElement("p", {
     className: "modal__box-paragraph__paragraph",
     style: {
       border: "2px solid ".concat(sendStyle)
