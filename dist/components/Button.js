@@ -9,6 +9,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+require("../css/style.css");
+
 /**
  * C'est une fonction qui renvoie un élément de bouton avec les accessoires label, type, className,
  * onClick et idName passés en tant qu'arguments

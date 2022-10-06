@@ -11,6 +11,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _utils = require("../utils");
 
+require("../css/style.css");
+
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
  *

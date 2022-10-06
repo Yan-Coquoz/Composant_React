@@ -11,6 +11,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _utils = require("../utils");
 
+require("css/style.css");
+
 /**
  * Composant contrôlé de type input text
  *

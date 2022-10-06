@@ -15,7 +15,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _close = _interopRequireDefault(require("../assets/icons/close.svg"));
 
-require("./style.css");
+require("../css/style.css");
 
 /**
  * C'est une modale qui s'ouvre lorsque l'état du composant parent change.
