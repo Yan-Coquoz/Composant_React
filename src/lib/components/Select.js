@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { fromLowerToUpperCase } from "../utils";
-
+import "../css/style.css";
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
  *

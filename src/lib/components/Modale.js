@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import close from "../assets/icons/close.svg";
-import "./style.css";
+import "../css/style.css";
 
 /**
  * C'est une modale qui s'ouvre lorsque l'état du composant parent change.

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import "../css/style.css";
 /**
  * C'est une fonction qui renvoie un élément de bouton avec les accessoires label, type, className,
  * onClick et idName passés en tant qu'arguments
