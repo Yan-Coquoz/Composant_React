@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { fromLowerToUpperCase } from "../utils";
-import "../css/style.css";
 
 /**
  * Composant contrôlé de type input text
@@ -46,8 +45,8 @@ const InputText = ({ idName, label, sendValue, isRequired, myClass }) => {
 
 InputText.propTypes = {
   idName: PropTypes.string.isRequired,
-  isRequired: PropTypes.bool.isRequired,
-  label: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool,
+  label: PropTypes.string,
   myClass: PropTypes.string.isRequired,
   sendValue: PropTypes.func.isRequired,
 };
@@ -55,7 +54,7 @@ InputText.defaultProps = {
   handleSendValue: () => {},
   isRequired: false,
   label: "",
-  name: "",
   placeholder: "",
+  idName: "idName",
 };
 export default InputText;

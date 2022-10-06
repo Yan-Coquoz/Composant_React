@@ -20,21 +20,47 @@ Ce module fonctionne avec React
 
 ### Propriétés
 
-Ces propriétés sont communes aux composants :
+Ces propriétés (`InputText`, `InputNumber` ) sont communes aux composants.
 
-- idName : {String} Correspond aux propriétés `htmlFor` et du `className` du label, ainsi que l'`id` et le `name` de l'input.
-- label : {String} Contenu du `label` et du `placeholder`
-- sendValue : {Function} Déclenche une action
-- isRequired : {Boolean} Si la valeur est requise ou non
-- myClass : {String} nom de la classe du composant
+**Toutes les propriétés avec un * sont obligatoires** :
 
-Le composant `Select` prend en plus la propriété
- `tabs` : {Array of Object} destiné à la balise `option`
+- `idName` * : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
+- `label` : {String} contenu `Label` et `placeholder`
+- `sendValue` * : {Fonction} Déclenche une action
+- `isRequired` : {Booléen} Indique si la valeur est requise ou non
+- `myClass` * : nom de la classe du composant {String}
+
+---
+
+`Select`
+
+- `tabs` * : {Table des objets} pour la balise `option`, doit contenir une propriété `name` qui sera affichée
+- `name` * : {String} au lieu de `label`
+- `isRequired` : {Booléen} Indique si la valeur est requise ou non.
+- `idName` : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
+
+---
+
+`Boutons`:
+
+- `type` * : {String} Le type de bouton : button, submit, reset...
+- `children` * : {String} Le contenu, comme : 'validate', 'save' ...
+- `myClass` : {String} Une classe pour donner du style
+- `idName` : {chaîne} ID de bouton
+- `onClick` : {Fonction} Si vous avez besoin d'une fonction..
+
+---
+
+`Modal` :
+
+- `message` * : {String} Le message que vous devez afficher
+- `open` * : {booléen} l'ordre d'ouverture du modal
+- `getClose` * : action {Fonction} pour fermer
 
 Exemple :
 
 ```javascript
-import { InputText } from "my_react_redux_inputs"
+import { InputText,Button } from "@yan_coquoz/react_input"
 
 
 const MyForm = () => {
@@ -48,6 +74,7 @@ const MyForm = () => {
                 sendValue={Function} 
                 myClass={String} 
                 />
+            <Button type="submit">enregister</Button>
         </form>
     )
 }

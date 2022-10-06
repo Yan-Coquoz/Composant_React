@@ -1,20 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { fromLowerToUpperCase } from "../utils";
-import "../css/style.css";
 
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
  *
  * @prop   {ArrayOfObject}  tabs        [tabs description]
- * @prop  {String}  idLabel     [idLabel description]
+ * @prop  {String}  idName     [idName description]
  * @prop   {String}  name        [name description]
  * @prop   {Boolean}  isRequired  [isRequired description]
  * @prop   {Function}  sendValue   [sendValue description]
  *
  * @return  {React.ReactElement}              [return description]
  */
-const Select = ({ tabs, idLabel, name, isRequired, sendValue }) => {
+const Select = ({ tabs, idName, name, isRequired, sendValue }) => {
   const handleSendValue = (evt) => {
     const value = evt.target.value;
     const selectName = evt.target.name;
@@ -26,13 +25,13 @@ const Select = ({ tabs, idLabel, name, isRequired, sendValue }) => {
 
   return (
     <div className="select_container">
-      <label htmlFor={idLabel} className={"input_container__label"}>
-        {fromLowerToUpperCase(idLabel)}
+      <label htmlFor={idName} className={"input_container__label"}>
+        {fromLowerToUpperCase(idName)}
       </label>
       <select
         className="select_container__select"
         name={name}
-        id={idLabel}
+        id={idName}
         required={isRequired}
         onChange={handleSendValue}
       >
@@ -54,11 +53,13 @@ const Select = ({ tabs, idLabel, name, isRequired, sendValue }) => {
 
 Select.propTypes = {
   tabs: PropTypes.arrayOf(Object).isRequired,
-  isRequired: PropTypes.bool.isRequired,
-  idLabel: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool,
+  idName: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
 Select.defaultProps = {
   isRequired: false,
+  idName: "idName",
+  name: "name",
 };
 export default Select;

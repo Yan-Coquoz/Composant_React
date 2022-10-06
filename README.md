@@ -19,24 +19,52 @@ This module works with React
 - `InputText`
 - `InputNumber`
 - `Select`
+- `Button`
+- `Modale`
 
 ### Properties
 
-These properties are common to components:
+These properties (`InputText`, `InputNumber` ) are common to components.
 
-- idName: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
-- label: {String} `Label` and `placeholder` content
-- sendValue: {Function} Triggers an action
-- isRequired: {Boolean} Whether the value is required or not
-- myClass: {String} component class name
+**All properties with a * are required** :
 
-The `Select` component additionally takes the property
-  `tabs`: {Array of Object} for the `option` tag
+- `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
+- `label` : {String} `Label` and `placeholder` content
+- `sendValue` *: {Function} Triggers an action
+- `isRequired` : {Boolean} Whether the value is required or not
+- `myClass` *: {String} component class name
+
+---
+
+`Select`
+
+- `tabs` *: {Array of Object} for the `option` tag, must contain a propertie `name` who will be display
+- `name` *: {String} instead of `label`
+- `isRequired` : {Boolean} Whether the value is required or not.
+- `idName` : {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
+
+---
+
+`Button` :
+
+- `type` *: {String} The type of button : button, submit, reset...
+- `children` *: {String} The content, like : 'validate', 'save' ...
+- `myClass` : {String} A class to give some style
+- `idName` : {String} Id of the button
+- `onClick` : {Function} If you need a function..
+
+---
+
+`Modale` :
+
+- `message` *: {String} The message you need to display
+- `open` *: {Boolean} the order to open the modal
+- `getClose` *: {Function} action to close
 
 Example :
 
 ```javascript
-import { InputText } from "my_react_redux_inputs"
+import { InputText,Button } from "@yan_coquoz/react_input"
 
 
 const MyForm = () => {
@@ -50,6 +78,8 @@ const MyForm = () => {
                 sendValue={Function} 
                 myClass={String} 
                 />
+            <Button type="submit">Save</Button>
         </form>
     )
 }
+```

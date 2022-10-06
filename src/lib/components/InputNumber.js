@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { fromLowerToUpperCase } from "../utils";
-import "../css/style.css";
 
 /**
  * Composant contrôlé de type input number
@@ -20,10 +19,7 @@ const InputNumber = ({ idName, label, sendValue, isRequired, myClass }) => {
     const maValeur = evt.target.value;
     const monNom = evt.target.name;
 
-    // j'envoi ma valeur et son name dans une fonction pour le formulaire
-    if (maValeur.length === 5) {
-      sendValue(monNom, maValeur);
-    }
+    sendValue(monNom, maValeur);
   };
 
   return (
@@ -39,8 +35,6 @@ const InputNumber = ({ idName, label, sendValue, isRequired, myClass }) => {
         placeholder={fromLowerToUpperCase(label)}
         required={isRequired}
         type="number"
-        minLength={5}
-        maxLength={5}
       />
     </div>
   );
@@ -48,7 +42,7 @@ const InputNumber = ({ idName, label, sendValue, isRequired, myClass }) => {
 
 InputNumber.propTypes = {
   idName: PropTypes.string.isRequired,
-  isRequired: PropTypes.bool.isRequired,
+  isRequired: PropTypes.bool,
   label: PropTypes.string.isRequired,
   myClass: PropTypes.string.isRequired,
   sendValue: PropTypes.func.isRequired,
@@ -57,7 +51,7 @@ InputNumber.defaultProps = {
   handleSendValue: () => {},
   isRequired: false,
   label: "",
-  name: "",
   placeholder: "",
+  idName: "idName",
 };
 export default InputNumber;
