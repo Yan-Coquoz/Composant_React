@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 Object.defineProperty(exports, "__esModule", {
@@ -11,25 +9,27 @@ exports.default = void 0;
 
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/slicedToArray"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = require("react");
 
 var _close = _interopRequireDefault(require("../assets/icons/close.svg"));
 
 require("../css/style.css");
+
+// @ts-nocheck
 
 /**
  * C'est une modale qui s'ouvre lorsque l'état du composant parent change.
  *
  * @prop   {String}  message   contenu de la modale
  * @prop   {Boolean}  open      si la modale est ouvert ou non
- * @prop   {[type]}  getClose  permet de changer l'état de la modale à false
+ * @prop   {String}  sendStyle      si la modale est ouvert ou non
  *
  * @return  {React.ReactElement}
  */
 var Modale = function Modale(_ref) {
   var message = _ref.message,
       open = _ref.open,
-      getClose = _ref.getClose;
+      sendStyle = _ref.sendStyle;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = (0, _slicedToArray2.default)(_useState, 2),
@@ -40,8 +40,7 @@ var Modale = function Modale(_ref) {
 
   function handleCloseBtn() {
     activeClass.style.display = "none";
-    setIsOpen(false);
-    getClose();
+    setIsOpen(isOpen);
   }
 
   (0, _react.useEffect)(function () {
@@ -51,28 +50,34 @@ var Modale = function Modale(_ref) {
       activeClass.style.display = "block";
     }
   }, [open]);
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "modal_container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "modal_box"
-  }, /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/React.createElement("button", {
     onClick: handleCloseBtn,
-    className: "modal__close-button"
-  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "modal__close-button",
+    style: {
+      border: "2px solid ".concat(sendStyle)
+    }
+  }, /*#__PURE__*/React.createElement("img", {
     src: _close.default,
     alt: "close button",
     className: "modal__close-button__img"
-  })), /*#__PURE__*/_react.default.createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "modal__box-paragraph"
-  }, /*#__PURE__*/_react.default.createElement("p", {
-    className: "modal__box-paragraph__paragraph"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "modal__box-paragraph__paragraph",
+    style: {
+      border: "2px solid ".concat(sendStyle)
+    }
   }, message))));
 };
 
 Modale.defaultProps = {
-  getClose: function getClose() {},
   open: false,
-  message: ""
+  message: "",
+  sendStyle: "none"
 };
 var _default = Modale;
 exports.default = _default;

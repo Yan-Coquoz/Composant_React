@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+// @ts-nocheck
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import close from "../assets/icons/close.svg";
 import "../css/style.css";
@@ -8,18 +9,17 @@ import "../css/style.css";
  *
  * @prop   {String}  message   contenu de la modale
  * @prop   {Boolean}  open      si la modale est ouvert ou non
- * @prop   {[type]}  getClose  permet de changer l'état de la modale à false
+ * @prop   {String}  sendStyle      si la modale est ouvert ou non
  *
  * @return  {React.ReactElement}
  */
-const Modale = ({ message, open, getClose }) => {
+const Modale = ({ message, open, sendStyle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const activeClass = document.querySelector(".modal_container");
 
   function handleCloseBtn() {
     activeClass.style.display = "none";
-    setIsOpen(false);
-    getClose();
+    setIsOpen(isOpen);
   }
   useEffect(() => {
     setIsOpen(true);
@@ -30,7 +30,11 @@ const Modale = ({ message, open, getClose }) => {
   return (
     <div className="modal_container">
       <div className="modal_box">
-        <button onClick={handleCloseBtn} className="modal__close-button">
+        <button
+          onClick={handleCloseBtn}
+          className="modal__close-button"
+          style={{ border: `2px solid ${sendStyle}` }}
+        >
           <img
             src={close}
             alt="close button"
@@ -38,7 +42,12 @@ const Modale = ({ message, open, getClose }) => {
           />
         </button>
         <div className="modal__box-paragraph">
-          <p className="modal__box-paragraph__paragraph">{message}</p>
+          <p
+            className="modal__box-paragraph__paragraph"
+            style={{ border: `2px solid ${sendStyle}` }}
+          >
+            {message}
+          </p>
         </div>
       </div>
     </div>
@@ -47,12 +56,12 @@ const Modale = ({ message, open, getClose }) => {
 
 Modale.propTypes = {
   message: PropTypes.string.isRequired,
-  open: PropTypes.bool.isRequired,
-  getClose: PropTypes.func.isRequired,
+  open: PropTypes.func,
+  sendStyle: PropTypes.string,
 };
 Modale.defaultProps = {
-  getClose: () => {},
   open: false,
   message: "",
+  sendStyle: "none",
 };
 export default Modale;

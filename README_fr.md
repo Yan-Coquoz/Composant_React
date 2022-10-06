@@ -51,32 +51,44 @@ Ces propriétés (`InputText`, `InputNumber` ) sont communes aux composants.
 
 ---
 
-`Modal` :
+`Modale` :
 
 - `message` * : {String} Le message que vous devez afficher
-- `open` * : {booléen} l'ordre d'ouverture du modal
-- `getClose` * : action {Fonction} pour fermer
+- `open` * : {Function} l'ordre d'ouverture du modal
+- `sendStyle` * : {String} customisation des bordures bouton et texte
 
 Exemple :
 
 ```javascript
+import {useState} from "react"
 import { InputText,Button } from "@yan_coquoz/react_input"
 
 
 const MyForm = () => {
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    function handleOpenModal() {
+        setIsOpen(!isOpen);
+  }
     return(
-        <form>
-            <InputText 
-                idName={String} 
-                label={String} 
-                isRequired={Boolean} 
-                sendValue={Function} 
-                myClass={String} 
+        <div>
+            <form>
+                <InputText 
+                    idName={String} 
+                    label={String} 
+                    isRequired={Boolean} 
+                    sendValue={Function} 
+                    myClass={String} 
                 />
-            <Button type="submit">enregister</Button>
-        </form>
+                <Button type="submit">Save</Button>
+         
+            </form>
+            <Button type="button" onClick={handleOpenModal}>
+                Open Modale
+            </Button>
+            <Modale message="Hello World !!!" open={()=>handleOpenModal()} sendStyle={"red"} />
+        </div>
     )
 }
-
 ```
