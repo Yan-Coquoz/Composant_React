@@ -3,38 +3,25 @@ import PropTypes from "prop-types";
 import { fromLowerToUpperCase } from "../utils";
 import "../css/style.css";
 /**
- * Composant contrôlé de type input text
  *
  * @prop   {String}  idName      Valeur liant l'input et le label
  * @prop   {String}  label       Description du label et du placeholder
- * @prop   {Function}  sendValue   Permet de transmettre les valeurs de l'input
+ * @prop   {Boolean}  toUpperCase   change la première lettre des labels en lettre capitale
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
  *
- * @return  {React.ReactElement}   Un composant React de type input
+ * @return  {React.ReactElement}   Un composant React de type input text
  */
-
-const InputText = ({ idName, label, sendValue, isRequired, myClass }) => {
-  const handleSendValue = (evt) => {
-    const maValeur = evt.target.value;
-    const monNom = evt.target.name;
-
-    if (maValeur.length !== 0) {
-      // j'envoi ma valeur et son name dans une fonction pour le formulaire
-      sendValue(monNom, maValeur);
-    }
-  };
-
+const InputText = ({ idName, label, toUpperCase, isRequired, myClass }) => {
   return (
     <div className="input_container">
       <label htmlFor={idName} className={`input_container__label ${idName}`}>
-        {fromLowerToUpperCase(label)}
+        {toUpperCase ? fromLowerToUpperCase(label) : label}
       </label>
       <input
         className={`input_container__input ${myClass}`}
         id={idName}
         name={idName}
-        onChange={handleSendValue}
         placeholder={fromLowerToUpperCase(label)}
         required={isRequired}
         type="text"
@@ -47,11 +34,11 @@ InputText.propTypes = {
   idName: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
   label: PropTypes.string,
-  myClass: PropTypes.string.isRequired,
-  sendValue: PropTypes.func.isRequired,
+  myClass: PropTypes.string,
+  toUpperCase: PropTypes.bool,
 };
 InputText.defaultProps = {
-  handleSendValue: () => {},
+  toUpperCase: false,
   isRequired: false,
   label: "",
   placeholder: "",

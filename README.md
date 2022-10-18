@@ -21,18 +21,31 @@ This module works with React
 - `Select`
 - `Button`
 - `Modale`
+- `DatePicker`
 
 ### Properties
 
-These properties (`InputText`, `InputNumber` ) are common to components.
-
 **All properties with a * are required** :
 
+`InputText`
+
 - `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
-- `label` : {String} `Label` and `placeholder` content
-- `sendValue` *: {Function} Triggers an action
+- `label` : {String} `label` and `placeholder` content
 - `isRequired` : {Boolean} Whether the value is required or not
 - `myClass` *: {String} component class name
+- `toUpperCase` : {Boolean} if you need to upper case label
+
+---
+
+`InputNumber`
+
+- `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
+- `label` : {String} `label` and `placeholder` content
+- `isRequired` : {Boolean} Whether the value is required or not
+- `myClass` *: {String} component class name
+- `mini` : {Number} minimum value
+- `maxi` : {Number} maximum value
+- `toUpperCase` : {Boolean} if you need to upper case label
 
 ---
 
@@ -61,6 +74,16 @@ These properties (`InputText`, `InputNumber` ) are common to components.
 - `open` *: {Function} the order to open the modal
 - `sendStyle` : {String} Send color to the border of close button and text
 
+---
+
+`DatePicker`:
+
+- `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` of the input.
+- `label` : {String} `label` and input `name`
+- `myClass` : {String} input `className`
+- `isRequired` : {Boolean} Whether the value is required or not.
+- `toUpperCase` : {Boolean} if you need to upper case label
+
 Example :
 
 ```javascript
@@ -85,8 +108,15 @@ const MyForm = () => {
                     sendValue={Function} 
                     myClass={String} 
                 />
+
+                <DatePicker
+                    idName={"dateOfBirth"}
+                    isRequired={false}
+                    label={"date of birth"}
+                    toUpperCase={true}
+                />
                 <Button type="submit">Save</Button>
-         
+
             </form>
             <Button type="button" onClick={handleOpenModal}>
                 Open Modale

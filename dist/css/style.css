@@ -1,3 +1,7 @@
+#root {
+  width: 1024px;
+  margin: 0 auto;
+}
 /* input text & Input Number */
 .input_container {
   display: flex;
@@ -14,10 +18,11 @@
 .input_container__input {
   padding: 0.5rem;
 }
+
 .input_container__input:focus-visible
   + .select_container__select:focus-visible {
-  padding: 1rem;
-  outline: outset #79bbe7;
+  /* padding: 1rem; */
+  /* outline: outset #79bbe7; */
   border-radius: 5px;
   transition: 0.3s;
 }
@@ -100,5 +105,56 @@
   }
   100% {
     transform: rotate(90deg);
+  }
+}
+/* datepicker */
+
+.datepicker__container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 200px;
+  text-align: left;
+}
+.datepicker__label {
+  font-weight: bold;
+  padding: 1rem 0;
+}
+.datepicker__input {
+  font-size: 1rem;
+  width: 185px;
+  padding: 0.5rem;
+  /* border-radius: 5px; */
+  border: 1px solid #666;
+}
+
+.datepicker__calendar {
+  border: 1px solid #ccc;
+  position: absolute;
+  /* left: 50%;
+  top: 100%;
+  transform: translate(-50%); */
+  z-index: 100;
+  border-radius: 5px;
+  box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
+}
+.datepicker__btn-today {
+  position: absolute;
+  bottom: 0;
+  right: -30%;
+  border: 1px solid #ccc;
+  background: none;
+  cursor: pointer;
+  padding: 10px 9px;
+  border-radius: 5px;
+  background: rgba(239, 242, 247, 0.7);
+}
+.datepicker__btn-today:hover {
+  box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.07);
+}
+@media all and (max-width: 1024px) {
+  .datepicker__calendar {
+    flex-direction: column;
   }
 }

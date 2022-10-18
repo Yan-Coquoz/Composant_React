@@ -14,43 +14,30 @@ var _utils = require("../utils");
 require("../css/style.css");
 
 /**
- * Composant contrôlé de type input text
  *
  * @prop   {String}  idName      Valeur liant l'input et le label
  * @prop   {String}  label       Description du label et du placeholder
- * @prop   {Function}  sendValue   Permet de transmettre les valeurs de l'input
+ * @prop   {Boolean}  toUpperCase   change la première lettre des labels en lettre capitale
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
  *
- * @return  {React.ReactElement}   Un composant React de type input
+ * @return  {React.ReactElement}   Un composant React de type input text
  */
 var InputText = function InputText(_ref) {
   var idName = _ref.idName,
       label = _ref.label,
-      sendValue = _ref.sendValue,
+      toUpperCase = _ref.toUpperCase,
       isRequired = _ref.isRequired,
       myClass = _ref.myClass;
-
-  var handleSendValue = function handleSendValue(evt) {
-    var maValeur = evt.target.value;
-    var monNom = evt.target.name;
-
-    if (maValeur.length !== 0) {
-      // j'envoi ma valeur et son name dans une fonction pour le formulaire
-      sendValue(monNom, maValeur);
-    }
-  };
-
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "input_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: idName,
     className: "input_container__label ".concat(idName)
-  }, (0, _utils.fromLowerToUpperCase)(label)), /*#__PURE__*/_react.default.createElement("input", {
+  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(label) : label), /*#__PURE__*/_react.default.createElement("input", {
     className: "input_container__input ".concat(myClass),
     id: idName,
     name: idName,
-    onChange: handleSendValue,
     placeholder: (0, _utils.fromLowerToUpperCase)(label),
     required: isRequired,
     type: "text"
@@ -58,7 +45,7 @@ var InputText = function InputText(_ref) {
 };
 
 InputText.defaultProps = {
-  handleSendValue: function handleSendValue() {},
+  toUpperCase: false,
   isRequired: false,
   label: "",
   placeholder: "",

@@ -3,38 +3,41 @@ import PropTypes from "prop-types";
 import { fromLowerToUpperCase } from "../utils";
 import "../css/style.css";
 /**
- * Composant contrôlé de type input number
  *
  * @prop   {String}  idName      Valeur liant l'input et le label
  * @prop   {String}  label       Description du label et du placeholder
  * @prop   {Function}  sendValue   Permet de transmettre les valeurs de l'input
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
+ * @prop  {Number}  mini minimum value
+ * @prop  {Number}  maxi maximum value
  *
- * @return  {React.ReactElement}   Un composant React de type input
+ * @return  {React.ReactElement}   Un composant React de type input number
  */
 
-const InputNumber = ({ idName, label, sendValue, isRequired, myClass }) => {
-  const handleSendValue = (evt) => {
-    const maValeur = evt.target.value;
-    const monNom = evt.target.name;
-
-    sendValue(monNom, maValeur);
-  };
-
+const InputNumber = ({
+  idName,
+  label,
+  toUpperCase,
+  isRequired,
+  myClass,
+  mini,
+  maxi,
+}) => {
   return (
     <div className="input_container">
       <label htmlFor={idName} className={`input_container__label ${idName}`}>
-        {fromLowerToUpperCase(label)}
+        {toUpperCase ? fromLowerToUpperCase(label) : label}
       </label>
       <input
         className={`input_container__input ${myClass}`}
         id={idName}
         name={idName}
-        onChange={handleSendValue}
         placeholder={fromLowerToUpperCase(label)}
         required={isRequired}
         type="number"
+        min={mini}
+        max={maxi}
       />
     </div>
   );
@@ -43,15 +46,17 @@ const InputNumber = ({ idName, label, sendValue, isRequired, myClass }) => {
 InputNumber.propTypes = {
   idName: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  myClass: PropTypes.string.isRequired,
-  sendValue: PropTypes.func.isRequired,
+  label: PropTypes.string,
+  myClass: PropTypes.string,
+  mini: PropTypes.number,
+  maxi: PropTypes.number,
+  toUpperCase: PropTypes.bool,
 };
 InputNumber.defaultProps = {
-  handleSendValue: () => {},
   isRequired: false,
   label: "",
   placeholder: "",
   idName: "idName",
+  toUpperCase: false,
 };
 export default InputNumber;

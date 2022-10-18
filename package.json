@@ -42,7 +42,9 @@
     ]
   },
   "dependencies": {
-    "create-component-lib": "^0.1.6"
+    "create-component-lib": "^0.1.6",
+    "date-fns": "^2.29.3",
+    "react-date-range": "^1.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",

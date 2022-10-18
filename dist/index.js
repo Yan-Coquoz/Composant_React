@@ -11,6 +11,12 @@ Object.defineProperty(exports, "Button", {
     return _Button.default;
   }
 });
+Object.defineProperty(exports, "DatePicker", {
+  enumerable: true,
+  get: function get() {
+    return _DatePicker.default;
+  }
+});
 Object.defineProperty(exports, "InputNumber", {
   enumerable: true,
   get: function get() {
@@ -45,3 +51,5 @@ var _Select = _interopRequireDefault(require("./components/Select"));
 var _Button = _interopRequireDefault(require("./components/Button"));
 
 var _Modale = _interopRequireDefault(require("./components/Modale"));
+
+var _DatePicker = _interopRequireDefault(require("./components/DatePicker"));
