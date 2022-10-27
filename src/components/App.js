@@ -5,14 +5,16 @@ import {
   Button,
   DatePicker,
   InputNumber,
+  Select,
 } from "../lib/index";
+import { depts, etats } from "../Datas";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // function handleChange(evt) {
-  //   console.log(evt.target.value);
-  // }
+  function handleOpenModal() {
+    setIsOpen(true);
+  }
 
   function handleSendForm(evt) {
     evt.preventDefault();
@@ -31,8 +33,8 @@ const App = () => {
         datas.push({ [props[i]]: values[i] });
       }
     }
-    console.log(datas);
   }
+
   return (
     <form onSubmit={handleSendForm}>
       <InputText
@@ -49,18 +51,26 @@ const App = () => {
         mini={9999}
         maxi={99999}
       />
+
+      <Select tabs={depts} idName={"department"} name={"department"} />
+
       <DatePicker
         idName={"dateOfBirth"}
         isRequired={false}
         label={"date of birth"}
         toUpperCase={true}
       />
+      <Select tabs={etats} idName={"state"} name={"state"} toUpperCase={true} />
 
-      <Button type="button" onClick={() => setIsOpen(!isOpen)}>
+      <Button type="button" onClick={handleOpenModal}>
         Open Modale
       </Button>
 
-      <Modale message="Hello World !!!" open={() => setIsOpen(!isOpen)} />
+      <Modale
+        message="Hello World !!!"
+        open={isOpen}
+        onClose={() => setIsOpen(!isOpen)}
+      />
       <br />
       <button>send</button>
     </form>

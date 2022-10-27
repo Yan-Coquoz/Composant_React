@@ -22,3 +22,57 @@ export function todayDate() {
   const year = new Date().getFullYear();
   return `${dayNbrOnMonth}/${month}/${year}`;
 }
+
+/**
+ * Il prend une chaîne, remplace tous les traits d'union, traits de soulignement et espaces par une
+ * chaîne vide, puis met en majuscule la première lettre du mot suivant.
+ *
+ * Voici une explication plus détaillée :
+ *
+ * La première ligne de la fonction définit une expression régulière qui correspond aux traits d'union,
+ * aux traits de soulignement et aux espaces.
+ *
+ * La deuxième ligne de la fonction utilise la méthode replace() pour remplacer toutes les
+ * correspondances par une chaîne vide.
+ *
+ * La méthode replace() prend deux arguments : une expression régulière et une chaîne.
+ *
+ * L'expression régulière est le premier argument. C'est la même expression régulière que nous avons
+ * définie dans la première ligne de la fonction.
+ *
+ * Le deuxième argument est une chaîne qui remplace toutes les correspondances.
+ *
+ * Le deuxième argument est en fait une fonction qui renvoie une chaîne.
+ *
+ * La fonction prend deux arguments : str et char.
+ *
+ * L'argument str est la chaîne correspondante.
+ * @param string - Chaîne à convertir en casse camel.
+ * @returns un string.
+ * @exemple foo Bar / foo-bar-- / foo_bar__
+ *
+ */
+export const toCamelCase = (string) => {
+  const camelCaseRegex = /[-_\s]+(.)?/g;
+  return string.replace(camelCaseRegex, (str, char) => {
+    return char ? char.toUpperCase() : "";
+  });
+};
+
+export function checkArrayOf(arr) {
+  // le type du tableau
+
+  const typeOfArr = Array.isArray(arr[0])
+    ? "array"
+    : arr[0] === null // envoi null en cas d'objet
+    ? null
+    : typeof arr[0];
+
+  if (typeOfArr === "number" || typeOfArr === "string") {
+    return typeOfArr;
+  }
+
+  if (typeOfArr === "object" && Object.keys(arr[0]).includes("name")) {
+    return typeOfArr;
+  }
+}

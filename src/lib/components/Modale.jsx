@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import close from "../assets/icons/close.svg";
 import "../css/style.css";
@@ -8,25 +8,23 @@ import "../css/style.css";
  * C'est une modale qui s'ouvre lorsque l'état du composant parent change.
  *
  * @prop   {String}  message   contenu de la modale
- * @prop   {Boolean}  open      si la modale est ouvert ou non
- * @prop   {String}  sendStyle      si la modale est ouvert ou non
+ * @prop   {boolean}  open      si la modale est ouvert ou non
+ * @prop   {Function}  onClose      Action de fermeture de la modale
+ * @prop   {String}  sendStyle      Défini la couleur de la bordure du bouton et du texte
  *
  * @return  {React.ReactElement}
  */
-const Modale = ({ message, open, sendStyle }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const activeClass = document.querySelector(".modal_container");
-
+const Modale = ({ message, onClose, open, sendStyle }) => {
   function handleCloseBtn() {
-    activeClass.style.display = "none";
-    setIsOpen(isOpen);
+    document.querySelector(".modal_container").style.display = "none";
+    onClose(false);
   }
-  useEffect(() => {
-    setIsOpen(true);
-    if (isOpen && open) {
-      activeClass.style.display = "block";
+  React.useEffect(() => {
+    if (open) {
+      document.querySelector(".modal_container").style.display = "block";
     }
   }, [open]);
+
   return (
     <div className="modal_container">
       <div className="modal_box">
@@ -56,12 +54,14 @@ const Modale = ({ message, open, sendStyle }) => {
 
 Modale.propTypes = {
   message: PropTypes.string.isRequired,
-  open: PropTypes.func,
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
   sendStyle: PropTypes.string,
 };
 Modale.defaultProps = {
-  open: false,
   message: "",
+  onClose: () => {},
+  open: false,
   sendStyle: "none",
 };
 export default Modale;

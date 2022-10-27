@@ -42,6 +42,6 @@ InputText.defaultProps = {
   isRequired: false,
   label: "",
   placeholder: "",
-  idName: "idName",
+  idName: "",
 };
 export default InputText;

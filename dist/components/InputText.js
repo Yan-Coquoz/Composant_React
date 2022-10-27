@@ -49,7 +49,7 @@ InputText.defaultProps = {
   isRequired: false,
   label: "",
   placeholder: "",
-  idName: "idName"
+  idName: ""
 };
 var _default = InputText;
 exports.default = _default;

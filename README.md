@@ -51,7 +51,7 @@ This module works with React
 
 `Select`
 
-- `tabs` *: {Array of Object} for the `option` tag, must contain a propertie `name` who will be display
+- `tabs` *: {Array of Object || Array} for the `option` tag, if it 's an Array of Object, it must contain a propertie `name` who will be display
 - `name` *: {String} instead of `label`
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `idName` : {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
@@ -71,8 +71,9 @@ This module works with React
 `Modale` :
 
 - `message` *: {String} The message you need to display
-- `open` *: {Function} the order to open the modal
-- `sendStyle` : {String} Send color to the border of close button and text
+- `open` *: {Boolean} the order to open the modal
+- `sendStyle` : {String} Send color to the border of close button and text.
+- `onClose` *: {Function} the order to close the modal
 
 ---
 
@@ -87,8 +88,8 @@ This module works with React
 Example :
 
 ```javascript
-import {useState} from "react"
-import { InputText,Button } from "@yan_coquoz/react_input"
+import React, {useState} from "react"
+import { InputText, Button, Modale, DatePicker } from "@yan_coquoz/react_input"
 
 
 const MyForm = () => {
@@ -96,7 +97,7 @@ const MyForm = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     function handleOpenModal() {
-        setIsOpen(!isOpen);
+        setIsOpen(true);
   }
     return(
         <div>
@@ -121,7 +122,7 @@ const MyForm = () => {
             <Button type="button" onClick={handleOpenModal}>
                 Open Modale
             </Button>
-            <Modale message="Hello World !!!" open={()=>handleOpenModal()} sendStyle={"#F0F"} />
+            <Modale message="Hello World !!!" open={()=>setIsOpen(!isOpen)} sendStyle={"#F0F"} />
         </div>
     )
 }

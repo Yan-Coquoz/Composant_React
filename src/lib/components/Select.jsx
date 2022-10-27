@@ -1,19 +1,26 @@
+// @ts-nocheck
 import React from "react";
 import PropTypes from "prop-types";
-import { fromLowerToUpperCase } from "../utils";
+import { fromLowerToUpperCase, checkArrayOf } from "../utils";
 import "../css/style.css";
+
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
  *
- * @prop   {ArrayOfObject}  tabs        [tabs description]
- * @prop  {String}  idName     [idName description]
- * @prop   {String}  name        [name description]
- * @prop   {Boolean}  isRequired  [isRequired description]
- * @prop   {Function}  sendValue   [sendValue description]
+ * @prop   {ArrayOfObject}  `tabs`     Array of object with a props = name
+ * @prop  {String}  `idName`     for Label: htmlFor and value, input's id
+ * @prop   {String}  `name`      Label value and input name
+ * @prop   {Boolean}  `isRequired`  If the value is required
+ * @prop   {Function}  `sendValue`   send name value and value selected
+ * @prop   {Boolean}  `toUpperCase`  if label need to be to upper case
  *
- * @return  {React.ReactElement}              [return description]
+ * @return  {React.ReactElement}
  */
-const Select = ({ tabs, idName, name, isRequired, sendValue }) => {
+
+const Select = ({ idName, isRequired, name, sendValue, tabs, toUpperCase }) => {
+  const [tabType, setTabType] = React.useState("");
+  const [renderOption, setRenderOption] = React.useState("");
+
   const handleSendValue = (evt) => {
     const value = evt.target.value;
     const selectName = evt.target.name;
@@ -22,11 +29,35 @@ const Select = ({ tabs, idName, name, isRequired, sendValue }) => {
     }
     return "";
   };
+  function formatOption() {
+    if (tabType !== "object") {
+      return tabs.map((ele, key) => {
+        return (
+          <option value={ele} key={key}>
+            {fromLowerToUpperCase(ele)}
+          </option>
+        );
+      });
+    } else {
+      return tabs.map((ele) => {
+        return (
+          <option value={ele.name} key={ele.name}>
+            {fromLowerToUpperCase(ele.name)}
+          </option>
+        );
+      });
+    }
+  }
+  React.useEffect(() => {
+    const tabsType = checkArrayOf(tabs);
+    setTabType(tabsType);
+    setRenderOption(formatOption());
+  }, [tabType]);
 
   return (
     <div className="select_container">
       <label htmlFor={idName} className={"input_container__label"}>
-        {fromLowerToUpperCase(idName)}
+        {toUpperCase ? fromLowerToUpperCase(name) : name}
       </label>
       <select
         className="select_container__select"
@@ -38,28 +69,25 @@ const Select = ({ tabs, idName, name, isRequired, sendValue }) => {
         <option style={{ textAlign: "center" }}>
           {fromLowerToUpperCase("options")}
         </option>
-        {tabs.length > 0 &&
-          tabs.map((ele, key) => {
-            return (
-              <option value={ele.name.toLowerCase()} key={key}>
-                {fromLowerToUpperCase(ele.name)}
-              </option>
-            );
-          })}
+        {renderOption}
       </select>
     </div>
   );
 };
 
 Select.propTypes = {
-  tabs: PropTypes.arrayOf(Object).isRequired,
-  isRequired: PropTypes.bool,
   idName: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool,
   name: PropTypes.string.isRequired,
+  sendValue: PropTypes.func,
+  tabs: PropTypes.arrayOf(Object).isRequired,
+  toUpperCase: PropTypes.bool,
 };
 Select.defaultProps = {
+  idName: "",
   isRequired: false,
-  idName: "idName",
-  name: "name",
+  name: "",
+  sendValue: () => {},
+  toUpperCase: false,
 };
 export default Select;
