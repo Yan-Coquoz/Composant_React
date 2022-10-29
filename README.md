@@ -1,4 +1,9 @@
-# Type of React Component
+# React Component
+
+- ![Author](<https://img.shields.io/badge/Author-Yan Coquoz-">)
+- ![GitHub P14_HRnet_React size](<https://img.shields.io/github/repo-size/Yan-Coquoz/Composant_React>)
+![GitHub top language](https://img.shields.io/github/languages/top/Yan-Coquoz/Composant_React)
+![GitHub language count](https://img.shields.io/github/languages/count/Yan-Coquoz/Composant_React)
 
 Minimalist input-like components for React.
 
@@ -14,7 +19,23 @@ Minimalist input-like components for React.
 
 This module works with React
 
-### Input types
+### Summary
+
+- [React Component](#react-component)
+  - [Prerequisites](#prerequisites)
+  - [Using the input module](#using-the-input-module)
+    - [Summary](#summary)
+    - [Components](#components)
+    - [Properties](#properties)
+    - [`InputText`](#inputtext)
+    - [`InputNumber`](#inputnumber)
+    - [`Select`](#select)
+    - [`Button`](#button)
+    - [`Modale`](#modale)
+    - [`DatePicker`](#datepicker)
+    - [Example](#example)
+
+### Components
 
 - `InputText`
 - `InputNumber`
@@ -27,7 +48,7 @@ This module works with React
 
 **All properties with a * are required** :
 
-`InputText`
+### `InputText`
 
 - `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
 - `label` : {String} `label` and `placeholder` content
@@ -37,7 +58,11 @@ This module works with React
 
 ---
 
-`InputNumber`
+[to summary](#summary)
+
+---
+
+### `InputNumber`
 
 - `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
 - `label` : {String} `label` and `placeholder` content
@@ -45,20 +70,30 @@ This module works with React
 - `myClass` *: {String} component class name
 - `mini` : {Number} minimum value
 - `maxi` : {Number} maximum value
-- `toUpperCase` : {Boolean} if you need to upper case label
+- `toUpperCase` : {Boolean} if you need to upper case label.
 
 ---
 
-`Select`
+[to summary](#summary)
+
+---
+
+### `Select`
 
 - `tabs` *: {Array of Object || Array} for the `option` tag, if it 's an Array of Object, it must contain a propertie `name` who will be display
 - `name` *: {String} instead of `label`
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `idName` : {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
+- `sendValue` : {Function} return name and value.
+- `toUpperCase` : {Boolean} if you need to upper case label
 
 ---
 
-`Button` :
+[to summary](#summary)
+
+---
+
+### `Button`
 
 - `type` *: {String} The type of button : button, submit, reset...
 - `children` *: {String} The content, like : 'validate', 'save' ...
@@ -68,7 +103,11 @@ This module works with React
 
 ---
 
-`Modale` :
+[to summary](#summary)
+
+---
+
+### `Modale`
 
 - `message` *: {String} The message you need to display
 - `open` *: {Boolean} the order to open the modal
@@ -77,7 +116,11 @@ This module works with React
 
 ---
 
-`DatePicker`:
+[to summary](#summary)
+
+---
+
+### `DatePicker`
 
 - `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` of the input.
 - `label` : {String} `label` and input `name`
@@ -85,7 +128,13 @@ This module works with React
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `toUpperCase` : {Boolean} if you need to upper case label
 
-Example :
+---
+
+[to summary](#summary)
+
+---
+
+### Example
 
 ```javascript
 import React, {useState} from "react"
@@ -122,8 +171,14 @@ const MyForm = () => {
             <Button type="button" onClick={handleOpenModal}>
                 Open Modale
             </Button>
-            <Modale message="Hello World !!!" open={()=>setIsOpen(!isOpen)} sendStyle={"#F0F"} />
+            <Modale message="Hello World !!!" open={()=> setIsOpen(isOpen)} sendStyle={"#F0F"} onClose={()=> setIsOpen(!isOpen)} />
         </div>
     )
 }
 ```
+
+---
+
+[to summary](#summary)
+
+---

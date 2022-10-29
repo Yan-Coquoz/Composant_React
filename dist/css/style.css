@@ -47,7 +47,7 @@
   width: 100vw;
   height: 100vh;
   position: absolute;
-  background: rgba(128, 128, 128, 0.8);
+  background: rgba(255, 255, 255, 0.6);
   z-index: 10;
   top: 0%;
   left: 0%;
@@ -63,17 +63,17 @@
 }
 
 .modal__close-button {
-  margin: 2rem;
   align-self: flex-end;
   background: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
   border-radius: 50%;
-  overflow: hidden;
-  width: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
   height: 50px;
+  margin: 2rem;
+  overflow: hidden;
   padding: 0.5rem;
+  width: 50px;
 }
 
 .modal__close-button__img {
@@ -88,18 +88,21 @@
 
 .modal__box-paragraph {
   text-align: center;
-  width: 100%;
+  width: 50%;
   margin: 22vh auto;
-  font-weight: bold;
-  font-size: 3em;
+  backdrop-filter: blur(6.2px);
+  -webkit-backdrop-filter: blur(6.2px);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .modal__box-paragraph__paragraph {
-  background: rgba(255, 255, 255, 0.8);
-  width: 50%;
+  font-size: 3em;
   margin: 0 auto;
-  border-radius: 5px;
   padding: 2rem;
+  font-weight: bold;
 }
 
 @keyframes spin-image {

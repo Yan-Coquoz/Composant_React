@@ -1,4 +1,4 @@
-# Type de Composant React
+# Composant React
 
 Composants minimaliste de type input pour React.
 
@@ -12,17 +12,30 @@ Composants minimaliste de type input pour React.
 
 Ce module fonctionne avec React
 
-### Les type d'input
+---
 
-- `InputText`
-- `InputNumber`
-- `Select`
+### Sommaire
 
-### Propriétés
+- [Composant React](#composant-react)
+  - [Prérequis](#prérequis)
+  - [Utilisation du module d'input](#utilisation-du-module-dinput)
+    - [Sommaire](#sommaire)
+    - [Les Propriétés](#les-propriétés)
+    - [`InputText`](#inputtext)
+    - [`InputNumber`](#inputnumber)
+    - [`Select`](#select)
+    - [`Boutons`](#boutons)
+    - [`Modale`](#modale)
+    - [`DatePicker`](#datepicker)
+    - [Exemple](#exemple)
+
+---
+
+### Les Propriétés
 
 **Toutes les propriétés avec un * sont obligatoires** :
 
-`InputText` :
+### `InputText`
 
 - `idName` * : {String} Correspond aux propriétés `htmlFor` et `className` du label, ainsi qu'à l'`id` et au `name` de l'input.
 - `label` : {String} contenu `label` et `placeholder`
@@ -32,28 +45,42 @@ Ce module fonctionne avec React
 
 ---
 
-`InputNumber` :
+[Sommaire](#sommaire)
+
+---
+
+### `InputNumber`
 
 - `idName` * : {String} Correspond aux propriétés `htmlFor` et `className` du label, ainsi qu'à l'`id` et au `name` de l'input.
 - `label` : {String} contenu `label` et `placeholder`
 - `isRequired` : {Booléen} Indique si la valeur est requise ou non
 - `myClass` * : nom de la classe du composant {String}
-- `toUpperCase` {Boolean} change la première lettre de chaque mot du label
+- `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
 - `mini` {Number} valeur minimum de l'input
 - `maxi` {Number} valeur maximum de l'input
 
 ---
 
-`Select` :
-
-- `tabs` * : {ArrayOfObject || Array } pour la balise `option`,En cas de tableau d'objet, celui-ci doit contenir une propriété `name` qui sera affichée
-- `name` * : {String} au lieu de `label`
-- `isRequired` : {Booléen} Indique si la valeur est requise ou non.
-- `idName` : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
+[Sommaire](#sommaire)
 
 ---
 
-`Boutons` :
+### `Select`
+
+- `tabs` * : {ArrayOfObject || Array } pour la balise `option`,En cas de tableau d'objet, celui-ci doit contenir une propriété `name` qui sera affichée
+- `name` * : {String} au lieu de `label`
+- `isRequired` : {Booleen} Indique si la valeur est requise ou non.
+- `idName` : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
+- `sendValue` : {Fonction} retourne le nom et la valeur.
+- `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
+
+---
+
+[Sommaire](#sommaire)
+
+---
+
+### `Boutons`
 
 - `type` * : {String} Le type de bouton : button, submit, reset...
 - `children` * : {String} Le contenu, comme : 'validate', 'save' ...
@@ -63,7 +90,11 @@ Ce module fonctionne avec React
 
 ---
 
-`Modale` :
+[Sommaire](#sommaire)
+
+---
+
+### `Modale`
 
 - `message` * : {String} Le message que vous devez afficher
 - `open` * : {Boolean} l'ordre d'ouverture la modale
@@ -72,7 +103,11 @@ Ce module fonctionne avec React
 
 ---
 
-`DatePicker` :
+[Sommaire](#sommaire)
+
+---
+
+### `DatePicker`
 
 - `idName` *: {String} Correspond aux propriétés `htmlFor` et `className` du label, ainsi qu'à l'`id` de l'input.
 - `label` {String} `label` et `name` de l'input
@@ -80,7 +115,13 @@ Ce module fonctionne avec React
 - `isRequired` {Boolean} si la valuer est requise
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label
 
-Exemple :
+---
+
+[Sommaire](#sommaire)
+
+---
+
+### Exemple
 
 ```javascript
 import  * as React form "react"
@@ -115,3 +156,9 @@ const MyForm = () => {
     )
 }
 ```
+
+---
+
+[Sommaire](#sommaire)
+
+---
