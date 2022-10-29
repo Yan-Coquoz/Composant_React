@@ -1,7 +1,7 @@
 {
   "name": "@yan_coquoz/react_input",
   "author": "yan_coquoz",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "description": "Composants custom React de type Input",
   "main": "dist/index.js",
   "module": "dist/index.js",
