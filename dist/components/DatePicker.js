@@ -25,12 +25,17 @@ require("react-date-range/dist/theme/default.css");
 
 require("../css/style.css");
 
+/**
+ * La fonction rend un composant de sélecteur de date qui permet à l'utilisateur de sélectionner une
+ * date.
+ */
 var DatePicker = function DatePicker(_ref) {
   var idName = _ref.idName,
       label = _ref.label,
       myClass = _ref.myClass,
       isRequired = _ref.isRequired,
-      toUpperCase = _ref.toUpperCase;
+      toUpperCase = _ref.toUpperCase,
+      lang = _ref.lang;
 
   var _useState = (0, _react.useState)(""),
       _useState2 = (0, _slicedToArray2.default)(_useState, 2),
@@ -43,11 +48,43 @@ var DatePicker = function DatePicker(_ref) {
       setOpenCalendar = _useState4[1];
 
   var refCalendar = (0, _react.useRef)(null);
+  /**
+   * Lorsque l'utilisateur clique sur une date, le calendrier sera défini sur cette date.
+   */
 
   function handleCheckSelect(date) {
-    // console.log(date);
-    // console.log(format(date, "yyyy-MM-dd"));
-    setCalendar((0, _format.default)(date, "yyyy-MM-dd")); // format de la date voulue
+    checkLangage(lang.toLowerCase(), date);
+  }
+
+  function checkLangage(lang) {
+    var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : new Date();
+
+    if (lang === "en") {
+      setCalendar((0, _format.default)(date, "yyyy-MM-dd"));
+    }
+
+    if (lang === "fr") {
+      setCalendar((0, _format.default)(date, "dd-MM-yyyy"));
+    }
+  }
+  /**
+   * "Si la langue est l'anglais, retournez le mot "Today", sinon retournez le mot "Aujourd'hui"."
+   *
+   * @param   {String}  lang  par défaut "en" sinon "fr"
+   *
+   * @return  {React.ReactElement}
+   */
+
+
+  function renderTodayBtn(lang) {
+    var trad = lang === "en" ? "Today" : "Aujourd'hui";
+    return /*#__PURE__*/_react.default.createElement("button", {
+      className: "datepicker__btn-today",
+      type: "reset",
+      onClick: function onClick() {
+        return checkLangage(lang.toLowerCase());
+      }
+    }, trad);
   }
   /**
    * Si la touche enfoncée est la touche d'échappement, le calendrier se ferme.
@@ -73,7 +110,8 @@ var DatePicker = function DatePicker(_ref) {
 
   (0, _react.useEffect)(function () {
     // au chargement de la page le compo aura une date par défaut
-    setCalendar((0, _format.default)(new Date(), "yyyy-MM-dd"));
+    // setCalendar(format(new Date(), "yyyy-MM-dd"));
+    checkLangage();
     document.addEventListener("keydown", checkPressKeyOutSide, true);
     document.addEventListener("click", checkClickOutside, true);
   }, []);
@@ -97,13 +135,7 @@ var DatePicker = function DatePicker(_ref) {
     }
   }), /*#__PURE__*/_react.default.createElement("div", {
     ref: refCalendar
-  }, openCalendar && /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
-    className: "datepicker__btn-today",
-    type: "reset",
-    onClick: function onClick() {
-      return setCalendar((0, _format.default)(new Date(), "yyyy-MM-dd"));
-    }
-  }, "Today"), /*#__PURE__*/_react.default.createElement(_reactDateRange.Calendar, {
+  }, openCalendar && /*#__PURE__*/_react.default.createElement("div", null, renderTodayBtn(lang), /*#__PURE__*/_react.default.createElement(_reactDateRange.Calendar, {
     className: "datepicker__calendar",
     date: new Date(),
     onChange: handleCheckSelect
@@ -112,7 +144,8 @@ var DatePicker = function DatePicker(_ref) {
 
 DatePicker.defaultProps = {
   myClass: "",
-  label: ""
+  label: "",
+  lang: "en"
 };
 var _default = DatePicker;
 exports.default = _default;

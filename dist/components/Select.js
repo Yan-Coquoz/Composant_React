@@ -69,9 +69,9 @@ var Select = function Select(_ref) {
     } else {
       return tabs.map(function (ele) {
         return /*#__PURE__*/_react.default.createElement("option", {
-          value: ele.name,
-          key: ele.name
-        }, (0, _utils.fromLowerToUpperCase)(ele.name));
+          value: ele === null || ele === void 0 ? void 0 : ele.name,
+          key: ele === null || ele === void 0 ? void 0 : ele.name
+        }, (0, _utils.fromLowerToUpperCase)(ele === null || ele === void 0 ? void 0 : ele.name));
       });
     }
   }

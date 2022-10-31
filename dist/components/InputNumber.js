@@ -17,7 +17,7 @@ require("../css/style.css");
  *
  * @prop   {String}  idName      Valeur liant l'input et le label
  * @prop   {String}  label       Description du label et du placeholder
- * @prop   {Function}  sendValue   Permet de transmettre les valeurs de l'input
+ * @prop   {Function}  sendValue   Permet de transmettre les valeurs de l'input (input name et value)
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
  * @prop  {Number}  mini minimum value
@@ -32,7 +32,15 @@ var InputNumber = function InputNumber(_ref) {
       isRequired = _ref.isRequired,
       myClass = _ref.myClass,
       mini = _ref.mini,
-      maxi = _ref.maxi;
+      maxi = _ref.maxi,
+      sendValue = _ref.sendValue;
+
+  function handleSendValue(evt) {
+    var inputName = evt.target.name;
+    var inputValue = evt.target.value;
+    sendValue(inputName, inputValue);
+  }
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "input_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -46,7 +54,8 @@ var InputNumber = function InputNumber(_ref) {
     required: isRequired,
     type: "number",
     min: mini,
-    max: maxi
+    max: maxi,
+    onChange: handleSendValue
   }));
 };
 
@@ -54,8 +63,9 @@ InputNumber.defaultProps = {
   isRequired: false,
   label: "",
   placeholder: "",
-  idName: "idName",
-  toUpperCase: false
+  idName: "",
+  toUpperCase: false,
+  sendValue: function sendValue() {}
 };
 var _default = InputNumber;
 exports.default = _default;

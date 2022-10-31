@@ -8,12 +8,17 @@ import {
   Select,
 } from "../lib/index";
 import { depts, etats } from "../Datas";
+import "./style.css";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   function handleOpenModal() {
     setIsOpen(true);
+  }
+
+  function handleChangeInput(name, value) {
+    console.log(name, value);
   }
 
   function handleSendForm(evt) {
@@ -39,17 +44,19 @@ const App = () => {
     <form onSubmit={handleSendForm}>
       <InputText
         idName={"firstname"}
-        label={"Prénom"}
+        label={"prénom"}
         isRequired={false}
-        // sendValue={handleChange}
+        sendValue={handleChangeInput}
         myClass={"input_text"}
+        toUpperCase={true}
       />
       <InputNumber
         idName="testnumber"
         label={"test de nombre"}
         toUpperCase={true}
-        mini={9999}
-        maxi={99999}
+        // mini={10000}
+        // maxi={99999}
+        isRequired={true}
       />
 
       <Select tabs={depts} idName={"department"} name={"department"} />
@@ -59,6 +66,7 @@ const App = () => {
         isRequired={false}
         label={"date of birth"}
         toUpperCase={true}
+        lang={"fr"}
       />
       <Select tabs={etats} idName={"state"} name={"state"} toUpperCase={true} />
 

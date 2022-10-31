@@ -43,9 +43,9 @@ var Button = function Button(_ref) {
 };
 
 Button.defaultProps = {
-  onClick: function onClick() {},
+  idName: "",
   myClass: "",
-  id: "",
+  onClick: function onClick() {},
   type: ""
 };
 var _default = Button;

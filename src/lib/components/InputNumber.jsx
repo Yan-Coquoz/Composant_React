@@ -6,7 +6,7 @@ import "../css/style.css";
  *
  * @prop   {String}  idName      Valeur liant l'input et le label
  * @prop   {String}  label       Description du label et du placeholder
- * @prop   {Function}  sendValue   Permet de transmettre les valeurs de l'input
+ * @prop   {Function}  sendValue   Permet de transmettre les valeurs de l'input (input name et value)
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
  * @prop  {Number}  mini minimum value
@@ -23,7 +23,14 @@ const InputNumber = ({
   myClass,
   mini,
   maxi,
+  sendValue,
 }) => {
+  function handleSendValue(evt) {
+    const inputName = evt.target.name;
+    const inputValue = evt.target.value;
+    sendValue(inputName, inputValue);
+  }
+
   return (
     <div className="input_container">
       <label htmlFor={idName} className={`input_container__label ${idName}`}>
@@ -38,6 +45,7 @@ const InputNumber = ({
         type="number"
         min={mini}
         max={maxi}
+        onChange={handleSendValue}
       />
     </div>
   );
@@ -51,12 +59,14 @@ InputNumber.propTypes = {
   mini: PropTypes.number,
   maxi: PropTypes.number,
   toUpperCase: PropTypes.bool,
+  sendValue: PropTypes.func,
 };
 InputNumber.defaultProps = {
   isRequired: false,
   label: "",
   placeholder: "",
-  idName: "idName",
+  idName: "",
   toUpperCase: false,
+  sendValue: () => {},
 };
 export default InputNumber;

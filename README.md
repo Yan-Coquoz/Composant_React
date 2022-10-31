@@ -50,11 +50,12 @@ This module works with React
 
 ### `InputText`
 
-- `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
-- `label` : {String} `label` and `placeholder` content
-- `isRequired` : {Boolean} Whether the value is required or not
-- `myClass` *: {String} component class name
-- `toUpperCase` : {Boolean} if you need to upper case label
+- `idName` *: {String} Corresponds to the `htmlFor` and `className`.properties of the label, as well as the `id` and the `name` of the input.
+- `label` : {String} `label` and `placeholder` content.
+- `isRequired` : {Boolean} Whether the value is required or not.
+- `myClass` *: {String} component class name.
+- `toUpperCase` : {Boolean} if you need to upper case label.
+- `sendValue` : To have a controlled component, allows to retrieve the values of the input: name and value, for each action on the keyboard.
 
 ---
 
@@ -71,6 +72,7 @@ This module works with React
 - `mini` : {Number} minimum value
 - `maxi` : {Number} maximum value
 - `toUpperCase` : {Boolean} if you need to upper case label.
+- `sendValue` : To have a controlled component, allows to retrieve the values of the input: *name* and *value*, for each action on the keyboard.
 
 ---
 
@@ -80,7 +82,7 @@ This module works with React
 
 ### `Select`
 
-- `tabs` *: {Array of Object || Array} for the `option` tag, if it 's an Array of Object, it must contain a propertie `name` who will be display
+- `tabs` *: {Array of Object || Array} for the `option` tag, if it 's an Array of Object, it must contain a property `name` who will be display
 - `name` *: {String} instead of `label`
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `idName` : {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
@@ -99,7 +101,7 @@ This module works with React
 - `children` *: {String} The content, like : 'validate', 'save' ...
 - `myClass` : {String} A class to give some style
 - `idName` : {String} Id of the button
-- `onClick` : {Function} If you need a function..
+- `onClick` : {Function} If you need a function.. (onClick)
 
 ---
 
@@ -127,6 +129,7 @@ This module works with React
 - `myClass` : {String} input `className`
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `toUpperCase` : {Boolean} if you need to upper case label
+- `lang` : {String} to format date. by default "en" : yyyy-MM-dd. Can be french with "fr" : dd-MM-yyyy
 
 ---
 
@@ -140,7 +143,6 @@ This module works with React
 import React, {useState} from "react"
 import { InputText, Button, Modale, DatePicker } from "@yan_coquoz/react_input"
 
-
 const MyForm = () => {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -148,15 +150,21 @@ const MyForm = () => {
     function handleOpenModal() {
         setIsOpen(true);
   }
+
+  function handleInputText(name, value){
+    console.log(name, value)
+    // do what you want
+ }
     return(
         <div>
             <form>
                 <InputText 
-                    idName={String} 
-                    label={String} 
-                    isRequired={Boolean} 
-                    sendValue={Function} 
-                    myClass={String} 
+                    idName={firstname} 
+                    label={first name} 
+                    isRequired={true} 
+                    sendValue={handleInputText} 
+                    myClass={"input_firstname"} 
+                    toUpperCase={true}
                 />
 
                 <DatePicker
@@ -164,14 +172,18 @@ const MyForm = () => {
                     isRequired={false}
                     label={"date of birth"}
                     toUpperCase={true}
+                    lang={"en"}
                 />
+                
                 <Button type="submit">Save</Button>
 
             </form>
-            <Button type="button" onClick={handleOpenModal}>
-                Open Modale
-            </Button>
-            <Modale message="Hello World !!!" open={()=> setIsOpen(isOpen)} sendStyle={"#F0F"} onClose={()=> setIsOpen(!isOpen)} />
+            <div>
+                <Button type="button" onClick={handleOpenModal}>
+                    Open Modale
+                </Button>
+                <Modale message="Hello World !!!" open={isOpen} sendStyle={"#F0F"} onClose={()=> setIsOpen(!isOpen)} />
+            </div>
         </div>
     )
 }

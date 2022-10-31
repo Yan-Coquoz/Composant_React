@@ -41,8 +41,8 @@ const Select = ({ idName, isRequired, name, sendValue, tabs, toUpperCase }) => {
     } else {
       return tabs.map((ele) => {
         return (
-          <option value={ele.name} key={ele.name}>
-            {fromLowerToUpperCase(ele.name)}
+          <option value={ele?.name} key={ele?.name}>
+            {fromLowerToUpperCase(ele?.name)}
           </option>
         );
       });

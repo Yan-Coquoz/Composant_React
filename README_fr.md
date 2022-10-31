@@ -41,7 +41,8 @@ Ce module fonctionne avec React
 - `label` : {String} contenu `label` et `placeholder`
 - `isRequired` : {Booléen} Indique si la valeur est requise ou non
 - `myClass` * : nom de la classe du composant {String}
-- `toUpperCase` {Boolean} change la première lettre de chaque mot du label
+- `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
+- `sendValue` : Pour avoir un composant contrôlé, permet de récupérer les valeurs de l'entrée : *name* et *value*, pour chaque action au clavier.
 
 ---
 
@@ -57,7 +58,8 @@ Ce module fonctionne avec React
 - `myClass` * : nom de la classe du composant {String}
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
 - `mini` {Number} valeur minimum de l'input
-- `maxi` {Number} valeur maximum de l'input
+- `maxi` {Number} valeur maximum de l'input.
+- `sendValue` : Pour avoir un composant contrôlé, permet de récupérer les valeurs de l'entrée : name et value, pour chaque action au clavier.
 
 ---
 
@@ -67,7 +69,7 @@ Ce module fonctionne avec React
 
 ### `Select`
 
-- `tabs` * : {ArrayOfObject || Array } pour la balise `option`,En cas de tableau d'objet, celui-ci doit contenir une propriété `name` qui sera affichée
+- `tabs` * : {ArrayOfObject || Array } pour la balise `option`, en cas de tableau d'objet, celui-ci doit contenir une propriété `name` qui sera affichée
 - `name` * : {String} au lieu de `label`
 - `isRequired` : {Booleen} Indique si la valeur est requise ou non.
 - `idName` : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
@@ -113,7 +115,8 @@ Ce module fonctionne avec React
 - `label` {String} `label` et `name` de l'input
 - `myClass` {String} `className` de l'input
 - `isRequired` {Boolean} si la valuer est requise
-- `toUpperCase` {Boolean} change la première lettre de chaque mot du label
+- `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
+- `lang` : {String} pour le formatage de la date. La valeur par défaut "en" : yyyy-MM-dd. Peut être mis en français "fr" : dd-MM-yyyy
 
 ---
 
@@ -134,24 +137,41 @@ const MyForm = () => {
  function handleOpenModale(){
     setIsOpen(true)
  }
+ function handleInputText(name, value){
+    console.log(name, value)
+    // fait ce que tu veux
+ }
    
     return(
         <div>
             <form>
+
                 <InputText 
-                    idName={String} 
-                    label={String} 
-                    isRequired={Boolean} 
-                    sendValue={Function} 
-                    myClass={String} 
+                    idName={firstname} 
+                    label={first name} 
+                    isRequired={true} 
+                    sendValue={handleInputText} 
+                    myClass={"input_firstname"} 
+                    toUpperCase={true}
                 />
+
+                <DatePicker
+                    idName={"dateOfBirth"}
+                    isRequired={false}
+                    label={"date of birth"}
+                    toUpperCase={true}
+                    lang={"fr"}
+                />
+
                 <Button type="submit" onClick={handleOpenModale}>Save</Button>
          
             </form>
-            <Button type="button" onClick={()=>setIsOpen(!isOpen)}>
-                Open Modale
-            </Button>
-            <Modale message="Hello World !!!" open={isOpen} sendStyle={"red"} onClose={()=> setIsOpen(!isOpen)} />
+            <div>
+                <Button type="button" onClick={()=>setIsOpen(!isOpen)}>
+                            Open Modale
+                </Button>
+                <Modale message="Hello World !!!" open={isOpen} sendStyle={"red"} onClose={()=> setIsOpen(!isOpen)} />
+            </div>
         </div>
     )
 }

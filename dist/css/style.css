@@ -103,6 +103,7 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: bold;
+  border-radius: 10px;
 }
 
 @keyframes spin-image {
@@ -130,30 +131,28 @@
   font-size: 1rem;
   width: 185px;
   padding: 0.5rem;
-  /* border-radius: 5px; */
   border: 1px solid #666;
 }
 
 .datepicker__calendar {
   border: 1px solid #ccc;
   position: absolute;
-  /* left: 50%;
-  top: 100%;
-  transform: translate(-50%); */
   z-index: 100;
   border-radius: 5px;
   box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
 }
 .datepicker__btn-today {
-  position: absolute;
-  bottom: 0;
-  right: -30%;
+  -webkit-backdrop-filter: blur(6.2px);
+  backdrop-filter: blur(6.2px);
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
   border: 1px solid #ccc;
-  background: none;
+  bottom: 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   padding: 10px 9px;
-  border-radius: 5px;
-  background: rgba(239, 242, 247, 0.7);
+  position: absolute;
+  right: -77%;
 }
 .datepicker__btn-today:hover {
   box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
