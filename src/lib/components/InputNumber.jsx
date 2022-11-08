@@ -25,27 +25,26 @@ const InputNumber = ({
   maxi,
   sendValue,
 }) => {
-  function handleSendValue(evt) {
-    const inputName = evt.target.name;
-    const inputValue = evt.target.value;
-    sendValue(inputName, inputValue);
-  }
-
   return (
     <div className="input_container">
-      <label htmlFor={idName} className={`input_container__label ${idName}`}>
+      <label
+        htmlFor={idName}
+        className={`input_container__label ${idName}`}
+        data-testid="input_label"
+      >
         {toUpperCase ? fromLowerToUpperCase(label) : label}
       </label>
       <input
         className={`input_container__input ${myClass}`}
         id={idName}
+        aria-label={"input_number"}
         name={idName}
         placeholder={fromLowerToUpperCase(label)}
         required={isRequired}
         type="number"
         min={mini}
         max={maxi}
-        onChange={handleSendValue}
+        onChange={(evt) => sendValue(evt.target.name, evt.target.value)}
       />
     </div>
   );

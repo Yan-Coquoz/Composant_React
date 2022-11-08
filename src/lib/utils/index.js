@@ -16,12 +16,12 @@ export function fromLowerToUpperCase(str) {
   return "";
 }
 
-export function todayDate() {
-  const dayNbrOnMonth = new Date().getDate();
-  const month = new Date().getMonth();
-  const year = new Date().getFullYear();
-  return `${dayNbrOnMonth}/${month}/${year}`;
-}
+// export function todayDate() {
+//   const dayNbrOnMonth = new Date().getDate();
+//   const month = new Date().getMonth();
+//   const year = new Date().getFullYear();
+//   return `${dayNbrOnMonth}/${month}/${year}`;
+// }
 
 /**
  * Il prend une chaîne, remplace tous les traits d'union, traits de soulignement et espaces par une
@@ -59,6 +59,12 @@ export const toCamelCase = (string) => {
   });
 };
 
+/**
+ * Il vérifie si le premier élément d'un tableau est un tableau, un nombre, une chaîne, un objet avec
+ * une propriété name ou null.
+ * @param arr - le tableau à vérifier
+ * @returns le type du premier élément du tableau.
+ */
 export function checkArrayOf(arr) {
   // le type du tableau
 

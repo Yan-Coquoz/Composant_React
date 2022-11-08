@@ -27,17 +27,14 @@ var Button = function Button(_ref) {
   var children = _ref.children,
       type = _ref.type,
       myClass = _ref.myClass,
-      onClick = _ref.onClick,
+      _onClick = _ref.onClick,
       idName = _ref.idName;
-
-  function sendClickEvent(evt) {
-    onClick(evt);
-  }
-
   return /*#__PURE__*/_react.default.createElement("button", {
     type: type,
     className: myClass,
-    onClick: sendClickEvent,
+    onClick: function onClick(evt) {
+      return _onClick(evt);
+    },
     id: idName
   }, children);
 };
@@ -46,7 +43,8 @@ Button.defaultProps = {
   idName: "",
   myClass: "",
   onClick: function onClick() {},
-  type: ""
+  type: "",
+  children: "button"
 };
 var _default = Button;
 exports.default = _default;

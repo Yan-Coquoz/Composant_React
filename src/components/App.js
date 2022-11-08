@@ -41,47 +41,55 @@ const App = () => {
   }
 
   return (
-    <form onSubmit={handleSendForm}>
-      <InputText
-        idName={"firstname"}
-        label={"prénom"}
-        isRequired={false}
-        sendValue={handleChangeInput}
-        myClass={"input_text"}
-        toUpperCase={true}
-      />
-      <InputNumber
-        idName="testnumber"
-        label={"test de nombre"}
-        toUpperCase={true}
-        // mini={10000}
-        // maxi={99999}
-        isRequired={true}
-      />
+    <div>
+      <h1>Hello Test</h1>
+      <form onSubmit={handleSendForm}>
+        <InputText
+          idName={"firstname"}
+          label={"prénom"}
+          isRequired={false}
+          sendValue={handleChangeInput}
+          myClass={"input_text"}
+          toUpperCase={true}
+        />
+        <InputNumber
+          idName="testnumber"
+          label={"test de nombre"}
+          toUpperCase={true}
+          // mini={10000}
+          // maxi={99999}
+          isRequired={true}
+        />
 
-      <Select tabs={depts} idName={"department"} name={"department"} />
+        <Select tabs={depts} idName={"department"} name={"department"} />
 
-      <DatePicker
-        idName={"dateOfBirth"}
-        isRequired={false}
-        label={"date of birth"}
-        toUpperCase={true}
-        lang={"fr"}
-      />
-      <Select tabs={etats} idName={"state"} name={"state"} toUpperCase={true} />
+        <DatePicker
+          idName={"dateOfBirth"}
+          isRequired={false}
+          label={"date of birth"}
+          toUpperCase={true}
+          lang={"fr"}
+        />
+        <Select
+          tabs={etats}
+          idName={"state"}
+          name={"state"}
+          toUpperCase={true}
+        />
 
-      <Button type="button" onClick={handleOpenModal}>
-        Open Modale
-      </Button>
+        <Button type="button" onClick={handleOpenModal}>
+          Open Modale
+        </Button>
 
-      <Modale
-        message="Hello World !!!"
-        open={isOpen}
-        onClose={() => setIsOpen(!isOpen)}
-      />
-      <br />
-      <button>send</button>
-    </form>
+        <Modale
+          message="Hello World !!!"
+          open={isOpen}
+          onClose={() => setIsOpen(!isOpen)}
+        />
+        <br />
+        <button>send</button>
+      </form>
+    </div>
   );
 };
 

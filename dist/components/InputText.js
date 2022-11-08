@@ -35,9 +35,11 @@ var InputText = function InputText(_ref) {
     className: "input_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: idName,
-    className: "input_container__label ".concat(idName)
+    className: "input_container__label ".concat(idName),
+    "data-testid": "input_label"
   }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(label) : label), /*#__PURE__*/_react.default.createElement("input", {
     className: "input_container__input ".concat(myClass),
+    "aria-label": "input_text",
     id: idName,
     name: idName,
     placeholder: (0, _utils.fromLowerToUpperCase)(label),

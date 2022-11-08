@@ -23,11 +23,16 @@ const InputText = ({
 }) => {
   return (
     <div className="input_container">
-      <label htmlFor={idName} className={`input_container__label ${idName}`}>
+      <label
+        htmlFor={idName}
+        className={`input_container__label ${idName}`}
+        data-testid="input_label"
+      >
         {toUpperCase ? fromLowerToUpperCase(label) : label}
       </label>
       <input
         className={`input_container__input ${myClass}`}
+        aria-label={"input_text"}
         id={idName}
         name={idName}
         placeholder={fromLowerToUpperCase(label)}

@@ -34,28 +34,25 @@ var InputNumber = function InputNumber(_ref) {
       mini = _ref.mini,
       maxi = _ref.maxi,
       sendValue = _ref.sendValue;
-
-  function handleSendValue(evt) {
-    var inputName = evt.target.name;
-    var inputValue = evt.target.value;
-    sendValue(inputName, inputValue);
-  }
-
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "input_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: idName,
-    className: "input_container__label ".concat(idName)
+    className: "input_container__label ".concat(idName),
+    "data-testid": "input_label"
   }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(label) : label), /*#__PURE__*/_react.default.createElement("input", {
     className: "input_container__input ".concat(myClass),
     id: idName,
+    "aria-label": "input_number",
     name: idName,
     placeholder: (0, _utils.fromLowerToUpperCase)(label),
     required: isRequired,
     type: "number",
     min: mini,
     max: maxi,
-    onChange: handleSendValue
+    onChange: function onChange(evt) {
+      return sendValue(evt.target.name, evt.target.value);
+    }
   }));
 };
 

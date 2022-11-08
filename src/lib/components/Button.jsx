@@ -14,14 +14,11 @@ import "../css/style.css";
  * @return  {React.ReactElement}           a Button
  */
 const Button = ({ children, type, myClass, onClick, idName }) => {
-  function sendClickEvent(evt) {
-    onClick(evt);
-  }
   return (
     <button
       type={type}
       className={myClass}
-      onClick={sendClickEvent}
+      onClick={(evt) => onClick(evt)}
       id={idName}
     >
       {children}
@@ -41,5 +38,6 @@ Button.defaultProps = {
   myClass: "",
   onClick: () => {},
   type: "",
+  children: "button",
 };
 export default Button;
