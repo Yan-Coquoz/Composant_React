@@ -18,6 +18,7 @@ const DatePicker = ({
   isRequired,
   toUpperCase,
   lang,
+  placeholder,
 }) => {
   const [calendar, setCalendar] = useState("");
   const [openCalendar, setOpenCalendar] = useState(false);
@@ -97,6 +98,7 @@ const DatePicker = ({
         name={label.split(" ").join("_")}
         id={idName}
         required={isRequired}
+        placeholder={placeholder}
         // overture/fermeture du calendrier
         onClick={() => setOpenCalendar((openCalendar) => !openCalendar)}
       />
@@ -125,6 +127,7 @@ DatePicker.propTypes = {
   isRequired: PropTypes.bool,
   toUpperCase: PropTypes.bool,
   lang: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 DatePicker.defaultProps = {
   myClass: "",

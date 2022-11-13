@@ -130,6 +130,7 @@ This module works with React
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `toUpperCase` : {Boolean} if you need to upper case label
 - `lang` : {String} to format date. by default "en" : yyyy-MM-dd. Can be french with "fr" : dd-MM-yyyy
+- `placeholder` : {String} What is expected in the field.
 
 ---
 

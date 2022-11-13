@@ -1,18 +1,13 @@
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _utils = require("../utils");
-
 require("../css/style.css");
-
 /**
  *
  * @prop   {String}  idName      Valeur liant l'input et le label
@@ -26,11 +21,11 @@ require("../css/style.css");
  */
 var InputText = function InputText(_ref) {
   var idName = _ref.idName,
-      label = _ref.label,
-      toUpperCase = _ref.toUpperCase,
-      isRequired = _ref.isRequired,
-      myClass = _ref.myClass,
-      sendValue = _ref.sendValue;
+    label = _ref.label,
+    toUpperCase = _ref.toUpperCase,
+    isRequired = _ref.isRequired,
+    myClass = _ref.myClass,
+    sendValue = _ref.sendValue;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "input_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -50,7 +45,6 @@ var InputText = function InputText(_ref) {
     }
   }));
 };
-
 InputText.defaultProps = {
   toUpperCase: false,
   isRequired: false,

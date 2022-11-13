@@ -1,7 +1,6 @@
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -41,15 +40,9 @@ Object.defineProperty(exports, "Select", {
     return _Select.default;
   }
 });
-
 var _InputText = _interopRequireDefault(require("./components/InputText"));
-
 var _InputNumber = _interopRequireDefault(require("./components/InputNumber"));
-
 var _Select = _interopRequireDefault(require("./components/Select"));
-
 var _Button = _interopRequireDefault(require("./components/Button"));
-
 var _Modale = _interopRequireDefault(require("./components/Modale"));
-
 var _DatePicker = _interopRequireDefault(require("./components/DatePicker"));

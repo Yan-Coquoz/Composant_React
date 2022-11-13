@@ -117,6 +117,7 @@ Ce module fonctionne avec React
 - `isRequired` {Boolean} si la valuer est requise
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
 - `lang` : {String} pour le formatage de la date. La valeur par défaut "en" : yyyy-MM-dd. Peut être mis en français "fr" : dd-MM-yyyy
+- `placeholder` : {String} Ce qui est attendu dans le champs.
 
 ---
 

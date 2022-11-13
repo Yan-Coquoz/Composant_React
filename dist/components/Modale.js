@@ -1,18 +1,13 @@
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 var _close = _interopRequireDefault(require("../assets/icons/close.svg"));
-
 require("../css/style.css");
-
 // @ts-nocheck
 
 /**
@@ -27,21 +22,18 @@ require("../css/style.css");
  */
 var Modale = function Modale(_ref) {
   var message = _ref.message,
-      onClose = _ref.onClose,
-      open = _ref.open,
-      sendStyle = _ref.sendStyle;
-
+    onClose = _ref.onClose,
+    open = _ref.open,
+    sendStyle = _ref.sendStyle;
   function handleCloseBtn() {
     document.querySelector(".modal_container").style.display = "none";
     onClose(false);
   }
-
   _react.default.useEffect(function () {
     if (open) {
       document.querySelector(".modal_container").style.display = "block";
     }
   }, [open]);
-
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "modal_container"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -60,14 +52,14 @@ var Modale = function Modale(_ref) {
     className: "modal__box-paragraph"
   }, /*#__PURE__*/_react.default.createElement("p", {
     className: "modal__box-paragraph__paragraph",
+    "data-testid": "modal_para",
     style: {
       border: "2px solid ".concat(sendStyle)
     }
   }, message))));
 };
-
 Modale.defaultProps = {
-  message: "",
+  message: "Message",
   onClose: function onClose() {},
   open: false,
   sendStyle: "none"

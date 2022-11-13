@@ -1,16 +1,12 @@
 "use strict";
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
 var _react = _interopRequireDefault(require("react"));
-
 require("../css/style.css");
-
 /**
  * C'est une fonction qui renvoie un élément de bouton avec les accessoires label, type, className,
  * onClick et idName passés en tant qu'arguments
@@ -25,10 +21,10 @@ require("../css/style.css");
  */
 var Button = function Button(_ref) {
   var children = _ref.children,
-      type = _ref.type,
-      myClass = _ref.myClass,
-      _onClick = _ref.onClick,
-      idName = _ref.idName;
+    type = _ref.type,
+    myClass = _ref.myClass,
+    _onClick = _ref.onClick,
+    idName = _ref.idName;
   return /*#__PURE__*/_react.default.createElement("button", {
     type: type,
     className: myClass,
@@ -38,7 +34,6 @@ var Button = function Button(_ref) {
     id: idName
   }, children);
 };
-
 Button.defaultProps = {
   idName: "",
   myClass: "",
