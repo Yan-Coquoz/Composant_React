@@ -42,6 +42,7 @@ const Modale = ({ message, onClose, open, sendStyle }) => {
         <div className="modal__box-paragraph">
           <p
             className="modal__box-paragraph__paragraph"
+            data-testid="modal_para"
             style={{ border: `2px solid ${sendStyle}` }}
           >
             {message}
@@ -59,7 +60,7 @@ Modale.propTypes = {
   sendStyle: PropTypes.string,
 };
 Modale.defaultProps = {
-  message: "",
+  message: "Message",
   onClose: () => {},
   open: false,
   sendStyle: "none",

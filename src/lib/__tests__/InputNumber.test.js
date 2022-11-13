@@ -22,6 +22,7 @@ describe("Test the component InputNumber", () => {
       const inputNum = content.getByLabelText("input_number");
       return { inputNum, ...content };
     };
+
     const { inputNum } = setup();
     // value DOIT être un nombre de type string
     fireEvent.change(inputNum, {

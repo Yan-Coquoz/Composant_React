@@ -21,6 +21,11 @@ const Select = ({ idName, isRequired, name, sendValue, tabs, toUpperCase }) => {
   const [tabType, setTabType] = React.useState("");
   const [renderOption, setRenderOption] = React.useState("");
 
+  /**
+   * Si la valeur de la sélection n'est pas égale à 'options', alors envoyez la valeur de la sélection
+   * à la fonction sendValue.
+   * @returns
+   */
   const handleSendValue = (evt) => {
     const value = evt.target.value;
     const selectName = evt.target.name;
@@ -29,6 +34,12 @@ const Select = ({ idName, isRequired, name, sendValue, tabs, toUpperCase }) => {
     }
     return "";
   };
+
+  /**
+   * Si le tabType n'est pas un objet, mappez sur le tableau tabs et renvoyez un élément d'option avec la
+   * valeur de l'élément et la clé de l'index. Si le tabType est un objet, mappez sur le tableau tabs et
+   * renvoyez un élément d'option avec la valeur du nom de l'élément et la clé du nom de l'élément.
+   */
   function formatOption() {
     if (tabType !== "object") {
       return tabs.map((ele, key) => {
@@ -48,6 +59,7 @@ const Select = ({ idName, isRequired, name, sendValue, tabs, toUpperCase }) => {
       });
     }
   }
+
   React.useEffect(() => {
     const tabsType = checkArrayOf(tabs);
     setTabType(tabsType);
@@ -56,7 +68,11 @@ const Select = ({ idName, isRequired, name, sendValue, tabs, toUpperCase }) => {
 
   return (
     <div className="select_container">
-      <label htmlFor={idName} className={"input_container__label"}>
+      <label
+        htmlFor={idName}
+        className={"input_container__label"}
+        data-testid="select_label"
+      >
         {toUpperCase ? fromLowerToUpperCase(name) : name}
       </label>
       <select
@@ -65,6 +81,7 @@ const Select = ({ idName, isRequired, name, sendValue, tabs, toUpperCase }) => {
         id={idName}
         required={isRequired}
         onChange={handleSendValue}
+        aria-label={"select"}
       >
         <option style={{ textAlign: "center" }}>
           {fromLowerToUpperCase("options")}

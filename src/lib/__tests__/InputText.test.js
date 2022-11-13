@@ -11,12 +11,14 @@ describe("Test for TextInput", () => {
     const label = screen.getByTestId("input_label");
     expect(label).toBeInTheDocument();
   });
+
   it("it should be render an input", () => {
     // https://testing-library.com/docs/example-input-event
     const content = render(<InputText />);
     const input = content.getByLabelText("input_text");
     expect(input).toBeInTheDocument();
   });
+
   it("Should send name and value", () => {
     // https://testing-library.com/docs/example-input-event
     const setup = () => {
