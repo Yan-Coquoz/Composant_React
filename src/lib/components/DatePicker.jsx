@@ -31,6 +31,10 @@ const DatePicker = ({
     checkLangage(lang.toLowerCase(), date);
   }
 
+  /**
+   * Si la langue est l'anglais, réglez le calendrier sur la date au format aaaa-MM-jj. Si la langue
+   * est le français, réglez le calendrier sur la date au format jj-MM-aaaa
+   */
   function checkLangage(lang, date = new Date()) {
     if (lang === "en") {
       setCalendar(format(date, "yyyy-MM-dd"));
@@ -66,6 +70,7 @@ const DatePicker = ({
   function checkPressKeyOutSide(evt) {
     if (evt.key === "Escape") {
       setOpenCalendar(false);
+      console.log(5);
     }
   }
   /**
@@ -77,7 +82,9 @@ const DatePicker = ({
       setOpenCalendar(false);
     }
   }
-
+function handleChange(evt){
+  console.log(evt)
+}
   useEffect(() => {
     // au chargement de la page le compo aura une date par défaut
     // setCalendar(format(new Date(), "yyyy-MM-dd"));
@@ -86,6 +93,7 @@ const DatePicker = ({
     document.addEventListener("click", checkClickOutside, true);
   }, []);
 
+  console.log(label)
   return (
     <div className="datepicker__container">
       <label htmlFor={idName} className={`datepicker__label ${idName}`}>
@@ -94,7 +102,8 @@ const DatePicker = ({
       <input
         className={`datepicker__input ${myClass}`}
         value={calendar}
-        readOnly
+        // readOnly
+        onChange={handleChange}
         name={label.split(" ").join("_")}
         id={idName}
         required={isRequired}

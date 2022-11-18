@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { fromLowerToUpperCase } from "../utils";
 import "../css/style.css";
+
 /**
  *
  * @prop   {String}  idName      Valeur liant l'input et le label

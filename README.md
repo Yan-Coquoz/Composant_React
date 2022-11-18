@@ -88,6 +88,7 @@ This module works with React
 - `idName` : {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
 - `sendValue` : {Function} return name and value.
 - `toUpperCase` : {Boolean} if you need to upper case label
+- `optValue` : {Boolean} Render 'Options' for first value in select area
 
 ---
 

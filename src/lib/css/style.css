@@ -1,7 +1,3 @@
-#root {
-  /* width: 1024px; */
-  /* margin: 0 auto; */
-}
 /* input text & Input Number */
 .input_container {
   display: flex;
@@ -58,6 +54,7 @@
   flex-direction: column;
   position: fixed;
   width: 100%;
+  animation: into_page 0.5s;
 }
 
 .modal__close-button {
@@ -110,6 +107,16 @@
   }
   100% {
     transform: rotate(90deg);
+  }
+}
+@keyframes into_page {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
   }
 }
 /* datepicker */

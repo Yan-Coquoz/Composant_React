@@ -75,6 +75,7 @@ Ce module fonctionne avec React
 - `idName` : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
 - `sendValue` : {Fonction} retourne le nom et la valeur.
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
+- `optValue` {Boolean} place en premiere valeur du champs 'Options'
 
 ---
 

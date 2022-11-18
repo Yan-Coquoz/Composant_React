@@ -13,11 +13,19 @@ import "../css/style.css";
  * @prop   {Boolean}  `isRequired`  If the value is required
  * @prop   {Function}  `sendValue`   send name value and value selected
  * @prop   {Boolean}  `toUpperCase`  if label need to be to upper case
- *
+ * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area
  * @return  {React.ReactElement}
  */
 
-const Select = ({ idName, isRequired, name, sendValue, tabs, toUpperCase }) => {
+const Select = ({
+  idName,
+  isRequired,
+  name,
+  sendValue,
+  tabs,
+  optValue,
+  toUpperCase,
+}) => {
   const [tabType, setTabType] = React.useState("");
   const [renderOption, setRenderOption] = React.useState("");
 
@@ -83,9 +91,11 @@ const Select = ({ idName, isRequired, name, sendValue, tabs, toUpperCase }) => {
         onChange={handleSendValue}
         aria-label={"select"}
       >
-        <option style={{ textAlign: "center" }}>
-          {fromLowerToUpperCase("options")}
-        </option>
+        {optValue && (
+          <option style={{ textAlign: "center" }}>
+            {fromLowerToUpperCase("options")}
+          </option>
+        )}
         {renderOption}
       </select>
     </div>
@@ -99,6 +109,7 @@ Select.propTypes = {
   sendValue: PropTypes.func,
   tabs: PropTypes.arrayOf(Object).isRequired,
   toUpperCase: PropTypes.bool,
+  optValue: PropTypes.bool,
 };
 Select.defaultProps = {
   idName: "",
@@ -106,5 +117,6 @@ Select.defaultProps = {
   name: "",
   sendValue: () => {},
   toUpperCase: false,
+  optValue: false,
 };
 export default Select;

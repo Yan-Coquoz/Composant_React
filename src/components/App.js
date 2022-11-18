@@ -27,6 +27,8 @@ const App = () => {
     const props = [];
     const values = [];
 
+    console.log(evt.target[3].value);
+
     if (props.length === values.length) {
       for (let i = 0; i < evt.target.length - 3; i++) {
         // -3 target renvoi un tableau des elements du form dont le bouton(*2).
@@ -58,37 +60,40 @@ const App = () => {
           toUpperCase={true}
           // mini={10000}
           // maxi={99999}
-          isRequired={true}
+          isRequired={false}
         />
 
         <Select tabs={depts} idName={"department"} name={"department"} />
 
         <DatePicker
           idName={"dateOfBirth"}
-          isRequired={false}
+          isRequired={true}
           label={"date of birth"}
           toUpperCase={true}
           lang={"fr"}
+          placeholder={"date"}
         />
         <Select
           tabs={etats}
           idName={"state"}
           name={"state"}
           toUpperCase={true}
+          optValue={true}
         />
 
-        <Button type="button" onClick={handleOpenModal}>
-          Open Modale
-        </Button>
-
-        <Modale
-          message="Hello World !!!"
-          open={isOpen}
-          onClose={() => setIsOpen(!isOpen)}
-        />
         <br />
-        <button>send</button>
+        <button type="submit">send</button>
       </form>
+
+      <Button type="button" onClick={handleOpenModal}>
+        Open Modale
+      </Button>
+      <br />
+      <Modale
+        message="Hello World !!!"
+        open={isOpen}
+        onClose={() => setIsOpen(!isOpen)}
+      />
     </div>
   );
 };

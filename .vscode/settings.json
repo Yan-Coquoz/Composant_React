@@ -1,3 +1,32 @@
 {
-  "docwriter.language": "French"
+  "docwriter.language": "French",
+  "hediet.vscode-drawio.theme": "atlas",
+  "material-icon-theme.activeIconPack": "react",
+
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {
+      "class": "#eeff00",
+      "decorator": "#ff0000",
+      "function": "#ffbb00",
+      "keyword": "#159b10",
+      "method": "#00ffff",
+      "number": "#ff0000",
+      "operator": "#ff0000",
+      "property": "#42b869",
+      "string": "#8aaecc",
+      "type": "#ff0000",
+      "variable": "#85e2b6"
+    },
+    "enabled": true
+  },
+  
+  "editor.cursorStyle": "underline",
+  "workbench.colorCustomizations": {
+  "debugTokenExpression.string": "#ff0000",
+  "foreground": "#6ab2ee",
+   
+  },
+  "[properties]": {
+    "files.saveConflictResolution": "askUser"
+  }
 }
