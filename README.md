@@ -80,7 +80,7 @@ This module works with React
 
 ---
 
-### `Select`
+### `SelectField`
 
 - `tabs` *: {Array of Object || Array} for the `option` tag, if it 's an Array of Object, it must contain a property `name` who will be display
 - `labelName` *: {String} instead of `label`

@@ -5,7 +5,7 @@ import {
   Button,
   DatePicker,
   InputNumber,
-  Select,
+  SelectField,
 } from "../lib/index";
 import { depts, etats } from "../Datas";
 import "./style.css";
@@ -25,12 +25,9 @@ const App = () => {
   }
 
   function handleSendForm(evt) {
-    evt.preventDefault();
     const datas = [];
     const props = [];
     const values = [];
-
-    console.log(evt.target[3].value);
 
     if (props.length === values.length) {
       for (let i = 0; i < evt.target.length - 3; i++) {
@@ -66,30 +63,30 @@ const App = () => {
           isRequired={false}
         />
 
-        <Select
+        <SelectField
           tabs={depts}
           idName={"department"}
-          labelName={"departments"}
+          labelName={"departements"}
           optValue={true}
           sendValue={handleSelect}
         />
 
         <DatePicker
           idName={"dateOfBirth"}
-          isRequired={true}
+          isRequired={false}
           label={"date of birth"}
           toUpperCase={true}
           lang={"fr"}
           placeholder={"date"}
         />
-        <Select
+        <SelectField
           tabs={etats}
           idName={"state"}
-          labelName={"states"}
+          labelName={(Math.random() * 1).toFixed(1) > 0.5 ? "state *" : "state"}
           toUpperCase={true}
-          optValue={false}
+          optValue={true}
           sendValue={handleSelect}
-          isRequired={false}
+          isRequired={true}
         />
 
         <br />

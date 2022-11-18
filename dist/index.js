@@ -34,15 +34,15 @@ Object.defineProperty(exports, "Modale", {
     return _Modale.default;
   }
 });
-Object.defineProperty(exports, "Select", {
+Object.defineProperty(exports, "SelectField", {
   enumerable: true,
   get: function get() {
-    return _Select.default;
+    return _SelectField.default;
   }
 });
 var _InputText = _interopRequireDefault(require("./components/InputText"));
 var _InputNumber = _interopRequireDefault(require("./components/InputNumber"));
-var _Select = _interopRequireDefault(require("./components/Select"));
+var _SelectField = _interopRequireDefault(require("./components/SelectField"));
 var _Button = _interopRequireDefault(require("./components/Button"));
 var _Modale = _interopRequireDefault(require("./components/Modale"));
 var _DatePicker = _interopRequireDefault(require("./components/DatePicker"));

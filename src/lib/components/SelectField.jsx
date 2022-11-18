@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { fromLowerToUpperCase, checkArrayOf } from "../utils";
 import "../css/style.css";
 
@@ -8,15 +8,15 @@ import "../css/style.css";
  * It's a select component that takes in an array of objects, and returns a select element with options
  *
  * @prop   {ArrayOfObject}  `tabs`     Array of object with a props = name
- * @prop  {String}  `idName`     for Label: htmlFor and value, input's id
- * @prop   {String}  `name`      Label value and input name
+ * @prop   {String}  `idName`     for Label: htmlFor and value, input's id
+ * @prop   {String}  `labelName`      Label value
  * @prop   {Boolean}  `isRequired`  If the value is required
  * @prop   {Function}  `sendValue`   send name value and value selected
  * @prop   {Boolean}  `toUpperCase`  if label need to be to upper case
  * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area
  * @return  {React.ReactElement}
  */
-const Select = ({
+const SelectField = ({
   tabs,
   idName,
   labelName,
@@ -79,6 +79,7 @@ const Select = ({
       >
         {toUpperCase ? fromLowerToUpperCase(labelName) : labelName}
       </label>
+
       <select
         className="select_container__select"
         name={idName}
@@ -101,21 +102,21 @@ const Select = ({
   );
 };
 
-Select.propTypes = {
-  idName: PropTypes.string.isRequired,
-  isRequired: PropTypes.bool,
-  labelName: PropTypes.string.isRequired,
-  sendValue: PropTypes.func,
-  tabs: PropTypes.arrayOf(Object).isRequired,
-  toUpperCase: PropTypes.bool,
-  optValue: PropTypes.bool,
-};
-Select.defaultProps = {
-  idName: "",
-  isRequired: false,
-  labelName: "",
-  sendValue: () => {},
-  toUpperCase: false,
-  optValue: false,
-};
-export default Select;
+// Select.propTypes = {
+//   idName: PropTypes.string.isRequired,
+//   isRequired: PropTypes.bool,
+//   labelName: PropTypes.string.isRequired,
+//   sendValue: PropTypes.func,
+//   tabs: PropTypes.arrayOf(Object).isRequired,
+//   toUpperCase: PropTypes.bool,
+//   optValue: PropTypes.bool,
+// };
+// Select.defaultProps = {
+//   idName: "",
+//   isRequired: false,
+//   labelName: "",
+//   sendValue: () => {},
+//   toUpperCase: false,
+//   optValue: false,
+// };
+export default SelectField;

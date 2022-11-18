@@ -67,7 +67,7 @@ Ce module fonctionne avec React
 
 ---
 
-### `Select`
+### `SelectField`
 
 - `tabs` * : {ArrayOfObject || Array } pour la balise `option`, en cas de tableau d'objet, celui-ci doit contenir une propriété `name` qui sera affichée
 - `labelName` * : {String} au lieu de `label`

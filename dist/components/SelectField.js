@@ -11,19 +11,21 @@ var _utils = require("../utils");
 require("../css/style.css");
 // @ts-nocheck
 
+// import PropTypes from "prop-types";
+
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
  *
  * @prop   {ArrayOfObject}  `tabs`     Array of object with a props = name
- * @prop  {String}  `idName`     for Label: htmlFor and value, input's id
- * @prop   {String}  `name`      Label value and input name
+ * @prop   {String}  `idName`     for Label: htmlFor and value, input's id
+ * @prop   {String}  `labelName`      Label value
  * @prop   {Boolean}  `isRequired`  If the value is required
  * @prop   {Function}  `sendValue`   send name value and value selected
  * @prop   {Boolean}  `toUpperCase`  if label need to be to upper case
  * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area
  * @return  {React.ReactElement}
  */
-var Select = function Select(_ref) {
+var SelectField = function SelectField(_ref) {
   var tabs = _ref.tabs,
     idName = _ref.idName,
     labelName = _ref.labelName,
@@ -101,13 +103,23 @@ var Select = function Select(_ref) {
     }
   }), renderOption));
 };
-Select.defaultProps = {
-  idName: "",
-  isRequired: false,
-  labelName: "",
-  sendValue: function sendValue() {},
-  toUpperCase: false,
-  optValue: false
-};
-var _default = Select;
+
+// Select.propTypes = {
+//   idName: PropTypes.string.isRequired,
+//   isRequired: PropTypes.bool,
+//   labelName: PropTypes.string.isRequired,
+//   sendValue: PropTypes.func,
+//   tabs: PropTypes.arrayOf(Object).isRequired,
+//   toUpperCase: PropTypes.bool,
+//   optValue: PropTypes.bool,
+// };
+// Select.defaultProps = {
+//   idName: "",
+//   isRequired: false,
+//   labelName: "",
+//   sendValue: () => {},
+//   toUpperCase: false,
+//   optValue: false,
+// };
+var _default = SelectField;
 exports.default = _default;
