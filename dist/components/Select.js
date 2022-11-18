@@ -24,13 +24,13 @@ require("../css/style.css");
  * @return  {React.ReactElement}
  */
 var Select = function Select(_ref) {
-  var idName = _ref.idName,
+  var tabs = _ref.tabs,
+    idName = _ref.idName,
+    labelName = _ref.labelName,
     isRequired = _ref.isRequired,
-    name = _ref.name,
-    sendValue = _ref.sendValue,
-    tabs = _ref.tabs,
     optValue = _ref.optValue,
-    toUpperCase = _ref.toUpperCase;
+    toUpperCase = _ref.toUpperCase,
+    sendValue = _ref.sendValue;
   var _React$useState = _react.default.useState(""),
     _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
     tabType = _React$useState2[0],
@@ -84,7 +84,7 @@ var Select = function Select(_ref) {
     htmlFor: idName,
     className: "input_container__label ".concat(idName),
     "data-testid": "select_label"
-  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(name) : name), /*#__PURE__*/_react.default.createElement("select", {
+  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("select", {
     className: "select_container__select",
     name: idName,
     id: idName,
@@ -104,7 +104,7 @@ var Select = function Select(_ref) {
 Select.defaultProps = {
   idName: "",
   isRequired: false,
-  name: "",
+  labelName: "",
   sendValue: function sendValue() {},
   toUpperCase: false,
   optValue: false

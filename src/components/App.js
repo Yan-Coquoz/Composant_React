@@ -69,7 +69,7 @@ const App = () => {
         <Select
           tabs={depts}
           idName={"department"}
-          name={"departments"}
+          labelName={"departments"}
           optValue={true}
           sendValue={handleSelect}
         />
@@ -85,7 +85,7 @@ const App = () => {
         <Select
           tabs={etats}
           idName={"state"}
-          name={"states"}
+          labelName={"states"}
           toUpperCase={true}
           optValue={false}
           sendValue={handleSelect}

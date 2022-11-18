@@ -83,7 +83,7 @@ This module works with React
 ### `Select`
 
 - `tabs` *: {Array of Object || Array} for the `option` tag, if it 's an Array of Object, it must contain a property `name` who will be display
-- `name` *: {String} instead of `label`
+- `labelName` *: {String} instead of `label`
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `idName` : {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
 - `sendValue` : {Function} return name and value.

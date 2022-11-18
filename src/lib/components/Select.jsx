@@ -17,13 +17,13 @@ import "../css/style.css";
  * @return  {React.ReactElement}
  */
 const Select = ({
-  idName,
-  isRequired,
-  name,
-  sendValue,
   tabs,
+  idName,
+  labelName,
+  isRequired,
   optValue,
   toUpperCase,
+  sendValue,
 }) => {
   const [tabType, setTabType] = React.useState("");
   const [renderOption, setRenderOption] = React.useState("");
@@ -77,7 +77,7 @@ const Select = ({
         className={`input_container__label ${idName}`}
         data-testid="select_label"
       >
-        {toUpperCase ? fromLowerToUpperCase(name) : name}
+        {toUpperCase ? fromLowerToUpperCase(labelName) : labelName}
       </label>
       <select
         className="select_container__select"
@@ -104,7 +104,7 @@ const Select = ({
 Select.propTypes = {
   idName: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
-  name: PropTypes.string.isRequired,
+  labelName: PropTypes.string.isRequired,
   sendValue: PropTypes.func,
   tabs: PropTypes.arrayOf(Object).isRequired,
   toUpperCase: PropTypes.bool,
@@ -113,7 +113,7 @@ Select.propTypes = {
 Select.defaultProps = {
   idName: "",
   isRequired: false,
-  name: "",
+  labelName: "",
   sendValue: () => {},
   toUpperCase: false,
   optValue: false,

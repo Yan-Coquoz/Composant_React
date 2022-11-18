@@ -70,7 +70,7 @@ Ce module fonctionne avec React
 ### `Select`
 
 - `tabs` * : {ArrayOfObject || Array } pour la balise `option`, en cas de tableau d'objet, celui-ci doit contenir une propriété `name` qui sera affichée
-- `name` * : {String} au lieu de `label`
+- `labelName` * : {String} au lieu de `label`
 - `isRequired` : {Booleen} Indique si la valeur est requise ou non.
 - `idName` : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
 - `sendValue` : {Fonction} retourne le nom et la valeur.
