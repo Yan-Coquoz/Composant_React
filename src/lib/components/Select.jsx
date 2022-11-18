@@ -16,7 +16,6 @@ import "../css/style.css";
  * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area
  * @return  {React.ReactElement}
  */
-
 const Select = ({
   idName,
   isRequired,
@@ -37,10 +36,7 @@ const Select = ({
   const handleSendValue = (evt) => {
     const value = evt.target.value;
     const selectName = evt.target.name;
-    if (value.toLowerCase() !== "options") {
-      sendValue(selectName, value);
-    }
-    return "";
+    sendValue(selectName, value);
   };
 
   /**
@@ -88,13 +84,15 @@ const Select = ({
         name={idName}
         id={idName}
         required={isRequired}
-        onChange={handleSendValue}
+        onClick={handleSendValue}
         aria-label={"select"}
       >
-        {optValue && (
+        {optValue ? (
           <option style={{ textAlign: "center" }}>
             {fromLowerToUpperCase("options")}
           </option>
+        ) : (
+          <option style={{ textAlign: "center" }}></option>
         )}
         {/* Affichage du tableau */}
         {renderOption}

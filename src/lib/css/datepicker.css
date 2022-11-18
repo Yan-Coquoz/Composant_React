@@ -1,0 +1,52 @@
+.datepicker__container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 200px;
+  text-align: left;
+}
+.datepicker__label {
+  font-weight: bold;
+  padding: 1rem 0;
+}
+.datepicker__input {
+  font-size: 1rem;
+  width: 185px;
+  padding: 0.5rem;
+  border: 1px solid #666;
+}
+
+.datepicker__calendar {
+  border: 1px solid #ccc;
+  position: absolute;
+  z-index: 100;
+  border-radius: 5px;
+  box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
+}
+.datepicker__btn-today {
+  -webkit-backdrop-filter: blur(6.2px);
+  backdrop-filter: blur(6.2px);
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  bottom: 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 10px 9px;
+  position: absolute;
+  right: -76%;
+}
+.datepicker__btn-today:hover {
+  box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.07);
+}
+span.rdrMonthAndYearPickers span.rdrMonthPicker select,
+span.rdrMonthAndYearPickers span.rdrYearPicker select {
+  min-width: 112px;
+}
+
+@media all and (max-width: 1024px) {
+  .datepicker__calendar {
+    flex-direction: column;
+  }
+}

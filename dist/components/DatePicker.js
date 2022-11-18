@@ -42,6 +42,11 @@ var DatePicker = function DatePicker(_ref) {
   function handleCheckSelect(date) {
     checkLangage(lang.toLowerCase(), date);
   }
+
+  /**
+   * Si la langue est l'anglais, réglez le calendrier sur la date au format aaaa-MM-jj. Si la langue
+   * est le français, réglez le calendrier sur la date au format jj-MM-aaaa
+   */
   function checkLangage(lang) {
     var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : new Date();
     if (lang === "en") {
@@ -76,6 +81,7 @@ var DatePicker = function DatePicker(_ref) {
   function checkPressKeyOutSide(evt) {
     if (evt.key === "Escape") {
       setOpenCalendar(false);
+      console.log(5);
     }
   }
   /**
@@ -87,6 +93,9 @@ var DatePicker = function DatePicker(_ref) {
       setOpenCalendar(false);
     }
   }
+  function handleChange(evt) {
+    console.log(evt);
+  }
   (0, _react.useEffect)(function () {
     // au chargement de la page le compo aura une date par défaut
     // setCalendar(format(new Date(), "yyyy-MM-dd"));
@@ -94,6 +103,7 @@ var DatePicker = function DatePicker(_ref) {
     document.addEventListener("keydown", checkPressKeyOutSide, true);
     document.addEventListener("click", checkClickOutside, true);
   }, []);
+  console.log(label);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "datepicker__container"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -101,8 +111,10 @@ var DatePicker = function DatePicker(_ref) {
     className: "datepicker__label ".concat(idName)
   }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(label) : label), /*#__PURE__*/_react.default.createElement("input", {
     className: "datepicker__input ".concat(myClass),
-    value: calendar,
-    readOnly: true,
+    value: calendar
+    // readOnly
+    ,
+    onChange: handleChange,
     name: label.split(" ").join("_"),
     id: idName,
     required: isRequired,

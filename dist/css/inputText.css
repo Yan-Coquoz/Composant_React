@@ -1,0 +1,22 @@
+/* input text & Input Number */
+.input_container {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  text-align: left;
+}
+
+.input_container__label {
+  font-weight: bold;
+  padding: 1rem 0;
+}
+
+.input_container__input {
+  padding: 0.5rem;
+}
+
+.input_container__input:focus-visible,
+.select_container__select:focus-visible {
+  border-radius: 5px;
+  transition: 0.3s;
+}

@@ -20,6 +20,9 @@ const App = () => {
   function handleChangeInput(name, value) {
     console.log(name, value);
   }
+  function handleSelect(name, value) {
+    console.log(name, value);
+  }
 
   function handleSendForm(evt) {
     evt.preventDefault();
@@ -63,7 +66,13 @@ const App = () => {
           isRequired={false}
         />
 
-        <Select tabs={depts} idName={"department"} name={"department"} />
+        <Select
+          tabs={depts}
+          idName={"department"}
+          name={"departments"}
+          optValue={true}
+          sendValue={handleSelect}
+        />
 
         <DatePicker
           idName={"dateOfBirth"}
@@ -76,10 +85,11 @@ const App = () => {
         <Select
           tabs={etats}
           idName={"state"}
-          name={"state"}
+          name={"states"}
           toUpperCase={true}
           optValue={false}
-          isRequired={true}
+          sendValue={handleSelect}
+          isRequired={false}
         />
 
         <br />

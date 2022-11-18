@@ -20,16 +20,16 @@ require("../css/style.css");
  * @prop   {Boolean}  `isRequired`  If the value is required
  * @prop   {Function}  `sendValue`   send name value and value selected
  * @prop   {Boolean}  `toUpperCase`  if label need to be to upper case
- *
+ * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area
  * @return  {React.ReactElement}
  */
-
 var Select = function Select(_ref) {
   var idName = _ref.idName,
     isRequired = _ref.isRequired,
     name = _ref.name,
     sendValue = _ref.sendValue,
     tabs = _ref.tabs,
+    optValue = _ref.optValue,
     toUpperCase = _ref.toUpperCase;
   var _React$useState = _react.default.useState(""),
     _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
@@ -48,10 +48,7 @@ var Select = function Select(_ref) {
   var handleSendValue = function handleSendValue(evt) {
     var value = evt.target.value;
     var selectName = evt.target.name;
-    if (value.toLowerCase() !== "options") {
-      sendValue(selectName, value);
-    }
-    return "";
+    sendValue(selectName, value);
   };
 
   /**
@@ -85,27 +82,32 @@ var Select = function Select(_ref) {
     className: "select_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: idName,
-    className: "input_container__label",
+    className: "input_container__label ".concat(idName),
     "data-testid": "select_label"
   }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(name) : name), /*#__PURE__*/_react.default.createElement("select", {
     className: "select_container__select",
-    name: name,
+    name: idName,
     id: idName,
     required: isRequired,
-    onChange: handleSendValue,
+    onClick: handleSendValue,
     "aria-label": "select"
-  }, /*#__PURE__*/_react.default.createElement("option", {
+  }, optValue ? /*#__PURE__*/_react.default.createElement("option", {
     style: {
       textAlign: "center"
     }
-  }, (0, _utils.fromLowerToUpperCase)("options")), renderOption));
+  }, (0, _utils.fromLowerToUpperCase)("options")) : /*#__PURE__*/_react.default.createElement("option", {
+    style: {
+      textAlign: "center"
+    }
+  }), renderOption));
 };
 Select.defaultProps = {
   idName: "",
   isRequired: false,
   name: "",
   sendValue: function sendValue() {},
-  toUpperCase: false
+  toUpperCase: false,
+  optValue: false
 };
 var _default = Select;
 exports.default = _default;

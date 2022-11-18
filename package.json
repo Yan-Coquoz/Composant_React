@@ -26,8 +26,7 @@
     "build:react": "react-scripts build",
     "test": "react-scripts test",
     "test:cov": "react-scripts test --coverage",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "clean:fix": "rm -fr node_modules build dist docs package-lock.json"
   },
   "eslintConfig": {
     "extends": [
@@ -48,23 +47,12 @@
     ]
   },
   "dependencies": {
-    "create-component-lib": "^0.1.6",
     "date-fns": "^2.29.3",
     "react-date-range": "^1.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.3",
-    "@storybook/addon-actions": "^6.5.13",
-    "@storybook/addon-essentials": "^6.5.13",
-    "@storybook/addon-interactions": "^6.5.13",
-    "@storybook/addon-links": "^6.5.13",
-    "@storybook/builder-webpack4": "^6.5.13",
-    "@storybook/builder-webpack5": "^6.5.13",
-    "@storybook/manager-webpack4": "^6.5.13",
-    "@storybook/manager-webpack5": "^6.5.13",
-    "@storybook/react": "^6.5.13",
-    "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
