@@ -78,14 +78,14 @@ const Select = ({
     <div className="select_container">
       <label
         htmlFor={idName}
-        className={"input_container__label"}
+        className={`input_container__label ${idName}`}
         data-testid="select_label"
       >
         {toUpperCase ? fromLowerToUpperCase(name) : name}
       </label>
       <select
         className="select_container__select"
-        name={name}
+        name={idName}
         id={idName}
         required={isRequired}
         onChange={handleSendValue}
@@ -96,6 +96,7 @@ const Select = ({
             {fromLowerToUpperCase("options")}
           </option>
         )}
+        {/* Affichage du tableau */}
         {renderOption}
       </select>
     </div>

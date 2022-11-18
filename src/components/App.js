@@ -78,7 +78,8 @@ const App = () => {
           idName={"state"}
           name={"state"}
           toUpperCase={true}
-          optValue={true}
+          optValue={false}
+          isRequired={true}
         />
 
         <br />
