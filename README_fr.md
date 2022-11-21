@@ -23,7 +23,7 @@ Ce module fonctionne avec React
     - [Les Propriétés](#les-propriétés)
     - [`InputText`](#inputtext)
     - [`InputNumber`](#inputnumber)
-    - [`Select`](#select)
+    - [`SelectField`](#selectfield)
     - [`Boutons`](#boutons)
     - [`Modale`](#modale)
     - [`DatePicker`](#datepicker)

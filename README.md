@@ -29,7 +29,7 @@ This module works with React
     - [Properties](#properties)
     - [`InputText`](#inputtext)
     - [`InputNumber`](#inputnumber)
-    - [`Select`](#select)
+    - [`SelectField`](#selectfield)
     - [`Button`](#button)
     - [`Modale`](#modale)
     - [`DatePicker`](#datepicker)
@@ -39,7 +39,7 @@ This module works with React
 
 - `InputText`
 - `InputNumber`
-- `Select`
+- `SelectField`
 - `Button`
 - `Modale`
 - `DatePicker`

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
-// import PropTypes from "prop-types";
-import { fromLowerToUpperCase, checkArrayOf } from "../utils";
+import PropTypes from "prop-types";
+import { fromLowerToUpperCase, checkArrayOf } from "../../utils";
 import "../css/style.css";
 
 /**
@@ -31,7 +31,6 @@ const SelectField = ({
   /**
    * Si la valeur de la sélection n'est pas égale à 'options', alors envoyez la valeur de la sélection
    * à la fonction sendValue.
-   * @returns
    */
   const handleSendValue = (evt) => {
     const value = evt.target.value;
@@ -88,12 +87,10 @@ const SelectField = ({
         onClick={handleSendValue}
         aria-label={"select"}
       >
-        {optValue ? (
+        {optValue && (
           <option style={{ textAlign: "center" }}>
             {fromLowerToUpperCase("options")}
           </option>
-        ) : (
-          <option style={{ textAlign: "center" }}></option>
         )}
         {/* Affichage du tableau */}
         {renderOption}
@@ -102,21 +99,21 @@ const SelectField = ({
   );
 };
 
-// Select.propTypes = {
-//   idName: PropTypes.string.isRequired,
-//   isRequired: PropTypes.bool,
-//   labelName: PropTypes.string.isRequired,
-//   sendValue: PropTypes.func,
-//   tabs: PropTypes.arrayOf(Object).isRequired,
-//   toUpperCase: PropTypes.bool,
-//   optValue: PropTypes.bool,
-// };
-// Select.defaultProps = {
-//   idName: "",
-//   isRequired: false,
-//   labelName: "",
-//   sendValue: () => {},
-//   toUpperCase: false,
-//   optValue: false,
-// };
+SelectField.propTypes = {
+  tabs: PropTypes.arrayOf(Object).isRequired,
+  idName: PropTypes.string.isRequired,
+  labelName: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool,
+  toUpperCase: PropTypes.bool,
+  optValue: PropTypes.bool,
+  sendValue: PropTypes.func,
+};
+
+SelectField.defaultProps = {
+  isRequired: false,
+  sendValue: () => {},
+  toUpperCase: false,
+  optValue: false,
+};
+
 export default SelectField;

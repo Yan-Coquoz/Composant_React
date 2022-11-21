@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { fromLowerToUpperCase } from "../utils";
+import { fromLowerToUpperCase } from "../../utils";
 import { Calendar } from "react-date-range";
 import PropTypes from "prop-types";
 import format from "date-fns/format";
@@ -82,9 +82,9 @@ const DatePicker = ({
       setOpenCalendar(false);
     }
   }
-function handleChange(evt){
-  console.log(evt)
-}
+  function handleChange(evt) {
+    console.log(evt);
+  }
   useEffect(() => {
     // au chargement de la page le compo aura une date par défaut
     // setCalendar(format(new Date(), "yyyy-MM-dd"));
@@ -93,7 +93,7 @@ function handleChange(evt){
     document.addEventListener("click", checkClickOutside, true);
   }, []);
 
-  console.log(label)
+  // console.log(label);
   return (
     <div className="datepicker__container">
       <label htmlFor={idName} className={`datepicker__label ${idName}`}>

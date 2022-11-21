@@ -5,4 +5,4 @@ import Button from "./components/Button";
 import Modale from "./components/Modale";
 import DatePicker from "./components/DatePicker";
 
-export { InputText, SelectField, InputNumber, Button, Modale, DatePicker };
+export { InputText, InputNumber, Button, Modale, DatePicker, SelectField };
