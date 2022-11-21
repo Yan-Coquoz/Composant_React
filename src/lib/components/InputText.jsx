@@ -5,7 +5,7 @@ import "../css/style.css";
 /**
  *
  * @prop   {String}  idName      Valeur liant l'input et le label
- * @prop   {String}  label       Description du label et du placeholder
+ * @prop   {String}  labelName       Description du label et du placeholder
  * @prop   {Boolean}  toUpperCase   change la première lettre des labels en lettre capitale
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
@@ -15,7 +15,7 @@ import "../css/style.css";
  */
 const InputText = ({
   idName,
-  label,
+  labelName,
   toUpperCase,
   isRequired,
   myClass,
@@ -28,14 +28,15 @@ const InputText = ({
         className={`input_container__label ${idName}`}
         data-testid="input_label"
       >
-        {toUpperCase ? fromLowerToUpperCase(label) : label}
+        {toUpperCase ? fromLowerToUpperCase(labelName) : labelName}
       </label>
+
       <input
         className={`input_container__input ${myClass}`}
         aria-label={"input_text"}
         id={idName}
         name={idName}
-        placeholder={fromLowerToUpperCase(label)}
+        placeholder={fromLowerToUpperCase(labelName)}
         required={isRequired}
         type="text"
         onChange={(evt) => sendValue(evt.target.name, evt.target.value)}
@@ -47,7 +48,7 @@ const InputText = ({
 InputText.propTypes = {
   idName: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
-  label: PropTypes.string,
+  labelName: PropTypes.string,
   myClass: PropTypes.string,
   toUpperCase: PropTypes.bool,
   sendValue: PropTypes.func,
@@ -55,7 +56,7 @@ InputText.propTypes = {
 InputText.defaultProps = {
   toUpperCase: false,
   isRequired: false,
-  label: "",
+  labelName: "",
   placeholder: "",
   idName: "",
   sendValue: () => {},

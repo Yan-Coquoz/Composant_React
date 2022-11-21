@@ -6,12 +6,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _utils = require("../utils");
+var _utils = require("../../utils");
 require("../css/style.css");
 /**
  *
  * @prop   {String}  idName      Valeur liant l'input et le label
- * @prop   {String}  label       Description du label et du placeholder
+ * @prop   {String}  labelName       Description du label et du placeholder
  * @prop   {Function}  sendValue   Permet de transmettre les valeurs de l'input (input name et value)
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
@@ -23,7 +23,7 @@ require("../css/style.css");
 
 var InputNumber = function InputNumber(_ref) {
   var idName = _ref.idName,
-    label = _ref.label,
+    labelName = _ref.labelName,
     toUpperCase = _ref.toUpperCase,
     isRequired = _ref.isRequired,
     myClass = _ref.myClass,
@@ -36,12 +36,12 @@ var InputNumber = function InputNumber(_ref) {
     htmlFor: idName,
     className: "input_container__label ".concat(idName),
     "data-testid": "input_label"
-  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(label) : label), /*#__PURE__*/_react.default.createElement("input", {
+  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("input", {
     className: "input_container__input ".concat(myClass),
     id: idName,
     "aria-label": "input_number",
     name: idName,
-    placeholder: (0, _utils.fromLowerToUpperCase)(label),
+    placeholder: (0, _utils.fromLowerToUpperCase)(labelName),
     required: isRequired,
     type: "number",
     min: mini,
@@ -53,7 +53,7 @@ var InputNumber = function InputNumber(_ref) {
 };
 InputNumber.defaultProps = {
   isRequired: false,
-  label: "",
+  labelName: "",
   placeholder: "",
   idName: "",
   toUpperCase: false,

@@ -51,7 +51,7 @@ This module works with React
 ### `InputText`
 
 - `idName` *: {String} Corresponds to the `htmlFor` and `className`.properties of the label, as well as the `id` and the `name` of the input.
-- `label` : {String} `label` and `placeholder` content.
+- `labelName` : {String} `label` value and `placeholder` content.
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `myClass` *: {String} component class name.
 - `toUpperCase` : {Boolean} if you need to upper case label.
@@ -66,7 +66,7 @@ This module works with React
 ### `InputNumber`
 
 - `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
-- `label` : {String} `label` and `placeholder` content
+- `labelName` : {String} `label` and `placeholder` content
 - `isRequired` : {Boolean} Whether the value is required or not
 - `myClass` *: {String} component class name
 - `mini` : {Number} minimum value
@@ -126,7 +126,7 @@ This module works with React
 ### `DatePicker`
 
 - `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` of the input.
-- `label` : {String} `label` and input `name`
+- `labelName` : {String} `label` and input `name`
 - `myClass` : {String} input `className`
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `toUpperCase` : {Boolean} if you need to upper case label
@@ -162,7 +162,7 @@ const MyForm = () => {
             <form>
                 <InputText 
                     idName={firstname} 
-                    label={first name} 
+                    labelName={first name} 
                     isRequired={true} 
                     sendValue={handleInputText} 
                     myClass={"input_firstname"} 
@@ -172,7 +172,7 @@ const MyForm = () => {
                 <DatePicker
                     idName={"dateOfBirth"}
                     isRequired={false}
-                    label={"date of birth"}
+                    labelName={"date of birth"}
                     toUpperCase={true}
                     lang={"en"}
                 />

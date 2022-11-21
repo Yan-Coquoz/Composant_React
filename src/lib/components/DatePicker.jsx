@@ -13,7 +13,7 @@ import "../css/style.css";
  */
 const DatePicker = ({
   idName,
-  label,
+  labelName,
   myClass,
   isRequired,
   toUpperCase,
@@ -70,7 +70,6 @@ const DatePicker = ({
   function checkPressKeyOutSide(evt) {
     if (evt.key === "Escape") {
       setOpenCalendar(false);
-      console.log(5);
     }
   }
   /**
@@ -93,18 +92,17 @@ const DatePicker = ({
     document.addEventListener("click", checkClickOutside, true);
   }, []);
 
-  // console.log(label);
   return (
     <div className="datepicker__container">
       <label htmlFor={idName} className={`datepicker__label ${idName}`}>
-        {toUpperCase ? fromLowerToUpperCase(label) : label}
+        {toUpperCase ? fromLowerToUpperCase(labelName) : labelName}
       </label>
       <input
         className={`datepicker__input ${myClass}`}
         value={calendar}
         // readOnly
         onChange={handleChange}
-        name={label.split(" ").join("_")}
+        name={labelName.split(" ").join("_")}
         id={idName}
         required={isRequired}
         placeholder={placeholder}
@@ -132,7 +130,7 @@ const DatePicker = ({
 DatePicker.propTypes = {
   idName: PropTypes.string,
   myClass: PropTypes.string,
-  label: PropTypes.string,
+  labelName: PropTypes.string,
   isRequired: PropTypes.bool,
   toUpperCase: PropTypes.bool,
   lang: PropTypes.string,
@@ -140,7 +138,7 @@ DatePicker.propTypes = {
 };
 DatePicker.defaultProps = {
   myClass: "",
-  label: "",
+  labelName: "",
   lang: "en",
 };
 export default DatePicker;

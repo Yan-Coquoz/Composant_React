@@ -65,7 +65,7 @@ const App = () => {
       <form onSubmit={handleSendForm}>
         <InputText
           idName={"firstname"}
-          label={"prénom"}
+          labelName={"prénom"}
           isRequired={false}
           sendValue={handleChangeInput}
           myClass={"input_text"}
@@ -73,7 +73,7 @@ const App = () => {
         />
         <InputNumber
           idName="testnumber"
-          label={"test de nombre"}
+          labelName={"test de nombre"}
           toUpperCase={true}
           // mini={10000}
           // maxi={99999}
@@ -85,7 +85,7 @@ const App = () => {
         <DatePicker
           idName={"dateOfBirth"}
           isRequired={false}
-          label={"date of birth"}
+          labelName={"date of birth"}
           toUpperCase={true}
           lang={"fr"}
           placeholder={"date"}

@@ -7,11 +7,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/slicedToArray"));
 var _react = _interopRequireDefault(require("react"));
-var _utils = require("../utils");
+var _utils = require("../../utils");
 require("../css/style.css");
 // @ts-nocheck
-
-// import PropTypes from "prop-types";
 
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
@@ -45,7 +43,6 @@ var SelectField = function SelectField(_ref) {
   /**
    * Si la valeur de la sélection n'est pas égale à 'options', alors envoyez la valeur de la sélection
    * à la fonction sendValue.
-   * @returns
    */
   var handleSendValue = function handleSendValue(evt) {
     var value = evt.target.value;
@@ -93,33 +90,17 @@ var SelectField = function SelectField(_ref) {
     required: isRequired,
     onClick: handleSendValue,
     "aria-label": "select"
-  }, optValue ? /*#__PURE__*/_react.default.createElement("option", {
+  }, optValue && /*#__PURE__*/_react.default.createElement("option", {
     style: {
       textAlign: "center"
     }
-  }, (0, _utils.fromLowerToUpperCase)("options")) : /*#__PURE__*/_react.default.createElement("option", {
-    style: {
-      textAlign: "center"
-    }
-  }), renderOption));
+  }, (0, _utils.fromLowerToUpperCase)("options")), renderOption));
 };
-
-// Select.propTypes = {
-//   idName: PropTypes.string.isRequired,
-//   isRequired: PropTypes.bool,
-//   labelName: PropTypes.string.isRequired,
-//   sendValue: PropTypes.func,
-//   tabs: PropTypes.arrayOf(Object).isRequired,
-//   toUpperCase: PropTypes.bool,
-//   optValue: PropTypes.bool,
-// };
-// Select.defaultProps = {
-//   idName: "",
-//   isRequired: false,
-//   labelName: "",
-//   sendValue: () => {},
-//   toUpperCase: false,
-//   optValue: false,
-// };
+SelectField.defaultProps = {
+  isRequired: false,
+  sendValue: function sendValue() {},
+  toUpperCase: false,
+  optValue: false
+};
 var _default = SelectField;
 exports.default = _default;

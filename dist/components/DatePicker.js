@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/slicedToArray"));
 var _react = _interopRequireWildcard(require("react"));
-var _utils = require("../utils");
+var _utils = require("../../utils");
 var _reactDateRange = require("react-date-range");
 var _format = _interopRequireDefault(require("date-fns/format"));
 require("react-date-range/dist/styles.css");
@@ -20,7 +20,7 @@ require("../css/style.css");
  */
 var DatePicker = function DatePicker(_ref) {
   var idName = _ref.idName,
-    label = _ref.label,
+    labelName = _ref.labelName,
     myClass = _ref.myClass,
     isRequired = _ref.isRequired,
     toUpperCase = _ref.toUpperCase,
@@ -81,7 +81,6 @@ var DatePicker = function DatePicker(_ref) {
   function checkPressKeyOutSide(evt) {
     if (evt.key === "Escape") {
       setOpenCalendar(false);
-      console.log(5);
     }
   }
   /**
@@ -103,19 +102,18 @@ var DatePicker = function DatePicker(_ref) {
     document.addEventListener("keydown", checkPressKeyOutSide, true);
     document.addEventListener("click", checkClickOutside, true);
   }, []);
-  console.log(label);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "datepicker__container"
   }, /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: idName,
     className: "datepicker__label ".concat(idName)
-  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(label) : label), /*#__PURE__*/_react.default.createElement("input", {
+  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("input", {
     className: "datepicker__input ".concat(myClass),
     value: calendar
     // readOnly
     ,
     onChange: handleChange,
-    name: label.split(" ").join("_"),
+    name: labelName.split(" ").join("_"),
     id: idName,
     required: isRequired,
     placeholder: placeholder
@@ -136,7 +134,7 @@ var DatePicker = function DatePicker(_ref) {
 };
 DatePicker.defaultProps = {
   myClass: "",
-  label: "",
+  labelName: "",
   lang: "en"
 };
 var _default = DatePicker;

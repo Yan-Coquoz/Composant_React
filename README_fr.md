@@ -38,7 +38,7 @@ Ce module fonctionne avec React
 ### `InputText`
 
 - `idName` * : {String} Correspond aux propriétés `htmlFor` et `className` du label, ainsi qu'à l'`id` et au `name` de l'input.
-- `label` : {String} contenu `label` et `placeholder`
+- `labelName` : {String} contenu `label` et `placeholder`
 - `isRequired` : {Booléen} Indique si la valeur est requise ou non
 - `myClass` * : nom de la classe du composant {String}
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
@@ -53,7 +53,7 @@ Ce module fonctionne avec React
 ### `InputNumber`
 
 - `idName` * : {String} Correspond aux propriétés `htmlFor` et `className` du label, ainsi qu'à l'`id` et au `name` de l'input.
-- `label` : {String} contenu `label` et `placeholder`
+- `labelName` : {String} contenu `label` et `placeholder`
 - `isRequired` : {Booléen} Indique si la valeur est requise ou non
 - `myClass` * : nom de la classe du composant {String}
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
@@ -113,7 +113,7 @@ Ce module fonctionne avec React
 ### `DatePicker`
 
 - `idName` *: {String} Correspond aux propriétés `htmlFor` et `className` du label, ainsi qu'à l'`id` de l'input.
-- `label` {String} `label` et `name` de l'input
+- `labelName` {String} `label` et `name` de l'input
 - `myClass` {String} `className` de l'input
 - `isRequired` {Boolean} si la valuer est requise
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
@@ -150,7 +150,7 @@ const MyForm = () => {
 
                 <InputText 
                     idName={firstname} 
-                    label={first name} 
+                    labelName={first name} 
                     isRequired={true} 
                     sendValue={handleInputText} 
                     myClass={"input_firstname"} 
@@ -160,7 +160,7 @@ const MyForm = () => {
                 <DatePicker
                     idName={"dateOfBirth"}
                     isRequired={false}
-                    label={"date of birth"}
+                    labelName={"date of birth"}
                     toUpperCase={true}
                     lang={"fr"}
                 />
