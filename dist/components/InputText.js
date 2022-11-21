@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _utils = require("../../utils");
+var _index = require("../utils/index");
 require("../css/style.css");
 /**
  *
@@ -32,12 +32,12 @@ var InputText = function InputText(_ref) {
     htmlFor: idName,
     className: "input_container__label ".concat(idName),
     "data-testid": "input_label"
-  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("input", {
+  }, toUpperCase ? (0, _index.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("input", {
     className: "input_container__input ".concat(myClass),
     "aria-label": "input_text",
     id: idName,
     name: idName,
-    placeholder: (0, _utils.fromLowerToUpperCase)(labelName),
+    placeholder: (0, _index.fromLowerToUpperCase)(labelName),
     required: isRequired,
     type: "text",
     onChange: function onChange(evt) {

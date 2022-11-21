@@ -16,13 +16,6 @@ export function fromLowerToUpperCase(str) {
   return "";
 }
 
-// export function todayDate() {
-//   const dayNbrOnMonth = new Date().getDate();
-//   const month = new Date().getMonth();
-//   const year = new Date().getFullYear();
-//   return `${dayNbrOnMonth}/${month}/${year}`;
-// }
-
 /**
  * Il prend une chaîne, remplace tous les traits d'union, traits de soulignement et espaces par une
  * chaîne vide, puis met en majuscule la première lettre du mot suivant.

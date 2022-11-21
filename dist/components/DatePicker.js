@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/slicedToArray"));
 var _react = _interopRequireWildcard(require("react"));
-var _utils = require("../../utils");
+var _utils = require("../utils");
 var _reactDateRange = require("react-date-range");
 var _format = _interopRequireDefault(require("date-fns/format"));
 require("react-date-range/dist/styles.css");

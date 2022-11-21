@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { fromLowerToUpperCase } from "../../utils";
+import { fromLowerToUpperCase } from "../utils/index";
 import "../css/style.css";
 /**
  *

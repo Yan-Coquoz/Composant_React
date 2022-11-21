@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
-var _utils = require("../../utils");
+var _utils = require("../utils");
 require("../css/style.css");
 /**
  *

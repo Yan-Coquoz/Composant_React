@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { fromLowerToUpperCase } from "../../utils";
+import { fromLowerToUpperCase } from "../utils";
 import { Calendar } from "react-date-range";
 import PropTypes from "prop-types";
 import format from "date-fns/format";

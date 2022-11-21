@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 import PropTypes from "prop-types";
-import { fromLowerToUpperCase, checkArrayOf } from "../../utils";
+import { fromLowerToUpperCase, checkArrayOf } from "../utils";
 import "../css/style.css";
 
 /**
