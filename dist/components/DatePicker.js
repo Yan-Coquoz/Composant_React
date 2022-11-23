@@ -109,11 +109,10 @@ var DatePicker = function DatePicker(_ref) {
     className: "datepicker__label ".concat(idName)
   }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("input", {
     className: "datepicker__input ".concat(myClass),
-    value: calendar
-    // readOnly
-    ,
+    value: calendar,
+    readOnly: true,
     onChange: handleChange,
-    name: labelName.split(" ").join("_"),
+    name: idName.split(" ").join("_"),
     id: idName,
     required: isRequired,
     placeholder: placeholder

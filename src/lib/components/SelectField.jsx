@@ -1,8 +1,9 @@
 // @ts-nocheck
 import React from "react";
 import PropTypes from "prop-types";
-import { fromLowerToUpperCase, checkArrayOf } from "../utils";
+import { fromLowerToUpperCase, checkArrayOf, formatOption } from "../utils";
 import "../css/style.css";
+import { formatArrays } from "../utils/formatDatas";
 
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
@@ -24,6 +25,7 @@ const SelectField = ({
   optValue,
   toUpperCase,
   sendValue,
+  group,
 }) => {
   const [tabType, setTabType] = React.useState("");
   const [renderOption, setRenderOption] = React.useState("");
@@ -35,38 +37,20 @@ const SelectField = ({
   const handleSendValue = (evt) => {
     const value = evt.target.value;
     const selectName = evt.target.name;
-    sendValue(selectName, value);
+    if (isRequired && value.toLowerCase() !== "option") {
+      sendValue(selectName, value);
+    }
   };
 
-  /**
-   * Si le tabType n'est pas un objet, mappez sur le tableau tabs et renvoyez un élément d'option avec la
-   * valeur de l'élément et la clé de l'index. Si le tabType est un objet, mappez sur le tableau tabs et
-   * renvoyez un élément d'option avec la valeur du nom de l'élément et la clé du nom de l'élément.
-   */
-  function formatOption() {
-    if (tabType !== "object") {
-      return tabs.map((ele, key) => {
-        return (
-          <option value={ele} key={key}>
-            {fromLowerToUpperCase(ele)}
-          </option>
-        );
-      });
-    } else {
-      return tabs.map((ele) => {
-        return (
-          <option value={ele?.name} key={ele?.name}>
-            {fromLowerToUpperCase(ele?.name)}
-          </option>
-        );
-      });
-    }
-  }
-
   React.useEffect(() => {
-    const tabsType = checkArrayOf(tabs);
-    setTabType(tabsType);
-    setRenderOption(formatOption());
+    if (group) {
+      const optGro = formatArrays(tabs);
+      setRenderOption(optGro);
+    } else {
+      const tabsType = checkArrayOf(tabs);
+      setTabType(tabsType);
+      setRenderOption(formatOption(tabsType, tabs));
+    }
   }, [tabType]);
 
   return (
@@ -107,6 +91,7 @@ SelectField.propTypes = {
   toUpperCase: PropTypes.bool,
   optValue: PropTypes.bool,
   sendValue: PropTypes.func,
+  group: PropTypes.bool,
 };
 
 SelectField.defaultProps = {
@@ -114,6 +99,7 @@ SelectField.defaultProps = {
   sendValue: () => {},
   toUpperCase: false,
   optValue: false,
+  group: false,
 };
 
 export default SelectField;

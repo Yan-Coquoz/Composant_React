@@ -27,5 +27,6 @@
   },
   "[properties]": {
     "files.saveConflictResolution": "askUser"
-  }
+  },
+  "workbench.colorTheme": "Monokai"
 }

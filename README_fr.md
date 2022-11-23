@@ -71,11 +71,12 @@ Ce module fonctionne avec React
 
 - `tabs` * : {ArrayOfObject || Array } pour la balise `option`, en cas de tableau d'objet, celui-ci doit contenir une propriété `name` qui sera affichée
 - `labelName` * : {String} au lieu de `label`
-- `isRequired` : {Booleen} Indique si la valeur est requise ou non.
+- `isRequired` : {Boolean} Indique si la valeur est requise ou non.
 - `idName` : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
 - `sendValue` : {Fonction} retourne le nom et la valeur.
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
-- `optValue` {Boolean} place en premiere valeur du champs 'Options'
+- `optValue` {Boolean} place en premiere valeur du champs 'Options'.
+- `group` : {Boolean} false est la valeur par défaut. Si c'est true, alors `tabs` devra être comme ceci : [{car:[...arrayOfCars],bike:[...arrayOfBikes]}], alors la balise optgroup aura pour label  `car` et `bike`.
 
 ---
 
@@ -113,11 +114,11 @@ Ce module fonctionne avec React
 ### `DatePicker`
 
 - `idName` *: {String} Correspond aux propriétés `htmlFor` et `className` du label, ainsi qu'à l'`id` de l'input.
-- `labelName` {String} `label` et `name` de l'input
+- `labelName` {String} Valeur du `label`.
 - `myClass` {String} `className` de l'input
-- `isRequired` {Boolean} si la valuer est requise
-- `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
-- `lang` : {String} pour le formatage de la date. La valeur par défaut "en" : yyyy-MM-dd. Peut être mis en français "fr" : dd-MM-yyyy
+- `isRequired` {Boolean} Si la valuer est requise
+- `toUpperCase` {Boolean} Change la première lettre de chaque mot du label.
+- `lang` : {String} Pour le formatage de la date. La valeur par défaut "en" : yyyy-MM-dd. Peut être mis en français "fr" : dd-MM-yyyy
 - `placeholder` : {String} Ce qui est attendu dans le champs.
 
 ---
@@ -144,6 +145,7 @@ const MyForm = () => {
     // fait ce que tu veux
  }
    
+
     return(
         <div>
             <form>

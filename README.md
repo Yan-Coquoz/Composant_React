@@ -88,7 +88,8 @@ This module works with React
 - `idName` : {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
 - `sendValue` : {Function} return name and value.
 - `toUpperCase` : {Boolean} if you need to upper case label
-- `optValue` : {Boolean} Render 'Options' for first value in select area
+- `optValue` : {Boolean} Render 'Options' for first value in select area.
+- `group` : {Boolean} false by default. If true, `tabs` must look like this : [{car:[...arrayOfCars],bike:[...arrayOfBikes]}], then optgroup label will be `car` and `bike`.
 
 ---
 
@@ -126,7 +127,7 @@ This module works with React
 ### `DatePicker`
 
 - `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` of the input.
-- `labelName` : {String} `label` and input `name`
+- `labelName` : {String} `label` value.
 - `myClass` : {String} input `className`
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `toUpperCase` : {Boolean} if you need to upper case label
@@ -146,8 +147,27 @@ import React, {useState} from "react"
 import { InputText, Button, Modale, DatePicker } from "@yan_coquoz/react_input"
 
 const MyForm = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    const [isOpen, setIsOpen] = useState(false);
+  const tab1 = ["red", "blue", "green"];
+  const tab2 = ["short", "coat", "socket"];
+  const tab3 = ["moto", "car", "boat"];
+
+  const arrays = [
+    { colors: [...tab1] },
+    { clothes: [...tab2] },
+    { vehicle: [...tab3] },
+  ];
+
+  const selectTabs = {
+    tabs: arrays,
+    idName: "arrays",
+    labelName: "all tables",
+    optValue: true,
+    toUpperCase: true,
+    isRequired: true,
+    group: true,
+  };
 
     function handleOpenModal() {
         setIsOpen(true);
@@ -177,6 +197,8 @@ const MyForm = () => {
                     lang={"en"}
                 />
                 
+                <SelectField {...selectTabs}>
+
                 <Button type="submit">Save</Button>
 
             </form>

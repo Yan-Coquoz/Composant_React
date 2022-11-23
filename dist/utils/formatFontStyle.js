@@ -1,17 +1,22 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fromLowerToUpperCase = fromLowerToUpperCase;
+exports.toCamelCase = void 0;
 /**
  * Il prend une chaîne comme argument, la divise en un tableau de mots, met en majuscule la première
  * lettre de chaque mot et renvoie le tableau sous forme de chaîne.
  * @param {String} str - la chaîne à convertir
- * @returns {String} "Bonjour Le Monde"
+ * @returns {String} ex: "Bonjour Le Monde"
  */
-export function fromLowerToUpperCase(str) {
+function fromLowerToUpperCase(str) {
   if (str.length > 0) {
-    const maChaine = str.toLowerCase().split(" ");
-    return maChaine
-      .map((elt) => {
-        return elt.replace(elt.charAt(0), elt.charAt(0).toUpperCase());
-      })
-      .join(" ");
+    var maChaine = str.toLowerCase().split(" ");
+    return maChaine.map(function (elt) {
+      return elt.replace(elt.charAt(0), elt.charAt(0).toUpperCase());
+    }).join(" ");
   }
   return "";
 }
@@ -45,33 +50,10 @@ export function fromLowerToUpperCase(str) {
  * @exemple foo Bar / foo-bar-- / foo_bar__
  *
  */
-export const toCamelCase = (string) => {
-  const camelCaseRegex = /[-_\s]+(.)?/g;
-  return string.replace(camelCaseRegex, (str, char) => {
+var toCamelCase = function toCamelCase(string) {
+  var camelCaseRegex = /[-_\s]+(.)?/g;
+  return string.replace(camelCaseRegex, function (str, char) {
     return char ? char.toUpperCase() : "";
   });
 };
-
-/**
- * Il vérifie si le premier élément d'un tableau est un tableau, un nombre, une chaîne, un objet avec
- * une propriété name ou null.
- * @param arr - le tableau à vérifier
- * @returns le type du premier élément du tableau.
- */
-export function checkArrayOf(arr) {
-  // le type du tableau
-
-  const typeOfArr = Array.isArray(arr[0])
-    ? "array"
-    : arr[0] === null // envoi null en cas d'objet
-    ? null
-    : typeof arr[0];
-
-  if (typeOfArr === "number" || typeOfArr === "string") {
-    return typeOfArr;
-  }
-
-  if (typeOfArr === "object" && Object.keys(arr[0]).includes("name")) {
-    return typeOfArr;
-  }
-}
+exports.toCamelCase = toCamelCase;

@@ -22,21 +22,21 @@ describe("Test the Modale", function () {
     var text = content.getByText("Hello");
     expect(text).toBeInTheDocument();
   });
-  it("Should close the Modale when the button is clicked", function () {
-    var closeModal = jest.fn();
-    var _render = (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_Modale.default, {
-        onClick: closeModal,
-        message: ""
-      }, /*#__PURE__*/_react.default.createElement("button", {
-        onClick: closeModal
-      }, /*#__PURE__*/_react.default.createElement("img", {
-        src: "closeBTN",
-        alt: "close button"
-      })))),
-      getByAltText = _render.getByAltText;
 
-    // action sur l'attribut alt de l'img
-    _react2.fireEvent.click(_react2.screen.getByAltText("close button"));
-    expect(closeModal).toHaveBeenCalledTimes(1);
-  });
+  // it("Should close the Modale when the button is clicked", () => {
+  //   const closeModal = jest.fn();
+
+  //   const { getByAltText } = render(
+  //     <Modale onClick={closeModal} message="">
+  //       <button onClick={closeModal}>
+  //         <img src="closeBTN" alt="close button" />
+  //       </button>
+  //     </Modale>,
+  //   );
+
+  //   // action sur l'attribut alt de l'img
+  //   fireEvent.click(screen.getByAltText("close button"));
+
+  //   expect(closeModal).toHaveBeenCalledTimes(1);
+  // });
 });

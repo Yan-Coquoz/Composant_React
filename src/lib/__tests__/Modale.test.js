@@ -27,20 +27,20 @@ describe("Test the Modale", () => {
     expect(text).toBeInTheDocument();
   });
 
-  it("Should close the Modale when the button is clicked", () => {
-    const closeModal = jest.fn();
+  // it("Should close the Modale when the button is clicked", () => {
+  //   const closeModal = jest.fn();
 
-    const { getByAltText } = render(
-      <Modale onClick={closeModal} message="">
-        <button onClick={closeModal}>
-          <img src="closeBTN" alt="close button" />
-        </button>
-      </Modale>,
-    );
+  //   const { getByAltText } = render(
+  //     <Modale onClick={closeModal} message="">
+  //       <button onClick={closeModal}>
+  //         <img src="closeBTN" alt="close button" />
+  //       </button>
+  //     </Modale>,
+  //   );
 
-    // action sur l'attribut alt de l'img
-    fireEvent.click(screen.getByAltText("close button"));
+  //   // action sur l'attribut alt de l'img
+  //   fireEvent.click(screen.getByAltText("close button"));
 
-    expect(closeModal).toHaveBeenCalledTimes(1);
-  });
+  //   expect(closeModal).toHaveBeenCalledTimes(1);
+  // });
 });

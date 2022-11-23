@@ -9,6 +9,7 @@ var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm
 var _react = _interopRequireDefault(require("react"));
 var _utils = require("../utils");
 require("../css/style.css");
+var _formatDatas = require("../utils/formatDatas");
 // @ts-nocheck
 
 /**
@@ -30,7 +31,8 @@ var SelectField = function SelectField(_ref) {
     isRequired = _ref.isRequired,
     optValue = _ref.optValue,
     toUpperCase = _ref.toUpperCase,
-    sendValue = _ref.sendValue;
+    sendValue = _ref.sendValue,
+    group = _ref.group;
   var _React$useState = _react.default.useState(""),
     _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
     tabType = _React$useState2[0],
@@ -47,35 +49,19 @@ var SelectField = function SelectField(_ref) {
   var handleSendValue = function handleSendValue(evt) {
     var value = evt.target.value;
     var selectName = evt.target.name;
-    sendValue(selectName, value);
-  };
-
-  /**
-   * Si le tabType n'est pas un objet, mappez sur le tableau tabs et renvoyez un élément d'option avec la
-   * valeur de l'élément et la clé de l'index. Si le tabType est un objet, mappez sur le tableau tabs et
-   * renvoyez un élément d'option avec la valeur du nom de l'élément et la clé du nom de l'élément.
-   */
-  function formatOption() {
-    if (tabType !== "object") {
-      return tabs.map(function (ele, key) {
-        return /*#__PURE__*/_react.default.createElement("option", {
-          value: ele,
-          key: key
-        }, (0, _utils.fromLowerToUpperCase)(ele));
-      });
-    } else {
-      return tabs.map(function (ele) {
-        return /*#__PURE__*/_react.default.createElement("option", {
-          value: ele === null || ele === void 0 ? void 0 : ele.name,
-          key: ele === null || ele === void 0 ? void 0 : ele.name
-        }, (0, _utils.fromLowerToUpperCase)(ele === null || ele === void 0 ? void 0 : ele.name));
-      });
+    if (isRequired && value.toLowerCase() !== "option") {
+      sendValue(selectName, value);
     }
-  }
+  };
   _react.default.useEffect(function () {
-    var tabsType = (0, _utils.checkArrayOf)(tabs);
-    setTabType(tabsType);
-    setRenderOption(formatOption());
+    if (group) {
+      var optGro = (0, _formatDatas.formatArrays)(tabs);
+      setRenderOption(optGro);
+    } else {
+      var tabsType = (0, _utils.checkArrayOf)(tabs);
+      setTabType(tabsType);
+      setRenderOption((0, _utils.formatOption)(tabsType, tabs));
+    }
   }, [tabType]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "select_container"
@@ -100,7 +86,8 @@ SelectField.defaultProps = {
   isRequired: false,
   sendValue: function sendValue() {},
   toUpperCase: false,
-  optValue: false
+  optValue: false,
+  group: false
 };
 var _default = SelectField;
 exports.default = _default;

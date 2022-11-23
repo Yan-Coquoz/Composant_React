@@ -100,9 +100,9 @@ const DatePicker = ({
       <input
         className={`datepicker__input ${myClass}`}
         value={calendar}
-        // readOnly
+        readOnly
         onChange={handleChange}
-        name={labelName.split(" ").join("_")}
+        name={idName.split(" ").join("_")}
         id={idName}
         required={isRequired}
         placeholder={placeholder}
