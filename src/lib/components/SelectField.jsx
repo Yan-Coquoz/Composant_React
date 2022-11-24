@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
   fromLowerToUpperCase,
@@ -49,10 +49,14 @@ const SelectField = ({
   };
 
   useEffect(() => {
+    const tabsType = checkArrayOf(tabs);
     if (group) {
       setRenderOption(renderOptGroup(tabs));
-    } else {
-      const tabsType = checkArrayOf(tabs);
+    } else if (
+      tabsType === "number" ||
+      tabsType === "string" ||
+      tabsType === "object"
+    ) {
       setTabType(tabsType);
       setRenderOption(renderOptions(tabType, tabs));
     }

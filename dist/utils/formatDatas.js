@@ -59,14 +59,15 @@ function renderOptGroup(tabs) {
  * @return {React.ReactElement} - une liste
  */
 function renderOptions(typeArr, tabs) {
-  if (typeArr !== "object") {
+  console.log(typeArr);
+  if (typeArr === "number" || typeArr === "string") {
     return tabs.map(function (ele, key) {
       return /*#__PURE__*/React.createElement("option", {
         value: ele,
         key: key
       }, (0, _index.fromLowerToUpperCase)(ele));
     });
-  } else {
+  } else if (typeArr === "object" && Object.values(tabs)[0].name !== "undefined") {
     return tabs.map(function (ele) {
       return /*#__PURE__*/React.createElement("option", {
         value: ele === null || ele === void 0 ? void 0 : ele.name,
