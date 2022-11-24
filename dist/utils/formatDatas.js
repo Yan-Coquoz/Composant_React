@@ -69,12 +69,12 @@ function formatArrays(tabs) {
     var optTabs = Object.values(ele)[0];
     return /*#__PURE__*/React.createElement("optgroup", {
       key: key,
-      label: optGName,
+      label: (0, _index.fromLowerToUpperCase)(optGName),
       className: "option_group"
     }, optTabs.map(function (itm, index) {
       return /*#__PURE__*/React.createElement("option", {
         key: index
-      }, itm);
+      }, (0, _index.fromLowerToUpperCase)(itm));
     }));
   });
 }

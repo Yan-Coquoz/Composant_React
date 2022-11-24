@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import {
-  // InputText,
+  InputText,
   Modale,
   Button,
   // DatePicker,
-  // InputNumber,
+  InputNumber,
   SelectField,
 } from "../lib/index";
 import { depts, etats } from "../Datas";
@@ -106,8 +106,7 @@ const App = () => {
       <h1>Hello Test</h1>
       <form onSubmit={handleSendForm}>
         <SelectField {...selectTest} />
-
-        {/* <InputText
+        <InputText
           idName={"firstname"}
           labelName={"prénom"}
           isRequired={false}
@@ -115,6 +114,7 @@ const App = () => {
           myClass={"input_text"}
           toUpperCase={true}
         />
+
         <InputNumber
           idName="testnumber"
           labelName={"test de nombre"}
@@ -122,7 +122,7 @@ const App = () => {
           // mini={10000}
           // maxi={99999}
           isRequired={false}
-        /> */}
+        />
 
         <SelectField {...selectDep} />
         {/* 
@@ -134,7 +134,6 @@ const App = () => {
           lang={"en"}
           placeholder={"date"}
         /> */}
-
         <SelectField {...selectState} />
 
         <br />
@@ -145,6 +144,7 @@ const App = () => {
         Open Modale
       </Button>
       <br />
+
       <Modale
         message="Hello World !!!"
         open={isOpen}

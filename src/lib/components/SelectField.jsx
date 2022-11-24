@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { fromLowerToUpperCase, checkArrayOf, formatOption } from "../utils";
 import "../css/style.css";
-import { formatArrays } from "../utils/formatDatas";
+import { formatArrays } from "../utils/index";
 
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
@@ -44,8 +44,7 @@ const SelectField = ({
 
   React.useEffect(() => {
     if (group) {
-      const optGro = formatArrays(tabs);
-      setRenderOption(optGro);
+      setRenderOption(formatArrays(tabs));
     } else {
       const tabsType = checkArrayOf(tabs);
       setTabType(tabsType);

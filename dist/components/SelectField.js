@@ -9,7 +9,7 @@ var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm
 var _react = _interopRequireDefault(require("react"));
 var _utils = require("../utils");
 require("../css/style.css");
-var _formatDatas = require("../utils/formatDatas");
+var _index = require("../utils/index");
 // @ts-nocheck
 
 /**
@@ -55,8 +55,7 @@ var SelectField = function SelectField(_ref) {
   };
   _react.default.useEffect(function () {
     if (group) {
-      var optGro = (0, _formatDatas.formatArrays)(tabs);
-      setRenderOption(optGro);
+      setRenderOption((0, _index.formatArrays)(tabs));
     } else {
       var tabsType = (0, _utils.checkArrayOf)(tabs);
       setTabType(tabsType);

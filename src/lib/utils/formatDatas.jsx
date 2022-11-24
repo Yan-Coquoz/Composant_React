@@ -1,4 +1,5 @@
 import { fromLowerToUpperCase } from "./index";
+
 /**
  * Il vérifie si le premier élément d'un tableau est un tableau, un nombre, une chaîne, un objet avec
  * une propriété name ou null.
@@ -66,9 +67,13 @@ export function formatArrays(tabs) {
     const optGName = Object.keys(ele)[0];
     const optTabs = Object.values(ele)[0];
     return (
-      <optgroup key={key} label={optGName} className="option_group">
+      <optgroup
+        key={key}
+        label={fromLowerToUpperCase(optGName)}
+        className="option_group"
+      >
         {optTabs.map((itm, index) => {
-          return <option key={index}>{itm}</option>;
+          return <option key={index}>{fromLowerToUpperCase(itm)}</option>;
         })}
       </optgroup>
     );
