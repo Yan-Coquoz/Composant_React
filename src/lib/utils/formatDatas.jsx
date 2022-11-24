@@ -62,10 +62,9 @@ export function renderOptGroup(tabs) {
  * @return {React.ReactElement} - une liste
  */
 export function renderOptions(typeArr, tabs) {
-  console.log(typeArr);
-
+  let option;
   if (typeArr === "number" || typeArr === "string") {
-    return tabs.map((ele, key) => {
+    option = tabs.map((ele, key) => {
       return (
         <option value={ele} key={key}>
           {fromLowerToUpperCase(ele)}
@@ -76,12 +75,13 @@ export function renderOptions(typeArr, tabs) {
     typeArr === "object" &&
     Object.values(tabs)[0].name !== "undefined"
   ) {
-    return tabs.map((ele) => {
+    option = tabs.map((ele, key) => {
       return (
-        <option value={ele?.name} key={ele?.name}>
+        <option value={ele?.name} key={key}>
           {fromLowerToUpperCase(ele?.name)}
         </option>
       );
     });
   }
+  if (typeof option !== "undefined") return option;
 }

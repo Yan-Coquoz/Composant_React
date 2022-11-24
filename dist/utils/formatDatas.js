@@ -61,20 +61,21 @@ function renderOptGroup(tabs) {
  * @return {React.ReactElement} - une liste
  */
 function renderOptions(typeArr, tabs) {
-  console.log(typeArr);
+  var option;
   if (typeArr === "number" || typeArr === "string") {
-    return tabs.map(function (ele, key) {
+    option = tabs.map(function (ele, key) {
       return /*#__PURE__*/React.createElement("option", {
         value: ele,
         key: key
       }, (0, _index.fromLowerToUpperCase)(ele));
     });
   } else if (typeArr === "object" && Object.values(tabs)[0].name !== "undefined") {
-    return tabs.map(function (ele) {
+    option = tabs.map(function (ele, key) {
       return /*#__PURE__*/React.createElement("option", {
         value: ele === null || ele === void 0 ? void 0 : ele.name,
-        key: ele === null || ele === void 0 ? void 0 : ele.name
+        key: key
       }, (0, _index.fromLowerToUpperCase)(ele === null || ele === void 0 ? void 0 : ele.name));
     });
   }
+  if (typeof option !== "undefined") return option;
 }
