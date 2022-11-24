@@ -1,12 +1,13 @@
 "use strict";
 
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/slicedToArray"));
-var _react = require("react");
+var _react = _interopRequireWildcard(require("react"));
 var _utils = require("../utils");
 require("../css/style.css");
 // @ts-nocheck
@@ -63,20 +64,20 @@ var SelectField = function SelectField(_ref) {
       setRenderOption((0, _utils.renderOptions)(tabType, tabs));
     }
   }, [tabType]);
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("div", {
     className: "select_container"
-  }, /*#__PURE__*/React.createElement("label", {
+  }, /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: idName,
     className: "input_container__label ".concat(idName),
     "data-testid": "select_label"
-  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/React.createElement("select", {
+  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("select", {
     className: "select_container__select",
     name: idName,
     id: idName,
     required: isRequired,
     onClick: handleSendValue,
     "aria-label": "select"
-  }, optValue && /*#__PURE__*/React.createElement("option", {
+  }, optValue && /*#__PURE__*/_react.default.createElement("option", {
     style: {
       textAlign: "center"
     }

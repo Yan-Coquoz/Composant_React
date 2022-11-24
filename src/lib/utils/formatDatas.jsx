@@ -56,7 +56,9 @@ export function renderOptGroup(tabs) {
  *
  * Si le tabType n'est pas un objet, mappez sur le tableau tabs et renvoyez un élément d'option avec la valeur de l'élément et la clé de l'index. Si le tabType est un objet, mappez sur le tableau tabs et renvoyez un élément d'option avec la valeur du nom de l'élément et la clé du nom de l'élément.
  * @param {String}  typeArr - type du tableau
+ *
  * @param {Array}  tabs - le tableau
+ *
  * @return {React.ReactElement} - une liste
  */
 export function renderOptions(typeArr, tabs) {
