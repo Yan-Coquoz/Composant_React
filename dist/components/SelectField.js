@@ -1,15 +1,15 @@
 "use strict";
 
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/slicedToArray"));
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 var _utils = require("../utils");
 require("../css/style.css");
-var _index = require("../utils/index");
 // @ts-nocheck
 
 /**
@@ -22,6 +22,8 @@ var _index = require("../utils/index");
  * @prop   {Function}  `sendValue`   send name value and value selected
  * @prop   {Boolean}  `toUpperCase`  if label need to be to upper case
  * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area
+ * @prop   {Boolean}  `group` If true, optgroup can be add.
+ *
  * @return  {React.ReactElement}
  */
 var SelectField = function SelectField(_ref) {
@@ -33,14 +35,14 @@ var SelectField = function SelectField(_ref) {
     toUpperCase = _ref.toUpperCase,
     sendValue = _ref.sendValue,
     group = _ref.group;
-  var _React$useState = _react.default.useState(""),
-    _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 2),
-    tabType = _React$useState2[0],
-    setTabType = _React$useState2[1];
-  var _React$useState3 = _react.default.useState(""),
-    _React$useState4 = (0, _slicedToArray2.default)(_React$useState3, 2),
-    renderOption = _React$useState4[0],
-    setRenderOption = _React$useState4[1];
+  var _useState = (0, _react.useState)(""),
+    _useState2 = (0, _slicedToArray2.default)(_useState, 2),
+    tabType = _useState2[0],
+    setTabType = _useState2[1];
+  var _useState3 = (0, _react.useState)(""),
+    _useState4 = (0, _slicedToArray2.default)(_useState3, 2),
+    renderOption = _useState4[0],
+    setRenderOption = _useState4[1];
 
   /**
    * Si la valeur de la sélection n'est pas égale à 'options', alors envoyez la valeur de la sélection
@@ -53,13 +55,13 @@ var SelectField = function SelectField(_ref) {
       sendValue(selectName, value);
     }
   };
-  _react.default.useEffect(function () {
+  (0, _react.useEffect)(function () {
     if (group) {
-      setRenderOption((0, _index.formatArrays)(tabs));
+      setRenderOption((0, _utils.formatArrays)(tabs));
     } else {
       var tabsType = (0, _utils.checkArrayOf)(tabs);
       setTabType(tabsType);
-      setRenderOption((0, _utils.formatOption)(tabsType, tabs));
+      setRenderOption((0, _utils.formatOption)(tabType, tabs));
     }
   }, [tabType]);
   return /*#__PURE__*/_react.default.createElement("div", {
@@ -79,7 +81,7 @@ var SelectField = function SelectField(_ref) {
     style: {
       textAlign: "center"
     }
-  }, (0, _utils.fromLowerToUpperCase)("options")), renderOption));
+  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)("options") : "option"), renderOption));
 };
 SelectField.defaultProps = {
   isRequired: false,

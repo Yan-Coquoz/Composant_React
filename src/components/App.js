@@ -3,7 +3,7 @@ import {
   InputText,
   Modale,
   Button,
-  // DatePicker,
+  DatePicker,
   InputNumber,
   SelectField,
 } from "../lib/index";
@@ -125,7 +125,7 @@ const App = () => {
         />
 
         <SelectField {...selectDep} />
-        {/* 
+
         <DatePicker
           idName={"dateOfBirth"}
           isRequired={false}
@@ -133,7 +133,7 @@ const App = () => {
           toUpperCase={true}
           lang={"en"}
           placeholder={"date"}
-        /> */}
+        />
         <SelectField {...selectState} />
 
         <br />

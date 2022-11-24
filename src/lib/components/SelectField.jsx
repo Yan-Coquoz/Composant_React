@@ -1,9 +1,13 @@
 // @ts-nocheck
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { fromLowerToUpperCase, checkArrayOf, formatOption } from "../utils";
+import {
+  fromLowerToUpperCase,
+  checkArrayOf,
+  formatOption,
+  formatArrays,
+} from "../utils";
 import "../css/style.css";
-import { formatArrays } from "../utils/index";
 
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
@@ -15,6 +19,8 @@ import { formatArrays } from "../utils/index";
  * @prop   {Function}  `sendValue`   send name value and value selected
  * @prop   {Boolean}  `toUpperCase`  if label need to be to upper case
  * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area
+ * @prop   {Boolean}  `group` If true, optgroup can be add.
+ *
  * @return  {React.ReactElement}
  */
 const SelectField = ({
@@ -27,8 +33,8 @@ const SelectField = ({
   sendValue,
   group,
 }) => {
-  const [tabType, setTabType] = React.useState("");
-  const [renderOption, setRenderOption] = React.useState("");
+  const [tabType, setTabType] = useState("");
+  const [renderOption, setRenderOption] = useState("");
 
   /**
    * Si la valeur de la sélection n'est pas égale à 'options', alors envoyez la valeur de la sélection
@@ -42,13 +48,13 @@ const SelectField = ({
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (group) {
       setRenderOption(formatArrays(tabs));
     } else {
       const tabsType = checkArrayOf(tabs);
       setTabType(tabsType);
-      setRenderOption(formatOption(tabsType, tabs));
+      setRenderOption(formatOption(tabType, tabs));
     }
   }, [tabType]);
 
@@ -72,10 +78,10 @@ const SelectField = ({
       >
         {optValue && (
           <option style={{ textAlign: "center" }}>
-            {fromLowerToUpperCase("options")}
+            {toUpperCase ? fromLowerToUpperCase("options") : "option"}
           </option>
         )}
-        {/* Affichage du tableau */}
+        {/* Affichage de la liste */}
         {renderOption}
       </select>
     </div>

@@ -1,13 +1,11 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.checkArrayOf = checkArrayOf;
 exports.formatArrays = formatArrays;
 exports.formatOption = formatOption;
-var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/typeof"));
 var _index = require("./index");
 /**
  * Il vérifie si le premier élément d'un tableau est un tableau, un nombre, une chaîne, un objet avec
@@ -18,7 +16,7 @@ var _index = require("./index");
 function checkArrayOf(arr) {
   // le type du tableau
   var typeOfArr = Array.isArray(arr[0]) ? "array" : arr[0] === null // envoi null en cas d'objet
-  ? null : (0, _typeof2.default)(arr[0]);
+  ? null : typeof arr[0];
   if (typeOfArr === "number" || typeOfArr === "string") {
     return typeOfArr;
   }
