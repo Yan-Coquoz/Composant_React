@@ -4,8 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.checkArrayOf = checkArrayOf;
-exports.formatArrays = formatArrays;
-exports.formatOption = formatOption;
+exports.renderOptGroup = renderOptGroup;
+exports.renderOptions = renderOptions;
 var _index = require("./index");
 /**
  * Il vérifie si le premier élément d'un tableau est un tableau, un nombre, une chaîne, un objet avec
@@ -24,8 +24,31 @@ function checkArrayOf(arr) {
     return typeOfArr;
   }
   if (typeOfArr === "object" && Object.keys(arr[0])[0] !== "name") {
-    throw new Error("this array is not compliant");
+    return "optgroup";
   }
+}
+
+/**
+ * Il prend un tableau d'objets et renvoie un tableau d'éléments React.
+ * @param   {ArrayOfObject}  tabs
+ *
+ * @returns {React.ReactElement} Un tableau d'éléments React.
+ *
+ */
+function renderOptGroup(tabs) {
+  return tabs.map(function (ele, key) {
+    var optGName = Object.keys(ele)[0];
+    var optTabs = Object.values(ele)[0];
+    return /*#__PURE__*/React.createElement("optgroup", {
+      key: key,
+      label: (0, _index.fromLowerToUpperCase)(optGName),
+      className: "option_group"
+    }, optTabs.map(function (itm, index) {
+      return /*#__PURE__*/React.createElement("option", {
+        key: index
+      }, (0, _index.fromLowerToUpperCase)(itm));
+    }));
+  });
 }
 
 /**
@@ -33,10 +56,9 @@ function checkArrayOf(arr) {
  * Si le tabType n'est pas un objet, mappez sur le tableau tabs et renvoyez un élément d'option avec la valeur de l'élément et la clé de l'index. Si le tabType est un objet, mappez sur le tableau tabs et renvoyez un élément d'option avec la valeur du nom de l'élément et la clé du nom de l'élément.
  * @param {String}  typeArr - type du tableau
  * @param {Array}  tabs - le tableau
- * @return
+ * @return {React.ReactElement} - une liste
  */
-
-function formatOption(typeArr, tabs) {
+function renderOptions(typeArr, tabs) {
   if (typeArr !== "object") {
     return tabs.map(function (ele, key) {
       return /*#__PURE__*/React.createElement("option", {
@@ -52,27 +74,4 @@ function formatOption(typeArr, tabs) {
       }, (0, _index.fromLowerToUpperCase)(ele === null || ele === void 0 ? void 0 : ele.name));
     });
   }
-}
-
-/**
- * Il prend un tableau d'objets et renvoie un tableau d'éléments React.
- * @param   {ArrayOfObject}  tabs
- *
- * @returns {React.ReactElement} Un tableau d'éléments React.
- *
- */
-function formatArrays(tabs) {
-  return tabs.map(function (ele, key) {
-    var optGName = Object.keys(ele)[0];
-    var optTabs = Object.values(ele)[0];
-    return /*#__PURE__*/React.createElement("optgroup", {
-      key: key,
-      label: (0, _index.fromLowerToUpperCase)(optGName),
-      className: "option_group"
-    }, optTabs.map(function (itm, index) {
-      return /*#__PURE__*/React.createElement("option", {
-        key: index
-      }, (0, _index.fromLowerToUpperCase)(itm));
-    }));
-  });
 }

@@ -9,22 +9,22 @@ Object.defineProperty(exports, "checkArrayOf", {
     return _formatDatas.checkArrayOf;
   }
 });
-Object.defineProperty(exports, "formatArrays", {
-  enumerable: true,
-  get: function get() {
-    return _formatDatas.formatArrays;
-  }
-});
-Object.defineProperty(exports, "formatOption", {
-  enumerable: true,
-  get: function get() {
-    return _formatDatas.formatOption;
-  }
-});
 Object.defineProperty(exports, "fromLowerToUpperCase", {
   enumerable: true,
   get: function get() {
     return _formatFontStyle.fromLowerToUpperCase;
+  }
+});
+Object.defineProperty(exports, "renderOptGroup", {
+  enumerable: true,
+  get: function get() {
+    return _formatDatas.renderOptGroup;
+  }
+});
+Object.defineProperty(exports, "renderOptions", {
+  enumerable: true,
+  get: function get() {
+    return _formatDatas.renderOptions;
   }
 });
 Object.defineProperty(exports, "toCamelCase", {

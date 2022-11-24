@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import {
   fromLowerToUpperCase,
   checkArrayOf,
-  formatOption,
-  formatArrays,
+  renderOptions,
+  renderOptGroup,
 } from "../utils";
 import "../css/style.css";
 
@@ -50,11 +50,11 @@ const SelectField = ({
 
   useEffect(() => {
     if (group) {
-      setRenderOption(formatArrays(tabs));
+      setRenderOption(renderOptGroup(tabs));
     } else {
       const tabsType = checkArrayOf(tabs);
       setTabType(tabsType);
-      setRenderOption(formatOption(tabType, tabs));
+      setRenderOption(renderOptions(tabType, tabs));
     }
   }, [tabType]);
 

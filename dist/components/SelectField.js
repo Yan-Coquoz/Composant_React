@@ -57,11 +57,11 @@ var SelectField = function SelectField(_ref) {
   };
   (0, _react.useEffect)(function () {
     if (group) {
-      setRenderOption((0, _utils.formatArrays)(tabs));
+      setRenderOption((0, _utils.renderOptGroup)(tabs));
     } else {
       var tabsType = (0, _utils.checkArrayOf)(tabs);
       setTabType(tabsType);
-      setRenderOption((0, _utils.formatOption)(tabType, tabs));
+      setRenderOption((0, _utils.renderOptions)(tabType, tabs));
     }
   }, [tabType]);
   return /*#__PURE__*/_react.default.createElement("div", {

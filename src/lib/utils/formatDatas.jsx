@@ -23,8 +23,33 @@ export function checkArrayOf(arr) {
   }
 
   if (typeOfArr === "object" && Object.keys(arr[0])[0] !== "name") {
-    throw new Error("this array is not compliant");
+    return "optgroup";
   }
+}
+
+/**
+ * Il prend un tableau d'objets et renvoie un tableau d'éléments React.
+ * @param   {ArrayOfObject}  tabs
+ *
+ * @returns {React.ReactElement} Un tableau d'éléments React.
+ *
+ */
+export function renderOptGroup(tabs) {
+  return tabs.map((ele, key) => {
+    const optGName = Object.keys(ele)[0];
+    const optTabs = Object.values(ele)[0];
+    return (
+      <optgroup
+        key={key}
+        label={fromLowerToUpperCase(optGName)}
+        className="option_group"
+      >
+        {optTabs.map((itm, index) => {
+          return <option key={index}>{fromLowerToUpperCase(itm)}</option>;
+        })}
+      </optgroup>
+    );
+  });
 }
 
 /**
@@ -32,10 +57,9 @@ export function checkArrayOf(arr) {
  * Si le tabType n'est pas un objet, mappez sur le tableau tabs et renvoyez un élément d'option avec la valeur de l'élément et la clé de l'index. Si le tabType est un objet, mappez sur le tableau tabs et renvoyez un élément d'option avec la valeur du nom de l'élément et la clé du nom de l'élément.
  * @param {String}  typeArr - type du tableau
  * @param {Array}  tabs - le tableau
- * @return
+ * @return {React.ReactElement} - une liste
  */
-
-export function formatOption(typeArr, tabs) {
+export function renderOptions(typeArr, tabs) {
   if (typeArr !== "object") {
     return tabs.map((ele, key) => {
       return (
@@ -53,29 +77,4 @@ export function formatOption(typeArr, tabs) {
       );
     });
   }
-}
-
-/**
- * Il prend un tableau d'objets et renvoie un tableau d'éléments React.
- * @param   {ArrayOfObject}  tabs
- *
- * @returns {React.ReactElement} Un tableau d'éléments React.
- *
- */
-export function formatArrays(tabs) {
-  return tabs.map((ele, key) => {
-    const optGName = Object.keys(ele)[0];
-    const optTabs = Object.values(ele)[0];
-    return (
-      <optgroup
-        key={key}
-        label={fromLowerToUpperCase(optGName)}
-        className="option_group"
-      >
-        {optTabs.map((itm, index) => {
-          return <option key={index}>{fromLowerToUpperCase(itm)}</option>;
-        })}
-      </optgroup>
-    );
-  });
 }
