@@ -1,11 +1,13 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.checkArrayOf = checkArrayOf;
 exports.renderOptGroup = renderOptGroup;
 exports.renderOptions = renderOptions;
+var _react = _interopRequireDefault(require("react"));
 var _index = require("./index");
 /**
  * Il vérifie si le premier élément d'un tableau est un tableau, un nombre, une chaîne, un objet avec
@@ -39,12 +41,12 @@ function renderOptGroup(tabs) {
   return tabs.map(function (ele, key) {
     var optGName = Object.keys(ele)[0];
     var optTabs = Object.values(ele)[0];
-    return /*#__PURE__*/React.createElement("optgroup", {
+    return /*#__PURE__*/_react.default.createElement("optgroup", {
       key: key,
       label: (0, _index.fromLowerToUpperCase)(optGName),
       className: "option_group"
     }, optTabs.map(function (itm, index) {
-      return /*#__PURE__*/React.createElement("option", {
+      return /*#__PURE__*/_react.default.createElement("option", {
         key: index
       }, (0, _index.fromLowerToUpperCase)(itm));
     }));
@@ -64,14 +66,14 @@ function renderOptions(typeArr, tabs) {
   var option;
   if (typeArr === "number" || typeArr === "string") {
     option = tabs.map(function (ele, key) {
-      return /*#__PURE__*/React.createElement("option", {
+      return /*#__PURE__*/_react.default.createElement("option", {
         value: ele,
         key: key
       }, (0, _index.fromLowerToUpperCase)(ele));
     });
   } else if (typeArr === "object" && Object.values(tabs)[0].name !== "undefined") {
     option = tabs.map(function (ele, key) {
-      return /*#__PURE__*/React.createElement("option", {
+      return /*#__PURE__*/_react.default.createElement("option", {
         value: ele === null || ele === void 0 ? void 0 : ele.name,
         key: key
       }, (0, _index.fromLowerToUpperCase)(ele === null || ele === void 0 ? void 0 : ele.name));
