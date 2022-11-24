@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
@@ -81,7 +80,7 @@ const SelectField = ({
         aria-label={"select"}
       >
         {optValue && (
-          <option style={{ textAlign: "center" }}>
+          <option className="select_option">
             {toUpperCase ? fromLowerToUpperCase("options") : "option"}
           </option>
         )}

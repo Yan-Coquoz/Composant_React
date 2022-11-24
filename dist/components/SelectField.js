@@ -10,8 +10,6 @@ var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm
 var _react = _interopRequireWildcard(require("react"));
 var _utils = require("../utils");
 require("../css/style.css");
-// @ts-nocheck
-
 /**
  * It's a select component that takes in an array of objects, and returns a select element with options
  *
@@ -78,9 +76,7 @@ var SelectField = function SelectField(_ref) {
     onClick: handleSendValue,
     "aria-label": "select"
   }, optValue && /*#__PURE__*/_react.default.createElement("option", {
-    style: {
-      textAlign: "center"
-    }
+    className: "select_option"
   }, toUpperCase ? (0, _utils.fromLowerToUpperCase)("options") : "option"), renderOption));
 };
 SelectField.defaultProps = {
