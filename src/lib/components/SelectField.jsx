@@ -17,7 +17,7 @@ import "../css/style.css";
  * @prop   {Boolean}  `isRequired`  If the value is required
  * @prop   {Function}  `sendValue`   send name value and value selected
  * @prop   {Boolean}  `toUpperCase`  if label need to be to upper case
- * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area
+ * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area, if required, option must be false
  * @prop   {Boolean}  `group` If true, optgroup can be add.
  *
  * @return  {React.ReactElement}
@@ -42,9 +42,8 @@ const SelectField = ({
   const handleSendValue = (evt) => {
     const value = evt.target.value;
     const selectName = evt.target.name;
-    if (isRequired && value.toLowerCase() !== "option") {
-      sendValue(selectName, value);
-    }
+
+    sendValue(selectName, value);
   };
 
   useEffect(() => {
@@ -61,6 +60,23 @@ const SelectField = ({
     }
   }, [tabType]);
 
+  function renderFirstOptions() {
+    if (isRequired) {
+      if (optValue) {
+        // options est false
+        return <option className="select_option"></option>;
+      }
+    } else {
+      if (optValue) {
+        return (
+          <option className="select_option">
+            {toUpperCase ? fromLowerToUpperCase("options") : "options"}
+          </option>
+        );
+      }
+    }
+  }
+
   return (
     <div className="select_container">
       <label
@@ -68,22 +84,24 @@ const SelectField = ({
         className={`input_container__label ${idName}`}
         data-testid="select_label"
       >
-        {toUpperCase ? fromLowerToUpperCase(labelName) : labelName}
+        {isRequired
+          ? toUpperCase
+            ? fromLowerToUpperCase(labelName) + " *"
+            : labelName + " *"
+          : toUpperCase
+          ? fromLowerToUpperCase(labelName)
+          : labelName}
       </label>
 
       <select
         className="select_container__select"
-        name={idName}
+        name={"select_" + idName}
         id={idName}
         required={isRequired}
         onClick={handleSendValue}
         aria-label={"select"}
       >
-        {optValue && (
-          <option className="select_option">
-            {toUpperCase ? fromLowerToUpperCase("options") : "option"}
-          </option>
-        )}
+        {renderFirstOptions()}
         {/* Affichage de la liste */}
         {renderOption}
       </select>

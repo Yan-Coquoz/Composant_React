@@ -75,7 +75,7 @@ Ce module fonctionne avec React
 - `idName` : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
 - `sendValue` : {Fonction} retourne le nom et la valeur.
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
-- `optValue` {Boolean} place en premiere valeur du champs 'Options'.
+- `optValue` {Boolean} place en premiere valeur du champs 'Options'. Si vrai, la première valeur sera **options**, mais si `isRequired` est vrai, la valeur sera vide.
 - `group` : {Boolean} false est la valeur par défaut. Si c'est true, alors `tabs` devra être comme ceci : [{car:[...arrayOfCars],bike:[...arrayOfBikes]}], alors la balise optgroup aura pour label  `car` et `bike`.
 
 ---

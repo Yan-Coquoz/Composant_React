@@ -22,35 +22,35 @@ const App = () => {
     { clothes: [...tab2] },
     { vehicle: [...tab3] },
   ];
+  const selectTest = {
+    tabs: mesTableaux,
+    idName: "tableau",
+    labelName: "mes tableaux",
+    sendValue: handleSelect,
+    toUpperCase: true,
+    group: true,
+    optValue: false,
+    isRequired: false,
+  };
 
   const selectDep = {
     tabs: depts,
     idName: "department",
     labelName: "department",
     optValue: false,
+    isRequired: false,
     sendValue: handleSelect,
     toUpperCase: true,
-    isRequired: true,
   };
+
   const selectState = {
     tabs: etats,
     idName: "state",
-    labelName: (Math.random() * 1).toFixed(1) > 0.5 ? "state *" : "state",
+    labelName: "state",
     toUpperCase: true,
-    optValue: true,
+    optValue: false,
+    isRequired: false,
     sendValue: handleSelect,
-    isRequired: true,
-  };
-
-  const selectTest = {
-    tabs: mesTableaux,
-    idName: "tableau",
-    labelName: "mes tableaux",
-    optValue: true,
-    sendValue: handleSelect,
-    toUpperCase: true,
-    isRequired: true,
-    group: true,
   };
 
   function handleOpenModal() {
@@ -72,29 +72,29 @@ const App = () => {
     const form = evt.target;
     const dataForm = new FormData(form);
     const dateFORM = dataForm.get("dateOfBirth");
-    console.log("dateForm ", dateFORM);
+    console.log("dateForm => ", dateFORM);
 
     form.reset();
     // fin DataForm
 
     const datas = [];
-    const props = [];
+    const propris = [];
     const values = [];
-    if (props.length === values.length) {
+    if (propris.length === values.length) {
       for (let i = 0; i < evt.target.length - 3; i++) {
         // -3 target renvoi un tableau des elements du form dont le bouton(*2).
-        props.push(evt.target[i].name);
+        propris.push(evt.target[i].name);
         values.push(evt.target[i].value);
       }
 
       for (let i = 0; i < values.length; i++) {
-        datas.push({ [props[i]]: values[i] });
+        datas.push({ [propris[i]]: values[i] });
       }
     }
 
     if (selectDep.isRequired) {
       if (selectDepart.toLowerCase() !== "options") {
-        console.log(selectDepart);
+        console.log("xxx ", selectDepart);
       } else {
         console.warn("Select a value");
       }
@@ -106,6 +106,8 @@ const App = () => {
       <h1>Hello Test</h1>
       <form onSubmit={handleSendForm}>
         <SelectField {...selectTest} />
+        <SelectField {...selectDep} />
+        <SelectField {...selectState} />
         <InputText
           idName={"firstname"}
           labelName={"prénom"}
@@ -124,8 +126,6 @@ const App = () => {
           isRequired={false}
         />
 
-        <SelectField {...selectDep} />
-
         <DatePicker
           idName={"dateOfBirth"}
           isRequired={false}
@@ -134,7 +134,6 @@ const App = () => {
           lang={"en"}
           placeholder={"date"}
         />
-        <SelectField {...selectState} />
 
         <br />
         <button type="submit">send</button>
