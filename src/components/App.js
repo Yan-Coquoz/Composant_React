@@ -31,7 +31,7 @@ const App = () => {
     toUpperCase: true,
     group: true,
     optValue: true,
-    isRequired: false,
+    isRequired: true,
   };
 
   const selectDep = {
