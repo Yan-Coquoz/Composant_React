@@ -23,7 +23,7 @@ const DatePicker = ({
   const [calendar, setCalendar] = useState("");
   const [openCalendar, setOpenCalendar] = useState(false);
   const refCalendar = useRef(null);
-
+  // TODO problème de persistance des données lors du reset
   /**
    * Lorsque l'utilisateur clique sur une date, le calendrier sera défini sur cette date.
    */
@@ -81,32 +81,38 @@ const DatePicker = ({
       setOpenCalendar(false);
     }
   }
-  function handleChange(evt) {
-    console.log(evt);
-  }
+  // function handleChange(evt) {
+  //   console.log(evt);
+  // }
   useEffect(() => {
     // au chargement de la page le compo aura une date par défaut
-    // setCalendar(format(new Date(), "yyyy-MM-dd"));
+    setCalendar("");
     checkLangage();
     document.addEventListener("keydown", checkPressKeyOutSide, true);
     document.addEventListener("click", checkClickOutside, true);
-  }, []);
+  }, [calendar]);
 
   return (
     <div className="datepicker__container">
-      <label htmlFor={idName} className={`datepicker__label ${idName}`}>
+      <label
+        htmlFor={idName}
+        className={`datepicker__label ${idName}`}
+        data-testid="datepicker_label"
+      >
         {toUpperCase ? fromLowerToUpperCase(labelName) : labelName}
       </label>
+
       <input
         className={`datepicker__input ${myClass}`}
+        id={idName}
+        name={idName}
+        aria-label="datepicker"
         value={calendar}
         readOnly
-        onChange={handleChange}
-        name={idName.split(" ").join("_")}
-        id={idName}
+        // onChange={handleChange}
         required={isRequired}
         placeholder={placeholder}
-        // overture/fermeture du calendrier
+        // ouverture/fermeture du calendrier
         onClick={() => setOpenCalendar((openCalendar) => !openCalendar)}
       />
 
@@ -135,10 +141,13 @@ DatePicker.propTypes = {
   toUpperCase: PropTypes.bool,
   lang: PropTypes.string,
   placeholder: PropTypes.string,
+  isSend: PropTypes.bool,
 };
+
 DatePicker.defaultProps = {
   myClass: "",
   labelName: "",
   lang: "en",
+  isSend: false,
 };
 export default DatePicker;

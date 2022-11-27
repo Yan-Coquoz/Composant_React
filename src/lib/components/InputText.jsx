@@ -33,7 +33,7 @@ const InputText = ({
 
       <input
         className={`input_container__input ${myClass}`}
-        aria-label={"input_text"}
+        aria-label="input_text"
         id={idName}
         name={idName}
         placeholder={fromLowerToUpperCase(labelName)}

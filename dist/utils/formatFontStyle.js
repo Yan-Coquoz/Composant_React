@@ -25,7 +25,7 @@ function fromLowerToUpperCase(str) {
  * Il prend une chaîne, remplace tous les traits d'union, traits de soulignement et espaces par une
  * chaîne vide, puis met en majuscule la première lettre du mot suivant.
  *
- * Voici une explication plus détaillée :
+ * Voici une explication plus détaillée:
  *
  * La première ligne de la fonction définit une expression régulière qui correspond aux traits d'union,
  * aux traits de soulignement et aux espaces.

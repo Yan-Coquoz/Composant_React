@@ -35,7 +35,7 @@ var DatePicker = function DatePicker(_ref) {
     openCalendar = _useState4[0],
     setOpenCalendar = _useState4[1];
   var refCalendar = (0, _react.useRef)(null);
-
+  // TODO problème de persistance des données lors du reset
   /**
    * Lorsque l'utilisateur clique sur une date, le calendrier sera défini sur cette date.
    */
@@ -92,31 +92,34 @@ var DatePicker = function DatePicker(_ref) {
       setOpenCalendar(false);
     }
   }
-  function handleChange(evt) {
-    console.log(evt);
-  }
+  // function handleChange(evt) {
+  //   console.log(evt);
+  // }
   (0, _react.useEffect)(function () {
     // au chargement de la page le compo aura une date par défaut
-    // setCalendar(format(new Date(), "yyyy-MM-dd"));
+    setCalendar("");
     checkLangage();
     document.addEventListener("keydown", checkPressKeyOutSide, true);
     document.addEventListener("click", checkClickOutside, true);
-  }, []);
+  }, [calendar]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "datepicker__container"
   }, /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: idName,
-    className: "datepicker__label ".concat(idName)
+    className: "datepicker__label ".concat(idName),
+    "data-testid": "datepicker_label"
   }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("input", {
     className: "datepicker__input ".concat(myClass),
-    value: calendar,
-    readOnly: true,
-    onChange: handleChange,
-    name: idName.split(" ").join("_"),
     id: idName,
+    name: idName,
+    "aria-label": "datepicker",
+    value: calendar,
+    readOnly: true
+    // onChange={handleChange}
+    ,
     required: isRequired,
     placeholder: placeholder
-    // overture/fermeture du calendrier
+    // ouverture/fermeture du calendrier
     ,
     onClick: function onClick() {
       return setOpenCalendar(function (openCalendar) {
@@ -134,7 +137,8 @@ var DatePicker = function DatePicker(_ref) {
 DatePicker.defaultProps = {
   myClass: "",
   labelName: "",
-  lang: "en"
+  lang: "en",
+  isSend: false
 };
 var _default = DatePicker;
 exports.default = _default;

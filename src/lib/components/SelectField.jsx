@@ -84,13 +84,7 @@ const SelectField = ({
         className={`input_container__label ${idName}`}
         data-testid="select_label"
       >
-        {isRequired
-          ? toUpperCase
-            ? fromLowerToUpperCase(labelName) + " *"
-            : labelName + " *"
-          : toUpperCase
-          ? fromLowerToUpperCase(labelName)
-          : labelName}
+        {toUpperCase ? fromLowerToUpperCase(labelName) : labelName}
       </label>
 
       <select

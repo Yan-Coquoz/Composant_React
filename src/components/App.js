@@ -12,6 +12,7 @@ import "./style.css";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   //test de tableaux avec optGroup
   const tab1 = ["red", "blue", "green"];
   const tab2 = ["short", "coat", "socket", "shoes"];
@@ -29,7 +30,7 @@ const App = () => {
     sendValue: handleSelect,
     toUpperCase: true,
     group: true,
-    optValue: false,
+    optValue: true,
     isRequired: false,
   };
 
@@ -37,7 +38,7 @@ const App = () => {
     tabs: depts,
     idName: "department",
     labelName: "department",
-    optValue: false,
+    optValue: true,
     isRequired: false,
     sendValue: handleSelect,
     toUpperCase: true,
@@ -48,7 +49,7 @@ const App = () => {
     idName: "state",
     labelName: "state",
     toUpperCase: true,
-    optValue: false,
+    optValue: true,
     isRequired: false,
     sendValue: handleSelect,
   };
@@ -70,11 +71,13 @@ const App = () => {
 
     // DATAFORM
     const form = evt.target;
+    console.log(form);
     const dataForm = new FormData(form);
     const dateFORM = dataForm.get("dateOfBirth");
     console.log("dateForm => ", dateFORM);
 
     form.reset();
+
     // fin DataForm
 
     const datas = [];
@@ -105,35 +108,45 @@ const App = () => {
     <div>
       <h1>Hello Test</h1>
       <form onSubmit={handleSendForm}>
-        <SelectField {...selectTest} />
-        <SelectField {...selectDep} />
-        <SelectField {...selectState} />
-        <InputText
-          idName={"firstname"}
-          labelName={"prénom"}
-          isRequired={false}
-          sendValue={handleChangeInput}
-          myClass={"input_text"}
-          toUpperCase={true}
-        />
+        <fieldset>
+          <legend>Select</legend>
+          <SelectField {...selectTest} />
+          <SelectField {...selectDep} />
+          <SelectField {...selectState} />
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend>Input</legend>
+          <InputText
+            idName={"firstname"}
+            labelName={"prénom"}
+            isRequired={false}
+            sendValue={handleChangeInput}
+            myClass={"input_text"}
+            toUpperCase={true}
+          />
 
-        <InputNumber
-          idName="testnumber"
-          labelName={"test de nombre"}
-          toUpperCase={true}
-          // mini={10000}
-          // maxi={99999}
-          isRequired={false}
-        />
-
-        <DatePicker
-          idName={"dateOfBirth"}
-          isRequired={false}
-          labelName={"date of birth"}
-          toUpperCase={true}
-          lang={"en"}
-          placeholder={"date"}
-        />
+          <InputNumber
+            idName="testnumber"
+            labelName={"test de nombre"}
+            toUpperCase={true}
+            // mini={10000}
+            // maxi={99999}
+            isRequired={false}
+          />
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend>Date</legend>
+          <DatePicker
+            idName={"dateOfBirth"}
+            isRequired={true}
+            labelName={"date of birth"}
+            toUpperCase={true}
+            lang={"en"}
+            placeholder={"date"}
+          />
+        </fieldset>
 
         <br />
         <button type="submit">send</button>

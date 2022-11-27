@@ -19,7 +19,7 @@ require("../css/style.css");
  * @prop   {Boolean}  `isRequired`  If the value is required
  * @prop   {Function}  `sendValue`   send name value and value selected
  * @prop   {Boolean}  `toUpperCase`  if label need to be to upper case
- * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area
+ * @prop   {Boolean}  `optValue` Render 'Options' for first value in select area, if required, option must be false
  * @prop   {Boolean}  `group` If true, optgroup can be add.
  *
  * @return  {React.ReactElement}
@@ -49,9 +49,7 @@ var SelectField = function SelectField(_ref) {
   var handleSendValue = function handleSendValue(evt) {
     var value = evt.target.value;
     var selectName = evt.target.name;
-    if (isRequired && value.toLowerCase() !== "option") {
-      sendValue(selectName, value);
-    }
+    sendValue(selectName, value);
   };
   (0, _react.useEffect)(function () {
     var tabsType = (0, _utils.checkArrayOf)(tabs);
@@ -62,6 +60,22 @@ var SelectField = function SelectField(_ref) {
       setRenderOption((0, _utils.renderOptions)(tabType, tabs));
     }
   }, [tabType]);
+  function renderFirstOptions() {
+    if (isRequired) {
+      if (optValue) {
+        // options est false
+        return /*#__PURE__*/_react.default.createElement("option", {
+          className: "select_option"
+        });
+      }
+    } else {
+      if (optValue) {
+        return /*#__PURE__*/_react.default.createElement("option", {
+          className: "select_option"
+        }, toUpperCase ? (0, _utils.fromLowerToUpperCase)("options") : "options");
+      }
+    }
+  }
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "select_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -70,14 +84,12 @@ var SelectField = function SelectField(_ref) {
     "data-testid": "select_label"
   }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("select", {
     className: "select_container__select",
-    name: idName,
+    name: "select_" + idName,
     id: idName,
     required: isRequired,
     onClick: handleSendValue,
     "aria-label": "select"
-  }, optValue && /*#__PURE__*/_react.default.createElement("option", {
-    className: "select_option"
-  }, toUpperCase ? (0, _utils.fromLowerToUpperCase)("options") : "option"), renderOption));
+  }, renderFirstOptions(), renderOption));
 };
 SelectField.defaultProps = {
   isRequired: false,
