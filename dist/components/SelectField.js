@@ -62,7 +62,7 @@ var SelectField = function SelectField(_ref) {
   }, [tabType]);
   function renderFirstOptions() {
     if (isRequired) {
-      if (optValue) {
+      if (optValue || !optValue) {
         // options est false
         return /*#__PURE__*/_react.default.createElement("option", {
           className: "select_option"

@@ -62,7 +62,7 @@ const SelectField = ({
 
   function renderFirstOptions() {
     if (isRequired) {
-      if (optValue) {
+      if (optValue || !optValue) {
         // options est false
         return <option className="select_option"></option>;
       }

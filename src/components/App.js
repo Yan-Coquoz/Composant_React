@@ -38,7 +38,7 @@ const App = () => {
     tabs: depts,
     idName: "department",
     labelName: "department",
-    optValue: true,
+    optValue: false,
     isRequired: false,
     sendValue: handleSelect,
     toUpperCase: true,
