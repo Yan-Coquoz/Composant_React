@@ -84,7 +84,7 @@ var SelectField = function SelectField(_ref) {
     "data-testid": "select_label"
   }, toUpperCase ? (0, _utils.fromLowerToUpperCase)(labelName) : labelName), /*#__PURE__*/_react.default.createElement("select", {
     className: "select_container__select",
-    name: "select_" + idName,
+    name: idName,
     id: idName,
     required: isRequired,
     onClick: handleSendValue,

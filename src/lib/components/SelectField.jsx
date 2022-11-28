@@ -89,7 +89,7 @@ const SelectField = ({
 
       <select
         className="select_container__select"
-        name={"select_" + idName}
+        name={idName}
         id={idName}
         required={isRequired}
         onClick={handleSendValue}

@@ -1,7 +1,7 @@
 .modal_container {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   background: rgba(255, 255, 255, 0.6);
   z-index: 10;
   top: 0%;
@@ -45,6 +45,7 @@
 .modal__box-paragraph {
   text-align: center;
   width: 50%;
+  min-width: 285px;
   margin: 22vh auto;
   backdrop-filter: blur(6.2px);
   -webkit-backdrop-filter: blur(6.2px);
