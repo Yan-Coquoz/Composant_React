@@ -9,7 +9,8 @@ describe("Test for Select", function () {
   it("it should be render a label", function () {
     var tabs = [];
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_Select.default, {
-      tabs: tabs
+      tabs: tabs,
+      idName: "name"
     }));
     var label = _react2.screen.getByTestId("select_label");
     expect(label).toBeInTheDocument();

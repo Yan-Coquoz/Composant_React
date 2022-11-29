@@ -10,6 +10,7 @@ import "../css/style.css";
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
  * @prop  {Function} sendValue envoi les props de l'input (name et value) à chaque actions sur le clavier
+ * @prop  {String} Value Valeur présente dans le champs
  *
  * @return  {React.ReactElement}   Un composant React de type input text
  */
@@ -20,6 +21,7 @@ const InputText = ({
   isRequired,
   myClass,
   sendValue,
+  value,
 }) => {
   return (
     <div className="input_container">
@@ -39,7 +41,8 @@ const InputText = ({
         placeholder={fromLowerToUpperCase(labelName)}
         required={isRequired}
         type="text"
-        onChange={(evt) => sendValue(evt.target.name, evt.target.value)}
+        value={value}
+        onChange={sendValue}
       />
     </div>
   );
@@ -52,6 +55,7 @@ InputText.propTypes = {
   myClass: PropTypes.string,
   toUpperCase: PropTypes.bool,
   sendValue: PropTypes.func,
+  value: PropTypes.string,
 };
 InputText.defaultProps = {
   toUpperCase: false,
