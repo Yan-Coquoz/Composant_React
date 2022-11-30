@@ -29,7 +29,7 @@ const SelectField = ({
   isRequired,
   optValue,
   toUpperCase,
-  sendValue,
+  onClick,
   group,
   onChange,
   onBlur,
@@ -42,12 +42,12 @@ const SelectField = ({
    * Si la valeur de la sélection n'est pas égale à 'options', alors envoyez la valeur de la sélection
    * à la fonction sendValue.
    */
-  const handleSendValue = (evt) => {
-    const value = evt.target.value;
-    const selectName = evt.target.name;
+  // const handleSendValue = (evt) => {
+  //   const value = evt.target.value;
+  //   const selectName = evt.target.name;
 
-    sendValue(selectName, value);
-  };
+  //   sendValue(selectName, value);
+  // };
 
   useEffect(() => {
     const tabsType = checkArrayOf(options);
@@ -95,7 +95,7 @@ const SelectField = ({
         name={idName}
         id={idName}
         required={isRequired}
-        onClick={handleSendValue}
+        onClick={onClick}
         aria-label={"select"}
         onChange={onChange}
         onBlur={onBlur}
@@ -116,7 +116,7 @@ SelectField.propTypes = {
   isRequired: PropTypes.bool,
   toUpperCase: PropTypes.bool,
   optValue: PropTypes.bool,
-  sendValue: PropTypes.func,
+  onClick: PropTypes.func,
   group: PropTypes.bool,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
@@ -125,7 +125,7 @@ SelectField.propTypes = {
 
 SelectField.defaultProps = {
   isRequired: false,
-  sendValue: () => {},
+  onClick: () => {},
   toUpperCase: false,
   optValue: false,
   group: false,

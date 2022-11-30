@@ -31,7 +31,7 @@ var SelectField = function SelectField(_ref) {
     isRequired = _ref.isRequired,
     optValue = _ref.optValue,
     toUpperCase = _ref.toUpperCase,
-    sendValue = _ref.sendValue,
+    onClick = _ref.onClick,
     group = _ref.group,
     onChange = _ref.onChange,
     onBlur = _ref.onBlur,
@@ -49,11 +49,13 @@ var SelectField = function SelectField(_ref) {
    * Si la valeur de la sélection n'est pas égale à 'options', alors envoyez la valeur de la sélection
    * à la fonction sendValue.
    */
-  var handleSendValue = function handleSendValue(evt) {
-    var value = evt.target.value;
-    var selectName = evt.target.name;
-    sendValue(selectName, value);
-  };
+  // const handleSendValue = (evt) => {
+  //   const value = evt.target.value;
+  //   const selectName = evt.target.name;
+
+  //   sendValue(selectName, value);
+  // };
+
   (0, _react.useEffect)(function () {
     var tabsType = (0, _utils.checkArrayOf)(options);
     if (group) {
@@ -90,7 +92,7 @@ var SelectField = function SelectField(_ref) {
     name: idName,
     id: idName,
     required: isRequired,
-    onClick: handleSendValue,
+    onClick: onClick,
     "aria-label": "select",
     onChange: onChange,
     onBlur: onBlur,
@@ -99,7 +101,7 @@ var SelectField = function SelectField(_ref) {
 };
 SelectField.defaultProps = {
   isRequired: false,
-  sendValue: function sendValue() {},
+  onClick: function onClick() {},
   toUpperCase: false,
   optValue: false,
   group: false
