@@ -24,7 +24,8 @@ const InputNumber = ({
   myClass,
   mini,
   maxi,
-  sendValue,
+  onChange,
+  value,
 }) => {
   return (
     <div className="input_container">
@@ -45,7 +46,8 @@ const InputNumber = ({
         type="number"
         min={mini}
         max={maxi}
-        onChange={(evt) => sendValue(evt.target.name, evt.target.value)}
+        onChange={onChange}
+        value={value}
       />
     </div>
   );
@@ -59,7 +61,8 @@ InputNumber.propTypes = {
   mini: PropTypes.number,
   maxi: PropTypes.number,
   toUpperCase: PropTypes.bool,
-  sendValue: PropTypes.func,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
 };
 InputNumber.defaultProps = {
   isRequired: false,
@@ -67,6 +70,6 @@ InputNumber.defaultProps = {
   placeholder: "",
   idName: "",
   toUpperCase: false,
-  sendValue: () => {},
+  onChange: () => {},
 };
 export default InputNumber;

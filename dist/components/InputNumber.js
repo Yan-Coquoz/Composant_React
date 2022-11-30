@@ -29,7 +29,8 @@ var InputNumber = function InputNumber(_ref) {
     myClass = _ref.myClass,
     mini = _ref.mini,
     maxi = _ref.maxi,
-    sendValue = _ref.sendValue;
+    onChange = _ref.onChange,
+    value = _ref.value;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "input_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -46,9 +47,8 @@ var InputNumber = function InputNumber(_ref) {
     type: "number",
     min: mini,
     max: maxi,
-    onChange: function onChange(evt) {
-      return sendValue(evt.target.name, evt.target.value);
-    }
+    onChange: onChange,
+    value: value
   }));
 };
 InputNumber.defaultProps = {
@@ -57,7 +57,7 @@ InputNumber.defaultProps = {
   placeholder: "",
   idName: "",
   toUpperCase: false,
-  sendValue: function sendValue() {}
+  onChange: function onChange() {}
 };
 var _default = InputNumber;
 exports.default = _default;
