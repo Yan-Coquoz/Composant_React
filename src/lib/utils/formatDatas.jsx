@@ -9,6 +9,7 @@ import { fromLowerToUpperCase } from "./index";
  */
 export function checkArrayOf(arr) {
   // le type du tableau
+  console.log(arr);
   const typeOfArr = Array.isArray(arr[0])
     ? "array"
     : arr[0] === null // envoi null en cas d'objet
