@@ -49,6 +49,20 @@ const SelectField = ({
   //   sendValue(selectName, value);
   // };
 
+  function renderFirstOptions() {
+    if (isRequired) {
+      return <option className="select_option"></option>;
+    } else {
+      if (optValue) {
+        return (
+          <option className="select_option">
+            {toUpperCase ? fromLowerToUpperCase("options") : "options"}
+          </option>
+        );
+      }
+    }
+  }
+
   useEffect(() => {
     const tabsType = checkArrayOf(options);
     if (group) {
@@ -62,23 +76,6 @@ const SelectField = ({
       setRenderOption(renderOptions(tabType, options));
     }
   }, [tabType]);
-
-  function renderFirstOptions() {
-    if (isRequired) {
-      if (optValue || !optValue) {
-        // options est false
-        return <option className="select_option"></option>;
-      }
-    } else {
-      if (optValue) {
-        return (
-          <option className="select_option">
-            {toUpperCase ? fromLowerToUpperCase("options") : "options"}
-          </option>
-        );
-      }
-    }
-  }
 
   return (
     <div className="select_container">

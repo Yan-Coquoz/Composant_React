@@ -9,7 +9,7 @@ import { fromLowerToUpperCase } from "./index";
  */
 export function checkArrayOf(arr) {
   // le type du tableau
-  console.log(arr);
+
   const typeOfArr = Array.isArray(arr[0])
     ? "array"
     : arr[0] === null // envoi null en cas d'objet
@@ -46,8 +46,8 @@ export function renderOptGroup(tabs) {
         label={fromLowerToUpperCase(optGName)}
         className="option_group"
       >
-        {optTabs.map((itm, index) => {
-          return <option key={index}>{fromLowerToUpperCase(itm)}</option>;
+        {optTabs.map((item, index) => {
+          return <option key={index}>{fromLowerToUpperCase(item)}</option>;
         })}
       </optgroup>
     );

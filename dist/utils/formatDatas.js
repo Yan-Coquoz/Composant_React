@@ -17,7 +17,7 @@ var _index = require("./index");
  */
 function checkArrayOf(arr) {
   // le type du tableau
-  console.log(arr);
+
   var typeOfArr = Array.isArray(arr[0]) ? "array" : arr[0] === null // envoi null en cas d'objet
   ? null : typeof arr[0];
   if (typeOfArr === "number" || typeOfArr === "string") {
@@ -46,10 +46,10 @@ function renderOptGroup(tabs) {
       key: key,
       label: (0, _index.fromLowerToUpperCase)(optGName),
       className: "option_group"
-    }, optTabs.map(function (itm, index) {
+    }, optTabs.map(function (item, index) {
       return /*#__PURE__*/_react.default.createElement("option", {
         key: index
-      }, (0, _index.fromLowerToUpperCase)(itm));
+      }, (0, _index.fromLowerToUpperCase)(item));
     }));
   });
 }

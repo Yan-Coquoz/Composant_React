@@ -56,6 +56,19 @@ var SelectField = function SelectField(_ref) {
   //   sendValue(selectName, value);
   // };
 
+  function renderFirstOptions() {
+    if (isRequired) {
+      return /*#__PURE__*/_react.default.createElement("option", {
+        className: "select_option"
+      });
+    } else {
+      if (optValue) {
+        return /*#__PURE__*/_react.default.createElement("option", {
+          className: "select_option"
+        }, toUpperCase ? (0, _utils.fromLowerToUpperCase)("options") : "options");
+      }
+    }
+  }
   (0, _react.useEffect)(function () {
     var tabsType = (0, _utils.checkArrayOf)(options);
     if (group) {
@@ -65,22 +78,6 @@ var SelectField = function SelectField(_ref) {
       setRenderOption((0, _utils.renderOptions)(tabType, options));
     }
   }, [tabType]);
-  function renderFirstOptions() {
-    if (isRequired) {
-      if (optValue || !optValue) {
-        // options est false
-        return /*#__PURE__*/_react.default.createElement("option", {
-          className: "select_option"
-        });
-      }
-    } else {
-      if (optValue) {
-        return /*#__PURE__*/_react.default.createElement("option", {
-          className: "select_option"
-        }, toUpperCase ? (0, _utils.fromLowerToUpperCase)("options") : "options");
-      }
-    }
-  }
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "select_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
