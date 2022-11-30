@@ -31,6 +31,8 @@ const SelectField = ({
   toUpperCase,
   sendValue,
   group,
+  onChange,
+  value,
 }) => {
   const [tabType, setTabType] = useState("");
   const [renderOption, setRenderOption] = useState("");
@@ -94,6 +96,8 @@ const SelectField = ({
         required={isRequired}
         onClick={handleSendValue}
         aria-label={"select"}
+        onChange={onChange}
+        value={value}
       >
         {renderFirstOptions()}
         {/* Affichage de la liste */}
@@ -112,6 +116,8 @@ SelectField.propTypes = {
   optValue: PropTypes.bool,
   sendValue: PropTypes.func,
   group: PropTypes.bool,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
 };
 
 SelectField.defaultProps = {

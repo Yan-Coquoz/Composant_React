@@ -32,7 +32,9 @@ var SelectField = function SelectField(_ref) {
     optValue = _ref.optValue,
     toUpperCase = _ref.toUpperCase,
     sendValue = _ref.sendValue,
-    group = _ref.group;
+    group = _ref.group,
+    onChange = _ref.onChange,
+    value = _ref.value;
   var _useState = (0, _react.useState)(""),
     _useState2 = (0, _slicedToArray2.default)(_useState, 2),
     tabType = _useState2[0],
@@ -88,7 +90,9 @@ var SelectField = function SelectField(_ref) {
     id: idName,
     required: isRequired,
     onClick: handleSendValue,
-    "aria-label": "select"
+    "aria-label": "select",
+    onChange: onChange,
+    value: value
   }, renderFirstOptions(), renderOption));
 };
 SelectField.defaultProps = {
