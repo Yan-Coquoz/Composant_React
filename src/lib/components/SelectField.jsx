@@ -23,7 +23,7 @@ import "../css/style.css";
  * @return  {React.ReactElement}
  */
 const SelectField = ({
-  tabs,
+  options,
   idName,
   labelName,
   isRequired,
@@ -32,6 +32,7 @@ const SelectField = ({
   sendValue,
   group,
   onChange,
+  onBlur,
   value,
 }) => {
   const [tabType, setTabType] = useState("");
@@ -49,16 +50,16 @@ const SelectField = ({
   };
 
   useEffect(() => {
-    const tabsType = checkArrayOf(tabs);
+    const tabsType = checkArrayOf(options);
     if (group) {
-      setRenderOption(renderOptGroup(tabs));
+      setRenderOption(renderOptGroup(options));
     } else if (
       tabsType === "number" ||
       tabsType === "string" ||
       tabsType === "object"
     ) {
       setTabType(tabsType);
-      setRenderOption(renderOptions(tabType, tabs));
+      setRenderOption(renderOptions(tabType, options));
     }
   }, [tabType]);
 
@@ -97,6 +98,7 @@ const SelectField = ({
         onClick={handleSendValue}
         aria-label={"select"}
         onChange={onChange}
+        onBlur={onBlur}
         value={value}
       >
         {renderFirstOptions()}
@@ -108,7 +110,7 @@ const SelectField = ({
 };
 
 SelectField.propTypes = {
-  tabs: PropTypes.arrayOf(Object).isRequired,
+  options: PropTypes.arrayOf(Object).isRequired,
   idName: PropTypes.string.isRequired,
   labelName: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,
@@ -116,6 +118,7 @@ SelectField.propTypes = {
   optValue: PropTypes.bool,
   sendValue: PropTypes.func,
   group: PropTypes.bool,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
   value: PropTypes.string,
 };

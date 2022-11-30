@@ -25,7 +25,7 @@ require("../css/style.css");
  * @return  {React.ReactElement}
  */
 var SelectField = function SelectField(_ref) {
-  var tabs = _ref.tabs,
+  var options = _ref.options,
     idName = _ref.idName,
     labelName = _ref.labelName,
     isRequired = _ref.isRequired,
@@ -34,6 +34,7 @@ var SelectField = function SelectField(_ref) {
     sendValue = _ref.sendValue,
     group = _ref.group,
     onChange = _ref.onChange,
+    onBlur = _ref.onBlur,
     value = _ref.value;
   var _useState = (0, _react.useState)(""),
     _useState2 = (0, _slicedToArray2.default)(_useState, 2),
@@ -54,12 +55,12 @@ var SelectField = function SelectField(_ref) {
     sendValue(selectName, value);
   };
   (0, _react.useEffect)(function () {
-    var tabsType = (0, _utils.checkArrayOf)(tabs);
+    var tabsType = (0, _utils.checkArrayOf)(options);
     if (group) {
-      setRenderOption((0, _utils.renderOptGroup)(tabs));
+      setRenderOption((0, _utils.renderOptGroup)(options));
     } else if (tabsType === "number" || tabsType === "string" || tabsType === "object") {
       setTabType(tabsType);
-      setRenderOption((0, _utils.renderOptions)(tabType, tabs));
+      setRenderOption((0, _utils.renderOptions)(tabType, options));
     }
   }, [tabType]);
   function renderFirstOptions() {
@@ -92,6 +93,7 @@ var SelectField = function SelectField(_ref) {
     onClick: handleSendValue,
     "aria-label": "select",
     onChange: onChange,
+    onBlur: onBlur,
     value: value
   }, renderFirstOptions(), renderOption));
 };
