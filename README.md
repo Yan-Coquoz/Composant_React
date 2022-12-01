@@ -53,9 +53,11 @@ This module works with React
 - `idName` *: {String} Corresponds to the `htmlFor` and `className`.properties of the label, as well as the `id` and the `name` of the input.
 - `labelName` : {String} `label` value and `placeholder` content.
 - `isRequired` : {Boolean} Whether the value is required or not.
-- `myClass` *: {String} component class name.
+- `myClass` : {String} component class name.
 - `toUpperCase` : {Boolean} if you need to upper case label.
-- `sendValue` : To have a controlled component, allows to retrieve the values of the input: name and value, for each action on the keyboard.
+- `onChange` : {Function} To have a controlled component, allows to retrieve the values of the input: name and value, for each action on the keyboard.
+- `value`: {String} the value found in the field.
+- `placeholder`: {String} the placeholder.
 
 ---
 
@@ -72,7 +74,9 @@ This module works with React
 - `mini` : {Number} minimum value
 - `maxi` : {Number} maximum value
 - `toUpperCase` : {Boolean} if you need to upper case label.
-- `sendValue` : To have a controlled component, allows to retrieve the values of the input: *name* and *value*, for each action on the keyboard.
+- `onChange` : {Function} To have a controlled component, allows to retrieve the values of the input: *name* and *value*, for each action on the keyboard.
+- `value`: {String} the value found in the field.
+- `placeholder`: {String} the placeholder.
 
 ---
 
@@ -82,14 +86,17 @@ This module works with React
 
 ### `SelectField`
 
-- `tabs` *: {Array of Object || Array} for the `option` tag, if it 's an Array of Object, it must contain a property `name` who will be display
-- `labelName` *: {String} instead of `label`
+- `options` *: {Array of Object || Array} for the `option` tag, if it 's an Array of Object, it must contain a property `name` who will be display
+- `labelName` : {String} instead of `label`
 - `isRequired` : {Boolean} Whether the value is required or not.
-- `idName` : {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
-- `sendValue` : {Function} return name and value.
+- `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
+- `onChange` : {Function} return name and value.
 - `toUpperCase` : {Boolean} if you need to upper case label
 - `optValue` : {Boolean} Render 'Options' for first value in select area. If true, the first value will be **options**, but if `isRequired` is true, the value will be empty.
 - `group` : {Boolean} false by default. If true, `tabs` must look like this : [{car:[...arrayOfCars],bike:[...arrayOfBikes]}], then optgroup label will be `car` and `bike`.
+- `onClick` : {Function} Capture the click of the field.
+- `onBlur` : {Function} Capture the change of the field.
+- `value` : {String} the value found in the field.
 
 ---
 
@@ -160,7 +167,7 @@ const MyForm = () => {
   ];
 
   const selectTabs = {
-    tabs: arrays,
+    options: arrays,
     idName: "arrays",
     labelName: "all tables",
     optValue: true,

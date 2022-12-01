@@ -15,7 +15,7 @@ require("../css/style.css");
  * @prop   {Boolean}  toUpperCase   change la première lettre des labels en lettre capitale
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
- * @prop  {Function} sendValue envoi les props de l'input (name et value) à chaque actions sur le clavier
+ * @prop  {Function} onChange envoi les props de l'input (name et value) à chaque actions sur le clavier
  * @prop  {String} Value Valeur présente dans le champs
  *
  * @return  {React.ReactElement}   Un composant React de type input text
@@ -26,8 +26,9 @@ var InputText = function InputText(_ref) {
     toUpperCase = _ref.toUpperCase,
     isRequired = _ref.isRequired,
     myClass = _ref.myClass,
-    sendValue = _ref.sendValue,
-    value = _ref.value;
+    onChange = _ref.onChange,
+    value = _ref.value,
+    placeholder = _ref.placeholder;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "input_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -39,11 +40,11 @@ var InputText = function InputText(_ref) {
     "aria-label": "input_text",
     id: idName,
     name: idName,
-    placeholder: (0, _index.fromLowerToUpperCase)(labelName),
+    placeholder: (0, _index.fromLowerToUpperCase)(placeholder),
     required: isRequired,
     type: "text",
     value: value,
-    onChange: sendValue
+    onChange: onChange
   }));
 };
 InputText.defaultProps = {

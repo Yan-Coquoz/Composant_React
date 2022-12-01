@@ -44,18 +44,6 @@ var SelectField = function SelectField(_ref) {
     _useState4 = (0, _slicedToArray2.default)(_useState3, 2),
     renderOption = _useState4[0],
     setRenderOption = _useState4[1];
-
-  /**
-   * Si la valeur de la sélection n'est pas égale à 'options', alors envoyez la valeur de la sélection
-   * à la fonction sendValue.
-   */
-  // const handleSendValue = (evt) => {
-  //   const value = evt.target.value;
-  //   const selectName = evt.target.name;
-
-  //   sendValue(selectName, value);
-  // };
-
   function renderFirstOptions() {
     if (isRequired) {
       return /*#__PURE__*/_react.default.createElement("option", {

@@ -30,7 +30,8 @@ var InputNumber = function InputNumber(_ref) {
     mini = _ref.mini,
     maxi = _ref.maxi,
     onChange = _ref.onChange,
-    value = _ref.value;
+    value = _ref.value,
+    placeholder = _ref.placeholder;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "input_container"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -42,7 +43,7 @@ var InputNumber = function InputNumber(_ref) {
     id: idName,
     "aria-label": "input_number",
     name: idName,
-    placeholder: (0, _utils.fromLowerToUpperCase)(labelName),
+    placeholder: (0, _utils.fromLowerToUpperCase)(placeholder),
     required: isRequired,
     type: "number",
     min: mini,

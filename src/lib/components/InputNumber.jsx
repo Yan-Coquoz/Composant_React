@@ -26,6 +26,7 @@ const InputNumber = ({
   maxi,
   onChange,
   value,
+  placeholder,
 }) => {
   return (
     <div className="input_container">
@@ -41,7 +42,7 @@ const InputNumber = ({
         id={idName}
         aria-label={"input_number"}
         name={idName}
-        placeholder={fromLowerToUpperCase(labelName)}
+        placeholder={fromLowerToUpperCase(placeholder)}
         required={isRequired}
         type="number"
         min={mini}
@@ -63,7 +64,9 @@ InputNumber.propTypes = {
   toUpperCase: PropTypes.bool,
   onChange: PropTypes.func,
   value: PropTypes.string,
+  placeholder: PropTypes.string,
 };
+
 InputNumber.defaultProps = {
   isRequired: false,
   labelName: "",

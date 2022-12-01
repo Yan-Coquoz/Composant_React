@@ -38,17 +38,6 @@ const SelectField = ({
   const [tabType, setTabType] = useState("");
   const [renderOption, setRenderOption] = useState("");
 
-  /**
-   * Si la valeur de la sélection n'est pas égale à 'options', alors envoyez la valeur de la sélection
-   * à la fonction sendValue.
-   */
-  // const handleSendValue = (evt) => {
-  //   const value = evt.target.value;
-  //   const selectName = evt.target.name;
-
-  //   sendValue(selectName, value);
-  // };
-
   function renderFirstOptions() {
     if (isRequired) {
       return <option className="select_option"></option>;
@@ -107,7 +96,7 @@ const SelectField = ({
 };
 
 SelectField.propTypes = {
-  options: PropTypes.arrayOf(Object).isRequired,
+  options: PropTypes.any.isRequired,
   idName: PropTypes.string.isRequired,
   labelName: PropTypes.string.isRequired,
   isRequired: PropTypes.bool,

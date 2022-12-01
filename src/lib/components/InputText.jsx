@@ -9,7 +9,7 @@ import "../css/style.css";
  * @prop   {Boolean}  toUpperCase   change la première lettre des labels en lettre capitale
  * @prop   {boolean}  isRequired  Si le champs est requis
  * @prop   {String}  myClass     Valeur pour les styles
- * @prop  {Function} sendValue envoi les props de l'input (name et value) à chaque actions sur le clavier
+ * @prop  {Function} onChange envoi les props de l'input (name et value) à chaque actions sur le clavier
  * @prop  {String} Value Valeur présente dans le champs
  *
  * @return  {React.ReactElement}   Un composant React de type input text
@@ -20,8 +20,9 @@ const InputText = ({
   toUpperCase,
   isRequired,
   myClass,
-  sendValue,
+  onChange,
   value,
+  placeholder,
 }) => {
   return (
     <div className="input_container">
@@ -38,11 +39,11 @@ const InputText = ({
         aria-label="input_text"
         id={idName}
         name={idName}
-        placeholder={fromLowerToUpperCase(labelName)}
+        placeholder={fromLowerToUpperCase(placeholder)}
         required={isRequired}
         type="text"
         value={value}
-        onChange={sendValue}
+        onChange={onChange}
       />
     </div>
   );
@@ -54,8 +55,9 @@ InputText.propTypes = {
   labelName: PropTypes.string,
   myClass: PropTypes.string,
   toUpperCase: PropTypes.bool,
-  sendValue: PropTypes.func,
+  onChange: PropTypes.func,
   value: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 InputText.defaultProps = {
   toUpperCase: false,

@@ -42,7 +42,10 @@ Ce module fonctionne avec React
 - `isRequired` : {Booléen} Indique si la valeur est requise ou non
 - `myClass` * : nom de la classe du composant {String}
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
-- `sendValue` : Pour avoir un composant contrôlé, permet de récupérer les valeurs de l'entrée : *name* et *value*, pour chaque action au clavier.
+- `onChange` : Pour avoir un composant contrôlé, permet de récupérer les valeurs de l'entrée : *name* et *value*, pour chaque action au clavier.
+- `value`: {String} la valeur présente dans le champs.
+- `placeholder`: {String} le placeholder.
+
 
 ---
 
@@ -59,7 +62,9 @@ Ce module fonctionne avec React
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
 - `mini` {Number} valeur minimum de l'input
 - `maxi` {Number} valeur maximum de l'input.
-- `sendValue` : Pour avoir un composant contrôlé, permet de récupérer les valeurs de l'entrée : name et value, pour chaque action au clavier.
+- `onChange` : Pour avoir un composant contrôlé, permet de récupérer les valeurs de l'entrée : name et value, pour chaque action au clavier.
+- `value`: {String} la valeur présente dans le champs.
+- `placeholder`: {String} le placeholder.
 
 ---
 
@@ -69,14 +74,17 @@ Ce module fonctionne avec React
 
 ### `SelectField`
 
-- `tabs` * : {ArrayOfObject || Array } pour la balise `option`, en cas de tableau d'objet, celui-ci doit contenir une propriété `name` qui sera affichée
-- `labelName` * : {String} au lieu de `label`
+- `options` * : {ArrayOfObject || Array } pour la balise `option`, en cas de tableau d'objet, celui-ci doit contenir une propriété `name` qui sera affichée
+- `labelName` : {String} au lieu de `label`
 - `isRequired` : {Boolean} Indique si la valeur est requise ou non.
-- `idName` : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
-- `sendValue` : {Fonction} retourne le nom et la valeur.
+- `idName` * : {String} Correspond aux propriétés `htmlFor` et `className` de l'étiquette, ainsi qu'à l'`id` et au `name` de l'entrée.
+- `onChange` : {Fonction} retourne le nom et la valeur.
 - `toUpperCase` {Boolean} change la première lettre de chaque mot du label.
 - `optValue` {Boolean} place en premiere valeur du champs 'Options'. Si vrai, la première valeur sera **options**, mais si `isRequired` est vrai, la valeur sera vide.
 - `group` : {Boolean} false est la valeur par défaut. Si c'est true, alors `tabs` devra être comme ceci : [{car:[...arrayOfCars],bike:[...arrayOfBikes]}], alors la balise optgroup aura pour label  `car` et `bike`.
+- `onClick` : {Function} Capture le clique dans le champs.
+- `onBlur` : {Function} Capture le changement dans le champs.
+- `value` : {String} la valeur présente dans le champs.
 
 ---
 

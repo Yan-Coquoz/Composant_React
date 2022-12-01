@@ -17,7 +17,6 @@ var _index = require("./index");
  */
 function checkArrayOf(arr) {
   // le type du tableau
-
   var typeOfArr = Array.isArray(arr[0]) ? "array" : arr[0] === null // envoi null en cas d'objet
   ? null : typeof arr[0];
   if (typeOfArr === "number" || typeOfArr === "string") {

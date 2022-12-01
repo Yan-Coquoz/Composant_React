@@ -23,11 +23,12 @@ const App = () => {
     { clothes: [...tab2] },
     { vehicle: [...tab3] },
   ];
+
   const selectTest = {
-    tabs: mesTableaux,
+    options: mesTableaux,
     idName: "tableau",
     labelName: "mes tableaux",
-    sendValue: handleSelect,
+    onChange: handleSelect,
     toUpperCase: true,
     group: true,
     optValue: true,
@@ -35,23 +36,23 @@ const App = () => {
   };
 
   const selectDep = {
-    tabs: depts,
+    options: depts,
     idName: "department",
     labelName: "department",
     optValue: false,
     isRequired: false,
-    sendValue: handleSelect,
+    onChange: handleSelect,
     toUpperCase: true,
   };
 
   const selectState = {
-    tabs: etats,
+    options: etats,
     idName: "state",
     labelName: "state",
     toUpperCase: true,
     optValue: true,
     isRequired: false,
-    sendValue: handleSelect,
+    onChange: handleSelect,
   };
 
   function handleOpenModal() {
@@ -62,9 +63,10 @@ const App = () => {
     console.log(name, value);
   }
 
-  function handleSelect(v1, v2) {
-    console.log("Dans handleSelect :", v1, v2);
+  function handleSelect(evt) {
+    console.log("Dans handleSelect :", evt.target.name, evt.target.value);
   }
+
   function handleSendForm(evt) {
     evt.preventDefault();
     const selectDepart = evt.target[2].value;
