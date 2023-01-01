@@ -15,15 +15,11 @@ Minimalist input-like components for React.
 - [Node.js > v.16](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 
-## Using the input module
-
-This module works with React
 
 ### Summary
 
 - [React Component](#react-component)
   - [Prerequisites](#prerequisites)
-  - [Using the input module](#using-the-input-module)
     - [Summary](#summary)
     - [Components](#components)
     - [Properties](#properties)
@@ -33,9 +29,10 @@ This module works with React
     - [`Button`](#button)
     - [`Modale`](#modale)
     - [`DatePicker`](#datepicker)
+    - [ScrollBar](#scrollbar)
     - [Example](#example)
 
-### Components
+### React Components
 
 - `InputText`
 - `InputNumber`
@@ -43,6 +40,7 @@ This module works with React
 - `Button`
 - `Modale`
 - `DatePicker`
+- `ScrollBar`
 
 ### Properties
 
@@ -90,7 +88,7 @@ This module works with React
 - `labelName` : {String} instead of `label`
 - `isRequired` : {Boolean} Whether the value is required or not.
 - `idName` *: {String} Corresponds to the `htmlFor` and `className` properties of the label, as well as the `id` and the `name` of the input.
-- `onChange` : {Function} return name and value.
+- `onChange` : {Function} to get the event.
 - `toUpperCase` : {Boolean} if you need to upper case label
 - `optValue` : {Boolean} Render 'Options' for first value in select area. If true, the first value will be **options**, but if `isRequired` is true, the value will be empty.
 - `group` : {Boolean} false by default. If true, `tabs` must look like this : [{car:[...arrayOfCars],bike:[...arrayOfBikes]}], then optgroup label will be `car` and `bike`.
@@ -147,6 +145,20 @@ This module works with React
 
 ---
 
+### ScrollBar
+
+- `barColor` : {Number} Height of the progress bar, in pixels.
+- `barHeight` : {String} Progress bar color. 5px by default.
+- `barOpacity` : {Boolean} Gives a gradual opacity effect along the bar. False by default.
+
+---
+
+[to summary](#summary)
+
+---
+
+
+
 ### Example
 
 ```javascript
@@ -176,6 +188,12 @@ const MyForm = () => {
     group: true,
   };
 
+const barOptions = {
+    barColor: "rgba(3, 83, 255, 0.8)",
+    barHeight: 5,
+    barOpacity: true,
+}
+
     function handleOpenModal() {
         setIsOpen(true);
   }
@@ -186,6 +204,7 @@ const MyForm = () => {
  }
     return(
         <div>
+            <ScrollBar {...barOptions}/>
             <form>
                 <InputText 
                     idName={firstname} 
@@ -207,7 +226,6 @@ const MyForm = () => {
                 <SelectField {...selectTabs}>
 
                 <Button type="submit">Save</Button>
-
             </form>
             <div>
                 <Button type="button" onClick={handleOpenModal}>

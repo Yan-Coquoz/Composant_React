@@ -8,9 +8,6 @@ Composants minimaliste de type input pour React.
 - [Node.js > v.16](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 
-## Utilisation du module d'input
-
-Ce module fonctionne avec React
 
 ---
 
@@ -18,7 +15,6 @@ Ce module fonctionne avec React
 
 - [Composant React](#composant-react)
   - [Prérequis](#prérequis)
-  - [Utilisation du module d'input](#utilisation-du-module-dinput)
     - [Sommaire](#sommaire)
     - [Les Propriétés](#les-propriétés)
     - [`InputText`](#inputtext)
@@ -27,6 +23,7 @@ Ce module fonctionne avec React
     - [`Boutons`](#boutons)
     - [`Modale`](#modale)
     - [`DatePicker`](#datepicker)
+    - [`ScrollBar`](#scrollbar)
     - [Exemple](#exemple)
 
 ---
@@ -135,6 +132,19 @@ Ce module fonctionne avec React
 
 ---
 
+### ScrollBar
+
+- `barColor` : {Number} Hauteur de la bar de progression, en pixel.
+- `barHeight` : {String} Couleur de la bar de progression. 5px par défaut.
+- `barOpacity` : {Boolean} Donne un effet de d'opacité progressif le long de la bar. false par défaut.
+
+---
+
+[Sommaire](#sommaire)
+
+---
+
+
 ### Exemple
 
 ```javascript
@@ -145,6 +155,13 @@ import { InputText, Button, Modale, DatePicker } from "@yan_coquoz/react_input"
 const MyForm = () => {
 
     const [isOpen, setIsOpen] = React.useState(false);
+
+const barOptions = {
+    barColor: "rgba(3, 83, 255, 0.8)",
+    barHeight: 5,
+    barOpacity: true,
+}
+
  function handleOpenModale(){
     setIsOpen(true)
  }
@@ -156,6 +173,7 @@ const MyForm = () => {
 
     return(
         <div>
+        <ScrollBar {...barOptions}/>
             <form>
 
                 <InputText 

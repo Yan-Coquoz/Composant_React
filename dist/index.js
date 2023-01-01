@@ -34,6 +34,12 @@ Object.defineProperty(exports, "Modale", {
     return _Modale.default;
   }
 });
+Object.defineProperty(exports, "Scrollbar", {
+  enumerable: true,
+  get: function get() {
+    return _Scrollbar.default;
+  }
+});
 Object.defineProperty(exports, "SelectField", {
   enumerable: true,
   get: function get() {
@@ -46,3 +52,4 @@ var _SelectField = _interopRequireDefault(require("./components/SelectField"));
 var _Button = _interopRequireDefault(require("./components/Button"));
 var _Modale = _interopRequireDefault(require("./components/Modale"));
 var _DatePicker = _interopRequireDefault(require("./components/DatePicker"));
+var _Scrollbar = _interopRequireDefault(require("./components/Scrollbar"));

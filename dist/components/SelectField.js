@@ -24,6 +24,10 @@ require("../css/style.css");
  *
  * @return  {React.ReactElement}
  */
+
+/**
+ * C'est une fonction qui rend un champ de sélection avec des options.
+ */
 var SelectField = function SelectField(_ref) {
   var options = _ref.options,
     idName = _ref.idName,

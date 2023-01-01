@@ -4,5 +4,14 @@ import SelectField from "./components/SelectField";
 import Button from "./components/Button";
 import Modale from "./components/Modale";
 import DatePicker from "./components/DatePicker";
+import Scrollbar from "./components/Scrollbar";
 
-export { InputText, InputNumber, Button, Modale, DatePicker, SelectField };
+export {
+  InputText,
+  InputNumber,
+  Button,
+  Modale,
+  DatePicker,
+  SelectField,
+  Scrollbar,
+};

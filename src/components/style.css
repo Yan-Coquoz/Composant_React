@@ -4,3 +4,10 @@ form {
   justify-content: center;
   align-items: center;
 }
+
+p {
+  padding: 1rem;
+  text-align: justify;
+  width: 50%;
+  margin: 0 auto;
+}

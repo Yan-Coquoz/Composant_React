@@ -22,6 +22,10 @@ import "../css/style.css";
  *
  * @return  {React.ReactElement}
  */
+
+/**
+ * C'est une fonction qui rend un champ de sélection avec des options.
+ */
 const SelectField = ({
   options,
   idName,
